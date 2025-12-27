@@ -19,8 +19,10 @@ import { projects } from '../data/projects';
 import { testimonials, stats } from '../data/testimonials';
 import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
+import TrustIndexWidget from '../components/TrustIndexWidget';
 import StatsCounter from '../components/StatsCounter';
 import './Home.css';
+
 
 const Home = () => {
     const benefits = [
@@ -40,7 +42,7 @@ const Home = () => {
                     <div className="hero__glow hero__glow--3" />
                     <div className="hero__grid-pattern" />
                     <div className="hero__particles">
-                        {[...Array(20)].map((_, i) => (
+                        {[...Array(12)].map((_, i) => (
                             <div key={i} className="hero__particle" style={{
                                 '--delay': `${i * 0.5}s`,
                                 '--x': `${Math.random() * 100}%`,
@@ -400,10 +402,8 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="testimonials__grid">
-                        {testimonials.map((testimonial, index) => (
-                            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
-                        ))}
+                    <div className="testimonials__widget">
+                        <TrustIndexWidget />
                     </div>
                 </div>
             </section>

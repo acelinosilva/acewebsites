@@ -19,20 +19,21 @@
 .hero__glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
+    /* filter: blur(120px); -- Removed for performance */
     animation: glowPulse 8s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 @keyframes glowPulse {
 
     0%,
     100% {
-        opacity: 0.15;
+        opacity: 0.6;
         transform: scale(1);
     }
 
     50% {
-        opacity: 0.25;
+        opacity: 0.8;
         transform: scale(1.1);
     }
 }
@@ -40,8 +41,7 @@
 .hero__glow--1 {
     width: 700px;
     height: 700px;
-    background: var(--color-primary);
-    opacity: 0.15;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, transparent 70%);
     top: -250px;
     right: -150px;
 }
@@ -49,8 +49,7 @@
 .hero__glow--2 {
     width: 500px;
     height: 500px;
-    background: var(--color-primary-dark);
-    opacity: 0.12;
+    background: radial-gradient(circle, rgba(0, 204, 106, 0.12) 0%, transparent 70%);
     bottom: -150px;
     left: -150px;
     animation-delay: 2s;
@@ -59,8 +58,7 @@
 .hero__glow--3 {
     width: 300px;
     height: 300px;
-    background: var(--color-primary-light);
-    opacity: 0.1;
+    background: radial-gradient(circle, rgba(51, 255, 159, 0.1) 0%, transparent 70%);
     top: 50%;
     left: 30%;
     animation-delay: 4s;
@@ -94,6 +92,7 @@
     opacity: 0;
     animation: particleFloat var(--duration) linear infinite;
     animation-delay: var(--delay);
+    will-change: transform, opacity;
 }
 
 @keyframes particleFloat {
@@ -337,6 +336,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: rotateY(-8deg) rotateX(5deg);
     transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .hero__mockup-screen:hover {
@@ -503,6 +503,7 @@
     color: var(--color-white);
     box-shadow: var(--shadow-lg);
     z-index: 10;
+    will-change: transform;
 }
 
 .hero__float svg {

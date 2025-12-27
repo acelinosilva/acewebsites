@@ -18,6 +18,7 @@ import { services } from '../data/services';
 import { testimonials, stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import TestimonialCard from '../components/TestimonialCard';
+import TrustIndexWidget from '../components/TrustIndexWidget';
 import './StateLanding.css';
 
 const StateLanding = () => {
@@ -281,38 +282,18 @@ const StateLanding = () => {
                     </div>
                 </section>
 
-                {/* Testimonials */}
-                {localTestimonials.length > 0 ? (
-                    <section className="section state-testimonials">
-                        <div className="container">
-                            <div className="section-title">
-                                <h2>Clientes satisfeitos em <span className="text-gradient">{state.name}</span></h2>
-                                <p>Veja o que nossos clientes dizem sobre nosso trabalho</p>
-                            </div>
-
-                            <div className="state-testimonials__grid">
-                                {localTestimonials.map((testimonial, index) => (
-                                    <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
-                                ))}
-                            </div>
+                <section className="section state-testimonials">
+                    <div className="container">
+                        <div className="section-title">
+                            <h2>O que nossos <span className="text-gradient">Clientes</span> dizem</h2>
+                            <p>Mais de 500 empresas confiam em nosso trabalho</p>
                         </div>
-                    </section>
-                ) : (
-                    <section className="section state-testimonials">
-                        <div className="container">
-                            <div className="section-title">
-                                <h2>O que nossos <span className="text-gradient">Clientes</span> dizem</h2>
-                                <p>Mais de 500 empresas confiam em nosso trabalho</p>
-                            </div>
 
-                            <div className="state-testimonials__grid">
-                                {testimonials.slice(0, 3).map((testimonial, index) => (
-                                    <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
-                                ))}
-                            </div>
+                        <div className="testimonials__widget">
+                            <TrustIndexWidget />
                         </div>
-                    </section>
-                )}
+                    </div>
+                </section>
 
                 {/* CTA */}
                 <section className="section state-cta-section">
