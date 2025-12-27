@@ -1,0 +1,195 @@
+/* ===== CONTACT PAGE ===== */
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+}
+
+.contact-info h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info__description {
+    color: var(--color-gray-400);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    animation: glow 2s ease-in-out infinite;
+}
+
+.contact-info__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.contact-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.contact-info-card:hover {
+    border-color: var(--color-primary);
+}
+
+.contact-info-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-primary);
+    color: var(--color-black);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.contact-info-card__content h3 {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-400);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-info-card__main {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 2px;
+}
+
+.contact-info-card__sub {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+}
+
+/* Why Contact */
+.contact-why__box {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-why__box h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-why__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-why__list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-gray-300);
+}
+
+.contact-why__cta {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-gray-800);
+    text-align: center;
+}
+
+.contact-why__cta p {
+    color: var(--color-gray-400);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.contact-response {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: var(--color-primary-glow);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+}
+
+.contact-response__icon {
+    font-size: var(--font-size-3xl);
+}
+
+.contact-response__content h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-response__content p {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-300);
+}
+
+/* FAQ Section */
+.contact-faq {
+    background: var(--color-black-light);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.faq-item {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+    border-color: var(--color-primary);
+}
+
+.faq-item h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.faq-item p {
+    color: var(--color-gray-400);
+    line-height: 1.7;
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,13 @@
+# Robots.txt para AceWeb
+# https://www.acewebsites.com.br
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.acewebsites.com.br/sitemap.xml
+
+# Bloquear arquivos sensíveis
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$

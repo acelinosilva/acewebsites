@@ -1,0 +1,305 @@
+/* ===== ABOUT PAGE ===== */
+
+/* Hero Section */
+.page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    text-align: center;
+    overflow: hidden;
+}
+
+.page-hero__background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.page-hero__glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: var(--color-primary);
+    filter: blur(120px);
+    opacity: 0.15;
+    border-radius: 50%;
+}
+
+.page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero__content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-hero__content p {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-400);
+    line-height: 1.8;
+}
+
+/* Story Section */
+.about-story__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.about-story__content h2 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-story__content p {
+    color: var(--color-gray-400);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.about-story__image {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-2xl);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-story__image::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-glow);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.about-story__image-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.about-story__image-content svg {
+    margin-bottom: var(--spacing-lg);
+    animation: float 3s ease-in-out infinite;
+}
+
+.about-story__image-content span {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.about-story__image-subtitle {
+    font-size: var(--font-size-sm) !important;
+    font-weight: 400 !important;
+    color: var(--color-gray-400) !important;
+    margin-top: var(--spacing-sm);
+}
+
+/* MVV Section */
+.about-mvv {
+    background: var(--color-black-light);
+}
+
+.about-mvv__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.about-mvv__card {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.about-mvv__card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+}
+
+.about-mvv__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: var(--color-black);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-mvv__card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-mvv__card p {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+}
+
+/* Values Section */
+.about-values__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.about-value-card {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.about-value-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+}
+
+.about-value-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    color: var(--color-black);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-value-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.about-value-card p {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* Differentials Section */
+.about-differentials {
+    background: var(--color-black-light);
+}
+
+.about-differentials__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+}
+
+.about-differentials__content h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-differentials__content>p {
+    color: var(--color-gray-400);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+}
+
+.about-differentials__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.about-differentials__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    color: var(--color-gray-300);
+}
+
+.about-differentials__list li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.about-cta-box {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-2xl);
+    text-align: center;
+    position: sticky;
+    top: 100px;
+}
+
+.about-cta-box h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-cta-box p {
+    color: var(--color-gray-400);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .about-story__grid,
+    .about-differentials__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-story__visual {
+        order: -1;
+    }
+
+    .about-mvv__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-values__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-cta-box {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-values__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-story__image {
+        height: 300px;
+    }
+}
