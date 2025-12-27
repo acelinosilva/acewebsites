@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     z-index: var(--z-fixed);
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-sm) 0;
     transition: all var(--transition-base);
     background: transparent;
 }
@@ -172,7 +172,9 @@
     display: none;
     background: var(--color-black-lighter);
     border-top: 1px solid var(--color-gray-800);
-    overflow: hidden;
+    overflow-y: auto;
+    max-height: 80vh;
+    box-shadow: var(--shadow-xl);
 }
 
 .header__mobile-nav {
