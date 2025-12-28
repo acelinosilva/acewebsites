@@ -116,6 +116,21 @@
     padding: var(--spacing-md);
     margin-top: var(--spacing-sm);
     box-shadow: var(--shadow-xl);
+    z-index: var(--z-dropdown);
+}
+
+@media (max-width: 1024px) {
+    .header__dropdown-menu {
+        min-width: 100%;
+        width: 100%;
+        left: 0;
+        transform: none;
+        position: relative;
+        margin-top: 0;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
 }
 
 .header__dropdown-item {
@@ -248,12 +263,7 @@
 
     .header__mobile-menu {
         display: block;
-    }
-
-    .header__dropdown-menu {
-        min-width: 100%;
-        left: 0;
-        transform: none;
+        width: 100%;
     }
 
     .header__dropdown-grid {

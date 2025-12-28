@@ -8,6 +8,7 @@
     position: relative;
     padding: calc(60px + var(--spacing-3xl)) 0 var(--spacing-4xl);
     overflow-x: hidden;
+    width: 100%;
 }
 
 .hero__background {
@@ -46,6 +47,15 @@
     right: -150px;
 }
 
+@media (max-width: 768px) {
+    .hero__glow--1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -50px;
+    }
+}
+
 .hero__glow--2 {
     width: 500px;
     height: 500px;
@@ -53,6 +63,15 @@
     bottom: -150px;
     left: -150px;
     animation-delay: 2s;
+}
+
+@media (max-width: 768px) {
+    .hero__glow--2 {
+        width: 250px;
+        height: 250px;
+        bottom: -50px;
+        left: -50px;
+    }
 }
 
 .hero__glow--3 {
@@ -339,6 +358,13 @@
     will-change: transform;
 }
 
+@media (max-width: 768px) {
+    .hero__mockup-screen {
+        transform: none !important;
+        max-width: 100%;
+    }
+}
+
 .hero__mockup-screen:hover {
     transform: rotateY(-2deg) rotateX(2deg);
 }
@@ -523,6 +549,13 @@
 .hero__float--3 {
     bottom: 10%;
     right: 10%;
+}
+
+@media (max-width: 768px) {
+    .hero__float {
+        display: none;
+        /* Hide floating elements on mobile to save space and prevent overflow */
+    }
 }
 
 /* Scroll Indicator */
@@ -831,6 +864,17 @@
     margin-top: var(--spacing-xl);
 }
 
+@media (max-width: 480px) {
+    .locations__cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .locations__cta-group .btn {
+        width: 100%;
+    }
+}
+
 .locations__map {
     position: relative;
     width: 100%;
@@ -866,6 +910,14 @@
     font-weight: 600;
     box-shadow: var(--shadow-glow);
     animation: float 3s ease-in-out infinite;
+    max-width: 90%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .locations__map {
+        height: 300px;
+    }
 }
 
 /* CTA Section */
@@ -893,6 +945,13 @@
     background: var(--gradient-glow);
     opacity: 0.5;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .cta-box__glow {
+        width: 300px;
+        height: 300px;
+    }
 }
 
 .cta-box__content {
@@ -1000,7 +1059,9 @@
 
     .hero__visual {
         margin-top: var(--spacing-xl);
-        transform: scale(0.9);
+        transform: scale(1);
+        width: 100%;
+        overflow: hidden;
     }
 
     .benefits__grid {
