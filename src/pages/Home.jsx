@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
     MessageCircle,
     ArrowRight,
@@ -21,10 +21,17 @@ import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
 import TrustIndexWidget from '../components/TrustIndexWidget';
 import StatsCounter from '../components/StatsCounter';
+import FAQ from '../components/FAQ';
+import SchemaMarkup from '../components/SchemaMarkup';
 import './Home.css';
 
 
 const Home = () => {
+    const { scrollY } = useScroll();
+    const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+    const y2 = useTransform(scrollY, [0, 500], [0, -100]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
     const benefits = [
         { icon: Zap, title: 'Sites Ultra-Rápidos', description: 'Carregamento em menos de 3 segundos para melhor experiência.' },
         { icon: Search, title: 'SEO Otimizado', description: 'Apareça nas primeiras posições do Google organicamente.' },
@@ -34,6 +41,7 @@ const Home = () => {
 
     return (
         <main className="home">
+            <SchemaMarkup />
             {/* Hero Section */}
             <section className="hero">
                 <div className="hero__background">
@@ -55,6 +63,7 @@ const Home = () => {
                 <div className="container hero__container">
                     <motion.div
                         className="hero__content"
+                        style={{ opacity: opacity }}
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -166,6 +175,7 @@ const Home = () => {
 
                     <motion.div
                         className="hero__visual"
+                        style={{ y: y1 }}
                         initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -407,6 +417,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* FAQ Section */}
+            <FAQ />
 
             {/* Locations Section */}
             <section className="section locations-section">

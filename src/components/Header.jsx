@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import logoAceweb from '../assets/logo-aceweb.png';
+import ThemeToggle from './ThemeToggle';
 import './Header.css';
 
 const Header = () => {
@@ -102,15 +103,18 @@ const Header = () => {
                     </ul>
                 </nav>
 
-                <a
-                    href={getWhatsAppLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary header__cta"
-                >
-                    <MessageCircle size={18} />
-                    <span>Fale no WhatsApp</span>
-                </a>
+                <div className="header__actions">
+                    <ThemeToggle />
+                    <a
+                        href={getWhatsAppLink()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary header__cta"
+                    >
+                        <MessageCircle size={18} />
+                        <span>Fale no WhatsApp</span>
+                    </a>
+                </div>
 
                 <button
                     className="header__menu-toggle"

@@ -70,12 +70,37 @@
   --transition-base: 300ms ease;
   --transition-slow: 500ms ease;
 
+  --color-surface-glass: rgba(10, 10, 10, 0.8);
+
   /* Z-Index */
   --z-dropdown: 100;
   --z-sticky: 200;
   --z-fixed: 300;
   --z-modal: 400;
   --z-tooltip: 500;
+}
+
+[data-theme='light'] {
+  --color-black: #F8F9FA;
+  --color-black-light: #FFFFFF;
+  --color-black-lighter: #F1F3F5;
+  --color-gray-900: #E9ECEF;
+  --color-gray-800: #DEE2E6;
+  --color-gray-700: #CED4DA;
+  --color-gray-600: #ADB5BD;
+  --color-gray-500: #6C757D;
+  --color-gray-400: #495057;
+  --color-gray-300: #343A40;
+  --color-white: #0A0A0A;
+  --color-white-soft: #1A1A1A;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+
+  --gradient-dark: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+  --color-surface-glass: rgba(255, 255, 255, 0.8);
 }
 
 /* ===== RESET & BASE ===== */

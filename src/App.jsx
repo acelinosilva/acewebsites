@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -27,23 +28,25 @@ function ScrollToTop() {
 function App() {
   return (
     <HelmetProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="app">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/servicos" element={<Services />} />
-            <Route path="/sobre" element={<About />} />
-            <Route path="/contato" element={<Contact />} />
-            <Route path="/locais" element={<Locations />} />
-            <Route path="/locais/:stateSlug" element={<StateLanding />} />
-          </Routes>
-          <Footer />
-          <WhatsAppButton />
-        </div>
-      </Router>
+      <ThemeProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="app">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/servicos" element={<Services />} />
+              <Route path="/sobre" element={<About />} />
+              <Route path="/contato" element={<Contact />} />
+              <Route path="/locais" element={<Locations />} />
+              <Route path="/locais/:stateSlug" element={<StateLanding />} />
+            </Routes>
+            <Footer />
+            <WhatsAppButton />
+          </div>
+        </Router>
+      </ThemeProvider>
     </HelmetProvider>
   );
 }

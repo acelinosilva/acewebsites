@@ -13,6 +13,8 @@ import {
 import { getWhatsAppLink } from '../data/states';
 import { stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
+import teamOffice from '../assets/team-office.png';
+import teamSession from '../assets/team-session.png';
 import './About.css';
 
 const About = () => {
@@ -89,16 +91,64 @@ const About = () => {
 
                         <motion.div
                             className="about-story__visual"
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div className="about-story__image-wrapper">
+                                <img src={teamOffice} alt="Equipe AceWeb em ação" className="about-story__main-image" />
+                                <div className="about-story__image-overlay">
+                                    <Globe size={40} className="text-primary" />
+                                    <span>Presença em 27 Estados</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team/Culture Section */}
+            <section className="section about-team">
+                <div className="container">
+                    <div className="about-team__grid">
+                        <motion.div
+                            className="about-team__image-side"
+                            initial={{ opacity: 0, x: -40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.8 }}
                         >
-                            <div className="about-story__image">
-                                <div className="about-story__image-content">
-                                    <Globe size={80} className="text-primary" />
-                                    <span>Brasília - DF</span>
-                                    <span className="about-story__image-subtitle">Atuação Nacional e Internacional</span>
+                            <img src={teamSession} alt="Brainstorming na AceWeb" className="about-team__image" />
+                        </motion.div>
+
+                        <motion.div
+                            className="about-team__content"
+                            initial={{ opacity: 0, x: 40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <span className="badge">Nossa Cultura</span>
+                            <h2>Inovação e <span className="text-gradient">Colaboração</span></h2>
+                            <p>
+                                Na AceWeb, acreditamos que as melhores ideias surgem da diversidade e do trabalho em equipe.
+                                Nosso ambiente é projetado para fomentar a criatividade e a troca constante de conhecimentos.
+                            </p>
+                            <div className="about-team__features">
+                                <div className="about-team__feature">
+                                    <Users size={24} />
+                                    <div>
+                                        <h4>Equipe Especialista</h4>
+                                        <p>Designers, desenvolvedores e especialistas em SEO trabalhando juntos.</p>
+                                    </div>
+                                </div>
+                                <div className="about-team__feature">
+                                    <Rocket size={24} />
+                                    <div>
+                                        <h4>Foco em Performance</h4>
+                                        <p>Apaixonados por velocidade e código limpo.</p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>

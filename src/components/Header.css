@@ -11,7 +11,7 @@
 }
 
 .header--scrolled {
-    background: rgba(10, 10, 10, 0.95);
+    background: var(--color-surface-glass);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-gray-800);
     padding: var(--spacing-sm) 0;
@@ -165,11 +165,24 @@
     gap: var(--spacing-xs);
 }
 
+/* Header Actions */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
 /* CTA Button */
 .header__cta {
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+}
+
+@media (max-width: 1024px) {
+    .header__actions .header__cta {
+        display: none;
+    }
 }
 
 /* Menu Toggle */
