@@ -1,3 +1,4 @@
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
@@ -32,6 +33,14 @@ const Home = () => {
     const y2 = useTransform(scrollY, [0, 500], [0, -100]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
+    const particles = useMemo(() => {
+        return [...Array(12)].map((_, i) => ({
+            delay: `${i * 0.5}s`,
+            x: `${Math.random() * 100}%`,
+            duration: `${15 + Math.random() * 10}s`
+        }));
+    }, []);
+
     const benefits = [
         { icon: Zap, title: 'Sites Ultra-Rápidos', description: 'Carregamento em menos de 3 segundos para melhor experiência.' },
         { icon: Search, title: 'SEO Otimizado', description: 'Apareça nas primeiras posições do Google organicamente.' },
@@ -50,11 +59,11 @@ const Home = () => {
                     <div className="hero__glow hero__glow--3" />
                     <div className="hero__grid-pattern" />
                     <div className="hero__particles">
-                        {[...Array(12)].map((_, i) => (
+                        {particles.map((particle, i) => (
                             <div key={i} className="hero__particle" style={{
-                                '--delay': `${i * 0.5}s`,
-                                '--x': `${Math.random() * 100}%`,
-                                '--duration': `${15 + Math.random() * 10}s`
+                                '--delay': particle.delay,
+                                '--x': particle.x,
+                                '--duration': particle.duration
                             }} />
                         ))}
                     </div>
@@ -146,7 +155,7 @@ const Home = () => {
                                     <CheckCircle2 size={16} />
                                 </div>
                                 <div className="hero__trust-text">
-                                    <span className="hero__trust-number">+500</span>
+                                    <span className="hero__trust-number">+300</span>
                                     <span className="hero__trust-label">Sites Entregues</span>
                                 </div>
                             </div>
@@ -156,7 +165,7 @@ const Home = () => {
                                     <CheckCircle2 size={16} />
                                 </div>
                                 <div className="hero__trust-text">
-                                    <span className="hero__trust-number">10+</span>
+                                    <span className="hero__trust-number">5+</span>
                                     <span className="hero__trust-label">Anos de Experiência</span>
                                 </div>
                             </div>

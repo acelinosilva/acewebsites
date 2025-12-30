@@ -62,8 +62,8 @@ export const testimonials = [
 ];
 
 export const stats = [
-    { number: '500+', label: 'Sites Entregues' },
+    { number: '300+', label: 'Sites Entregues' },
     { number: '98%', label: 'Clientes Satisfeitos' },
-    { number: '10+', label: 'Anos de Experiência' },
+    { number: '5+', label: 'Anos de Experiência' },
     { number: '27', label: 'Estados Atendidos' }
 ];

@@ -7,7 +7,6 @@
     align-items: center;
     position: relative;
     padding: calc(60px + var(--spacing-3xl)) 0 var(--spacing-4xl);
-    overflow-x: hidden;
     width: 100%;
 }
 
