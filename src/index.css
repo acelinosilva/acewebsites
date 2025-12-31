@@ -115,6 +115,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -258,6 +259,34 @@ h6 {
 .btn-lg {
   padding: var(--spacing-lg) var(--spacing-2xl);
   font-size: var(--font-size-lg);
+}
+
+@media (max-width: 768px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
+  .btn-lg {
+    padding: var(--spacing-md) var(--spacing-md);
+    font-size: var(--font-size-base);
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* ===== CARDS ===== */

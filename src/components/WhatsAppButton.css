@@ -14,6 +14,8 @@
     border-radius: var(--radius-full);
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     transition: all var(--transition-base);
+    /* Prevent overflow from affecting page */
+    contain: layout;
 }
 
 .whatsapp-button:hover {
@@ -34,6 +36,8 @@
     border-radius: var(--radius-full);
     background: #25D366;
     animation: whatsapp-pulse 2s infinite;
+    /* Prevent pulse from causing overflow */
+    pointer-events: none;
 }
 
 @keyframes whatsapp-pulse {
@@ -83,13 +87,27 @@
 
 @media (max-width: 768px) {
     .whatsapp-button {
-        width: 54px;
-        height: 54px;
+        width: 50px;
+        height: 50px;
         bottom: 20px;
-        right: 20px;
+        right: 16px;
+    }
+
+    /* Disable pulse animation on mobile to prevent overflow */
+    .whatsapp-button__pulse {
+        display: none;
     }
 
     .whatsapp-button__tooltip {
         display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .whatsapp-button {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        right: 12px;
     }
 }
