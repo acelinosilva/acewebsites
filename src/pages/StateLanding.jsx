@@ -53,10 +53,10 @@ const StateLanding = () => {
     return (
         <>
             <Helmet>
-                <title>Criação de Sites em {state.name} | Desenvolvimento Web Profissional | AceWeb</title>
+                <title>Criação de Sites {state.preposition} {state.name} | Desenvolvimento Web Profissional | AceWeb</title>
                 <meta
                     name="description"
-                    content={`Criação de Sites Profissionais em ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
+                    content={`Criação de Sites Profissionais ${state.preposition} ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
                 />
                 <meta
                     name="keywords"
@@ -87,13 +87,15 @@ const StateLanding = () => {
                             </span>
 
                             <h1>
-                                Criação de Sites Profissionais em{' '}
-                                <span className="text-gradient">{state.name}</span>
+                                Criação de Sites Profissionais {' '}
+                                <span className="text-gradient">
+                                    {state.preposition.charAt(0).toUpperCase() + state.preposition.slice(1)} {state.name}
+                                </span>
                             </h1>
 
                             <p className="state-hero__subtitle">
                                 Desenvolvemos sites modernos, rápidos e otimizados para o Google
-                                para empresas em {state.name}. Transforme sua presença digital
+                                para empresas {state.preposition} {state.name}. Transforme sua presença digital
                                 e conquiste mais clientes com um site profissional.
                             </p>
 
@@ -121,7 +123,7 @@ const StateLanding = () => {
                             <div className="state-hero__trust">
                                 <div className="state-hero__trust-item">
                                     <CheckCircle2 size={18} className="text-primary" />
-                                    <span>Atendimento em todo {state.name}</span>
+                                    <span>Atendimento em tod{state.prepDe === 'de' ? 'o' : state.prepDe.slice(1)} {state.name}</span>
                                 </div>
                                 <div className="state-hero__trust-item">
                                     <CheckCircle2 size={18} className="text-primary" />
@@ -156,19 +158,19 @@ const StateLanding = () => {
                                 </h2>
                                 <p>
                                     A AceWeb é especialista em criação de sites profissionais e atende
-                                    empresas em {state.name} há mais de 10 anos. Mesmo estando sediados
+                                    empresas {state.preposition} {state.name} há mais de 10 anos. Mesmo estando sediados
                                     em Brasília - DF, nosso atendimento remoto garante a mesma qualidade
                                     e dedicação para clientes em todo o Brasil.
                                 </p>
                                 <p>
                                     Entendemos as necessidades das empresas locais e desenvolvemos
                                     sites otimizados para aparecer nas buscas regionais, ajudando
-                                    seu negócio a conquistar mais clientes em {state.name}.
+                                    seu negócio a conquistar mais clientes {state.preposition} {state.name}.
                                 </p>
 
                                 {state.cities && state.cities.length > 0 && (
                                     <div className="state-cities">
-                                        <h3>Atendemos todas as cidades de {state.name}</h3>
+                                        <h3>Atendemos todas as cidades {state.prepDe} {state.name}</h3>
                                         <p>
                                             Incluindo {state.cities.slice(0, 4).join(', ')} e todas as outras
                                             cidades do estado.
@@ -209,12 +211,12 @@ const StateLanding = () => {
                     <div className="container">
                         <div className="section-title">
                             <h2>
-                                Benefícios de ter um site profissional em{' '}
-                                <span className="text-gradient">{state.name}</span>
+                                Benefícios de ter um site profissional{' '}
+                                <span className="text-gradient">{state.preposition} {state.name}</span>
                             </h2>
                             <p>
                                 Um site bem desenvolvido é a base para o sucesso digital
-                                do seu negócio em {state.name}.
+                                do seu negócio {state.preposition} {state.name}.
                             </p>
                         </div>
 
@@ -246,7 +248,7 @@ const StateLanding = () => {
                 <section className="section state-services">
                     <div className="container">
                         <div className="section-title">
-                            <h2>Nossos serviços em <span className="text-gradient">{state.name}</span></h2>
+                            <h2>Nossos serviços {state.preposition} <span className="text-gradient">{state.name}</span></h2>
                             <p>Soluções completas para sua presença digital</p>
                         </div>
 
@@ -308,8 +310,8 @@ const StateLanding = () => {
                             <div className="state-cta-box__glow" />
                             <div className="state-cta-box__content">
                                 <h2>
-                                    Pronto para criar seu site profissional em{' '}
-                                    <span className="text-gradient">{state.name}</span>?
+                                    Pronto para criar seu site profissional {' '}
+                                    <span className="text-gradient">{state.preposition} {state.name}</span>?
                                 </h2>
                                 <p>
                                     Entre em contato agora mesmo e receba um orçamento personalizado.
