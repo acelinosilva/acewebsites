@@ -27,7 +27,7 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
                 <div className="testimonial-card__info">
                     <h4 className="testimonial-card__name">{testimonial.name}</h4>
                     <p className="testimonial-card__role">
-                        {testimonial.role} - {testimonial.company}
+                        {testimonial.role}{testimonial.company && ` - ${testimonial.company}`}
                     </p>
                     <p className="testimonial-card__location">{testimonial.location}</p>
                 </div>

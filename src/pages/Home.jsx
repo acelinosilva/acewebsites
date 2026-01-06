@@ -20,7 +20,7 @@ import { projects } from '../data/projects';
 import { testimonials, stats } from '../data/testimonials';
 import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
-import TrustIndexWidget from '../components/TrustIndexWidget';
+
 import StatsCounter from '../components/StatsCounter';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
@@ -421,9 +421,13 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="testimonials__widget">
-                        <TrustIndexWidget />
+                    <div className="testimonials__grid">
+                        {testimonials.map((testimonial, index) => (
+                            <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+                        ))}
                     </div>
+
+
                 </div>
             </section>
 
