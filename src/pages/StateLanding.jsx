@@ -18,7 +18,7 @@ import { services } from '../data/services';
 import { testimonials, stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import TestimonialCard from '../components/TestimonialCard';
-import TrustIndexWidget from '../components/TrustIndexWidget';
+
 import './StateLanding.css';
 
 const StateLanding = () => {
@@ -41,10 +41,7 @@ const StateLanding = () => {
         { icon: Users, title: 'Suporte Dedicado', description: 'Atendimento personalizado por WhatsApp.' },
     ];
 
-    const localTestimonials = testimonials.filter(t =>
-        t.location.toLowerCase().includes(state.abbr.toLowerCase()) ||
-        t.location.toLowerCase().includes(state.name.toLowerCase())
-    ).slice(0, 2);
+    const displayTestimonials = testimonials.slice(0, 6);
 
     const otherStates = brazilianStates
         .filter(s => s.slug !== state.slug)
@@ -291,8 +288,10 @@ const StateLanding = () => {
                             <p>Mais de 500 empresas confiam em nosso trabalho</p>
                         </div>
 
-                        <div className="testimonials__widget">
-                            <TrustIndexWidget />
+                        <div className="state-testimonials__grid">
+                            {displayTestimonials.map((testimonial, index) => (
+                                <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+                            ))}
                         </div>
                     </div>
                 </section>
