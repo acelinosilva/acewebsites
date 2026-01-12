@@ -15,6 +15,7 @@ import { stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import teamOffice from '../assets/team-office.png';
 import teamSession from '../assets/team-session.png';
+import SEO from '../components/SEO';
 import './About.css';
 
 const About = () => {
@@ -38,6 +39,11 @@ const About = () => {
 
     return (
         <main className="about-page">
+            <SEO
+                title="Sobre a AceWeb | Agência de Criação de Sites"
+                description="Conheça a AceWeb, agência especializada em Criação de Sites Profissionais e Marketing Digital. Mais de 10 anos de experiência transformando negócios."
+                canonical="/sobre"
+            />
             {/* Hero Section */}
             <section className="page-hero">
                 <div className="page-hero__background">

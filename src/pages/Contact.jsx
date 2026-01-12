@@ -8,6 +8,7 @@ import {
     CheckCircle2
 } from 'lucide-react';
 import { getWhatsAppLink } from '../data/states';
+import SEO from '../components/SEO';
 import './Contact.css';
 
 const Contact = () => {
@@ -48,6 +49,11 @@ const Contact = () => {
 
     return (
         <main className="contact-page">
+            <SEO
+                title="Fale Conosco | AceWeb - Criação de Sites"
+                description="Entre em contato com a AceWeb e solicite um orçamento para o seu site. Atendimento rápido via WhatsApp, E-mail ou Telefone. Estamos prontos para te atender!"
+                canonical="/contato"
+            />
             {/* Hero Section */}
             <section className="page-hero">
                 <div className="page-hero__background">

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, ArrowRight, MessageCircle } from 'lucide-react';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
+import SEO from '../components/SEO';
 import './Locations.css';
 
 const Locations = () => {
@@ -20,6 +21,12 @@ const Locations = () => {
 
     return (
         <main className="locations-page">
+            <SEO
+                title="Atendimento Nacional | AceWeb - Criação de Sites em Todo o Brasil"
+                description="Criação de sites profissionais com atendimento em todos os estados do Brasil e exterior. Qualidade, preço justo e suporte dedicado onde você estiver."
+                canonical="/locais"
+                keywords="criação de sites brasil, sites brasília, sites são paulo, sites rio de janeiro, desenvolvimento web nacional"
+            />
             {/* Hero Section */}
             <section className="page-hero">
                 <div className="page-hero__background">

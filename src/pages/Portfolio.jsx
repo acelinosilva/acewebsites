@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { projects, categories } from '../data/projects';
 import { getWhatsAppLink } from '../data/states';
+import SEO from '../components/SEO';
 import './Portfolio.css';
 
 const Portfolio = () => {
@@ -29,6 +30,11 @@ const Portfolio = () => {
 
     return (
         <main className="portfolio-page">
+            <SEO
+                title="Portfólio de Sites | Projetos Desenvolvidos pela AceWeb"
+                description="Confira nosso portfólio de sites e landing pages. Projetos modernos desenvolvidos para empresas de diversos nichos. Inspire-se para o seu projeto!"
+                canonical="/portfolio"
+            />
             {/* Hero Section */}
             <section className="page-hero">
                 <div className="page-hero__background">

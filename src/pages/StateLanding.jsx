@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import {
     MessageCircle,
     CheckCircle2,
@@ -13,6 +12,7 @@ import {
     Award,
     Users
 } from 'lucide-react';
+import SEO from '../components/SEO';
 import { getStateBySlug, brazilianStates, getWhatsAppLink } from '../data/states';
 import { services } from '../data/services';
 import { testimonials, stats } from '../data/testimonials';
@@ -49,18 +49,12 @@ const StateLanding = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Criação de Sites {state.preposition} {state.name} | Desenvolvimento Web Profissional | AceWeb</title>
-                <meta
-                    name="description"
-                    content={`Criação de Sites Profissionais ${state.preposition} ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
-                />
-                <meta
-                    name="keywords"
-                    content={`criação de sites ${state.name}, desenvolvimento web ${state.name}, sites profissionais ${state.abbr}, landing pages ${state.name}, SEO ${state.name}`}
-                />
-                <link rel="canonical" href={`https://aceweb.com.br/locais/criacao-de-sites-em-${state.slug}`} />
-            </Helmet>
+            <SEO
+                title={`Criação de Sites ${state.preposition} ${state.name} | Desenvolvimento Web Profissional`}
+                description={`Criação de Sites Profissionais ${state.preposition} ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
+                keywords={`criação de sites ${state.name}, desenvolvimento web ${state.name}, sites profissionais ${state.abbr}, landing pages ${state.name}, SEO ${state.name}`}
+                canonical={`/locais/criacao-de-sites-em-${state.slug}`}
+            />
 
             <main className="state-landing">
                 {/* Hero Section */}

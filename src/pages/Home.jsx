@@ -24,6 +24,7 @@ import TestimonialCard from '../components/TestimonialCard';
 import StatsCounter from '../components/StatsCounter';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
+import SEO from '../components/SEO';
 import './Home.css';
 
 
@@ -50,6 +51,11 @@ const Home = () => {
 
     return (
         <main className="home">
+            <SEO
+                title="Criação de Sites em Brasília e Todo o Brasil"
+                description="Criação de Sites Profissionais, Landing Pages e E-commerce. Sites modernos, ultra-rápidos e otimizados para o Google. Solicite um orçamento!"
+                keywords="criação de sites brasília, web designer brasília, sites profissionais, landing page, seo, desenvolvimento web"
+            />
             <SchemaMarkup />
             {/* Hero Section */}
             <section className="hero">

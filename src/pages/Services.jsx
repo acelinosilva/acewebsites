@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { services } from '../data/services';
 import { getWhatsAppLink } from '../data/states';
+import SEO from '../components/SEO';
 import './Services.css';
 
 const Services = () => {
@@ -30,6 +31,11 @@ const Services = () => {
 
     return (
         <main className="services-page">
+            <SEO
+                title="Nossos Serviços | Criação de Sites e Marketing Digital"
+                description="Conheça nossos serviços de desenvolvimento web: Criação de Sites, Landing Pages, Lojas Virtuais, SEO e Manutenção de Sites."
+                canonical="/servicos"
+            />
             {/* Hero Section */}
             <section className="services-hero">
                 <div className="services-hero__background">
