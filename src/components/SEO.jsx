@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, canonical, image }) => {
     const siteName = 'AceWeb';
-    const defaultDescription = 'Criação de Sites Profissionais em Brasília DF e todo o Brasil. Sites modernos, rápidos e otimizados para o Google. Landing Pages de Alta Conversão. Solicite um orçamento!';
+    const defaultDescription = 'Criação de Sites em Brasília DF e todo o Brasil. Sites modernos, rápidos e otimizados para o Google. Landing Pages de Alta Conversão. Solicite um orçamento!';
     const defaultImage = 'https://acewebsites.com.br/og-image.jpg'; // Ensure this image exists or use a variable
     const siteUrl = 'https://acewebsites.com.br';
 
