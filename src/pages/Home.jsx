@@ -52,7 +52,7 @@ const Home = () => {
     return (
         <main className="home">
             <SEO
-                title="Criação de Sites em Brasília e Todo o Brasil"
+                title="Criação de Sites em Brasília DF | Sites Profissionais | Ace Websites"
                 description="Criação de Sites Profissionais, Landing Pages e E-commerce. Sites modernos, ultra-rápidos e otimizados para o Google. Solicite um orçamento!"
                 keywords="criação de sites brasília, web designer brasília, sites profissionais, landing page, seo, desenvolvimento web"
             />
@@ -100,9 +100,8 @@ const Home = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
-                            <span className="hero__title-line">Criação de Sites</span>
+                            <span className="hero__title-line">Criação de Sites em</span>
                             <span className="hero__title-line">
-                                Profissionais em{' '}
                                 <span className="hero__title-highlight">
                                     <span className="text-gradient">Brasília DF</span>
                                     <svg className="hero__title-underline" viewBox="0 0 200 12" preserveAspectRatio="none">
@@ -116,9 +115,7 @@ const Home = () => {
                                     </svg>
                                 </span>
                             </span>
-                            <span className="hero__title-line">
-                                e <span className="text-gradient">Todo o Brasil</span>
-                            </span>
+
                         </motion.h1>
 
                         <motion.p
@@ -127,9 +124,8 @@ const Home = () => {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            Sites <strong>modernos</strong>, <strong>rápidos</strong> e <strong>otimizados para o Google</strong>.
-                            Transforme sua presença digital e gere clientes todos os dias
-                            com um site que realmente converte.
+                            Somos a sua parceira de tecnologia e autoridade em desenvolvimento web.
+                            Criamos sites <strong>modernos</strong>, <strong>rápidos</strong> e <strong>otimizados para o Google</strong>.
                         </motion.p>
 
                         <motion.div
