@@ -53,8 +53,7 @@ const Home = () => {
         <main className="home">
             <SEO
                 title="Criação de Sites em Brasília DF | Sites Profissionais | Ace Websites"
-                description="Criação de Sites Profissionais, Landing Pages e E-commerce. Sites modernos, ultra-rápidos e otimizados para o Google. Solicite um orçamento!"
-                keywords="criação de sites brasília, web designer brasília, sites profissionais, landing page, seo, desenvolvimento web"
+                description="Agência de Criação de Sites em Brasília. Desenvolvemos sites profissionais, lojas virtuais e landing pages otimizadas para o Google. Solicite um orçamento!"
             />
             <SchemaMarkup />
             {/* Hero Section */}

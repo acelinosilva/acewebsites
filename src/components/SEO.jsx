@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords, canonical, image }) => {
+const SEO = ({ title, description, canonical, image }) => {
     const siteName = 'AceWeb';
-    const defaultDescription = 'Criação de Sites em Brasília DF e todo o Brasil. Sites modernos, rápidos e otimizados para o Google. Landing Pages de Alta Conversão. Solicite um orçamento!';
-    const defaultImage = 'https://acewebsites.com.br/og-image.jpg'; // Ensure this image exists or use a variable
+    const defaultDescription = 'Agência de Criação de Sites em Brasília DF. Especialistas em Desenvolvimento Web, Landing Pages e SEO. Sites rápidos que geram resultados. Peça seu orçamento!';
+    const defaultImage = 'https://acewebsites.com.br/og-image.jpg';
     const siteUrl = 'https://acewebsites.com.br';
 
-    const fullTitle = title ? `${title} | ${siteName}` : `${siteName} - Criação de Sites Profissionais`;
+    const fullTitle = title ? `${title} | ${siteName}` : `${siteName} - Criação de Sites em Brasília e Todo Brasil`;
     const metaDescription = description || defaultDescription;
     const metaImage = image || defaultImage;
     const metaCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -16,8 +16,14 @@ const SEO = ({ title, description, keywords, canonical, image }) => {
             {/* Standard Types */}
             <title>{fullTitle}</title>
             <meta name="description" content={metaDescription} />
-            {keywords && <meta name="keywords" content={keywords} />}
             <link rel="canonical" href={metaCanonical} />
+            <meta name="robots" content="index, follow" />
+
+            {/* Geo Tags for Local SEO */}
+            <meta name="geo.region" content="BR-DF" />
+            <meta name="geo.placename" content="Brasília" />
+            <meta name="geo.position" content="-15.7942;-47.8822" />
+            <meta name="ICBM" content="-15.7942, -47.8822" />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content="website" />

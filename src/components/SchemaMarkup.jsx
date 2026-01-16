@@ -7,9 +7,9 @@ const SchemaMarkup = () => {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "AceWeb - Criação de Sites em Brasília",
-        "image": "https://aceweb.com.br/logo.png",
-        "@id": "https://aceweb.com.br",
-        "url": "https://aceweb.com.br",
+        "image": "https://acewebsites.com.br/logo.png",
+        "@id": "https://acewebsites.com.br",
+        "url": "https://acewebsites.com.br",
         "telephone": "+5561996986162",
         "priceRange": "$$",
         "address": {
@@ -25,6 +25,18 @@ const SchemaMarkup = () => {
             "latitude": -15.7942,
             "longitude": -47.8822
         },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Brasília",
+                "@id": "https://dbpedia.org/page/Brasilia"
+            },
+            {
+                "@type": "AdministrativeArea",
+                "name": "Distrito Federal",
+                "@id": "https://dbpedia.org/page/Federal_District_(Brazil)"
+            }
+        ],
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": [
@@ -38,9 +50,11 @@ const SchemaMarkup = () => {
             "closes": "18:00"
         },
         "sameAs": [
-            "https://www.instagram.com/aceweb",
-            "https://www.facebook.com/aceweb"
+            "https://www.instagram.com/aceweb_sites",
+            "https://www.facebook.com/acewebsites",
+            "https://br.linkedin.com/company/aceweb-sites"
         ],
+        "hasMap": "https://www.google.com/maps?cid=123", // Substituir pelo link real do Google Maps quando tiver
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",

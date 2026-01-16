@@ -77,20 +77,20 @@ const Footer = () => {
                     {/* Contact Column */}
                     <div className="footer__column">
                         <h4 className="footer__title">Contato</h4>
-                        <ul className="footer__contact-list">
-                            <li className="footer__contact-item">
+                        <address className="footer__contact-list">
+                            <div className="footer__contact-item">
                                 <MapPin size={18} className="footer__contact-icon" />
                                 <span>Brasília - DF, Brasil</span>
-                            </li>
-                            <li className="footer__contact-item">
+                            </div>
+                            <div className="footer__contact-item">
                                 <Phone size={18} className="footer__contact-icon" />
-                                <span>(61) 9 9698-6162</span>
-                            </li>
-                            <li className="footer__contact-item">
+                                <a href="tel:+5561996986162" className="footer__contact-link">(61) 9 9698-6162</a>
+                            </div>
+                            <div className="footer__contact-item">
                                 <Mail size={18} className="footer__contact-icon" />
-                                <span>contato@aceweb.com.br</span>
-                            </li>
-                        </ul>
+                                <a href="mailto:contato@aceweb.com.br" className="footer__contact-link">contato@aceweb.com.br</a>
+                            </div>
+                        </address>
                         <a
                             href={getWhatsAppLink()}
                             target="_blank"
