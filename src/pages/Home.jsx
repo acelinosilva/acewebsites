@@ -56,227 +56,147 @@ const Home = () => {
                 description="Agência de Criação de Sites em Brasília. Desenvolvemos sites profissionais, lojas virtuais e landing pages otimizadas para o Google. Solicite um orçamento!"
             />
             <SchemaMarkup />
-            {/* Hero Section */}
-            <section className="hero">
-                <div className="hero__background">
-                    <div className="hero__glow hero__glow--1" />
-                    <div className="hero__glow hero__glow--2" />
-                    <div className="hero__glow hero__glow--3" />
-                    <div className="hero__grid-pattern" />
-                    <div className="hero__particles">
-                        {particles.map((particle, i) => (
-                            <div key={i} className="hero__particle" style={{
-                                '--delay': particle.delay,
-                                '--x': particle.x,
-                                '--duration': particle.duration
-                            }} />
-                        ))}
-                    </div>
+            {/* Hero Section - Clean Layout & SEO Optimized */}
+            <section
+                className="hero-clean"
+                aria-label="Criação de Sites Profissionais em Brasília"
+                itemScope
+                itemType="https://schema.org/Service"
+            >
+                {/* Decorative Elements */}
+                <div className="hero-clean__decorations">
+                    <motion.div
+                        className="hero-clean__decoration hero-clean__decoration--left"
+                        animate={{ y: [0, -15, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        <div className="hero-clean__browser-icon">
+                            <div className="hero-clean__browser-dots">
+                                <span /><span /><span />
+                            </div>
+                            <div className="hero-clean__browser-content">
+                                <Globe size={24} />
+                            </div>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        className="hero-clean__decoration hero-clean__decoration--right"
+                        animate={{ y: [0, -20, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        <div className="hero-clean__code-icon">
+                            <span>&lt;/&gt;</span>
+                        </div>
+                    </motion.div>
+                    {/* Floating Dots */}
+                    <span className="hero-clean__dot hero-clean__dot--1" />
+                    <span className="hero-clean__dot hero-clean__dot--2" />
+                    <span className="hero-clean__dot hero-clean__dot--3" />
+                    <span className="hero-clean__dot hero-clean__dot--4" />
                 </div>
 
-                <div className="container hero__container">
-                    <motion.div
-                        className="hero__content"
-                        style={{ opacity: opacity }}
-                        initial={{ opacity: 0, y: 40 }}
+                <div className="container hero-clean__container">
+                    {/* Centered Content */}
+                    <motion.header
+                        className="hero-clean__content"
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        <motion.span
-                            className="hero__badge"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                        {/* Top Badge */}
+                        <motion.div
+                            className="hero-clean__badge"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            <span className="hero__badge-pulse" />
-                            <Globe size={14} />
-                            Atendemos Brasília, todo Brasil e Exterior
-                        </motion.span>
+                            <span>CRIAÇÃO DE SITE PROFISSIONAL</span>
+                            <span className="hero-clean__badge-separator">•</span>
+                            <span>LÍDER EM AVALIAÇÕES NO GOOGLE</span>
+                            <span className="hero-clean__badge-rating">
+                                5.0 <span className="hero-clean__stars">★★★★★</span>
+                            </span>
+                        </motion.div>
 
+                        {/* Main Heading - SEO Optimized */}
                         <motion.h1
-                            className="hero__title"
+                            className="hero-clean__title"
+                            itemProp="name"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
                         >
-                            <span className="hero__title-line">Criação de Sites em</span>
-                            <span className="hero__title-line">
-                                <span className="hero__title-highlight">
-                                    <span className="text-gradient">Brasília DF</span>
-                                    <svg className="hero__title-underline" viewBox="0 0 200 12" preserveAspectRatio="none">
-                                        <path d="M0,10 Q50,0 100,10 T200,10" stroke="url(#gradient)" strokeWidth="3" fill="none" />
-                                        <defs>
-                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                <stop offset="0%" stopColor="#00FF88" />
-                                                <stop offset="100%" stopColor="#00CC6A" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-                                </span>
-                            </span>
-
+                            CRIAÇÃO DE SITES EM<br />
+                            <span className="hero-clean__title-highlight">BRASÍLIA DF</span>
                         </motion.h1>
 
+                        {/* Subtitle - SEO Rich */}
                         <motion.p
-                            className="hero__subtitle"
+                            className="hero-clean__subtitle"
+                            itemProp="description"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >
-                            Somos a sua parceira de tecnologia e autoridade em desenvolvimento web.
-                            Criamos sites <strong>modernos</strong>, <strong>rápidos</strong> e <strong>otimizados para o Google</strong>.
+                            Somos uma <strong>agência de criação de sites em Brasília-DF</strong> especializada em {' '}
+                            <strong>sites profissionais</strong>, <strong>landing pages de alta conversão</strong> e {' '}
+                            <strong>lojas virtuais</strong>. Nosso <strong>desenvolvimento de sites em Brasília</strong> {' '}
+                            é otimizado para <strong>SEO e Google</strong>, garantindo mais visibilidade e vendas para seu negócio.
                         </motion.p>
 
+                        {/* Secondary Text */}
+                        <motion.p
+                            className="hero-clean__cta-text"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            Descubra quanto custa o site ideal para você em <strong>1 minuto</strong>.
+                        </motion.p>
+
+                        {/* Single CTA Button */}
                         <motion.div
-                            className="hero__cta-group"
+                            className="hero-clean__cta"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
                         >
                             <a
                                 href={getWhatsAppLink('Olá! Gostaria de solicitar um orçamento para criação de site.')}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn btn-primary btn-lg hero__cta-primary"
+                                className="hero-clean__btn"
+                                aria-label="Solicitar orçamento via WhatsApp"
                             >
-                                <MessageCircle size={20} />
-                                <span>Solicitar Orçamento Grátis</span>
-                                <span className="btn__shine" />
+                                <Zap size={20} aria-hidden="true" />
+                                <span>Peça um Orçamento</span>
                             </a>
                         </motion.div>
 
+                        {/* Trust Metrics */}
                         <motion.div
-                            className="hero__trust"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
+                            className="hero-clean__metrics"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.9 }}
                         >
-                            <div className="hero__trust-item">
-                                <div className="hero__trust-icon">
-                                    <CheckCircle2 size={16} />
-                                </div>
-                                <div className="hero__trust-text">
-                                    <span className="hero__trust-number">+300</span>
-                                    <span className="hero__trust-label">Sites Entregues</span>
-                                </div>
+                            <div className="hero-clean__metric">
+                                <span className="hero-clean__metric-value">+300</span>
+                                <span className="hero-clean__metric-label">Sites Entregues</span>
                             </div>
-                            <div className="hero__trust-divider" />
-                            <div className="hero__trust-item">
-                                <div className="hero__trust-icon">
-                                    <CheckCircle2 size={16} />
-                                </div>
-                                <div className="hero__trust-text">
-                                    <span className="hero__trust-number">5+</span>
-                                    <span className="hero__trust-label">Anos de Experiência</span>
-                                </div>
+                            <div className="hero-clean__metric-divider" />
+                            <div className="hero-clean__metric">
+                                <span className="hero-clean__metric-value">5+</span>
+                                <span className="hero-clean__metric-label">Anos de Mercado</span>
                             </div>
-                            <div className="hero__trust-divider" />
-                            <div className="hero__trust-item">
-                                <div className="hero__trust-icon">
-                                    <CheckCircle2 size={16} />
-                                </div>
-                                <div className="hero__trust-text">
-                                    <span className="hero__trust-number">27</span>
-                                    <span className="hero__trust-label">Estados Atendidos</span>
-                                </div>
+                            <div className="hero-clean__metric-divider" />
+                            <div className="hero-clean__metric">
+                                <span className="hero-clean__metric-value">100%</span>
+                                <span className="hero-clean__metric-label">Clientes Satisfeitos</span>
                             </div>
                         </motion.div>
-                    </motion.div>
-
-                    <motion.div
-                        className="hero__visual"
-                        style={{ y: y1 }}
-                        initial={{ opacity: 0, x: 60 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    >
-                        <div className="hero__mockup">
-                            <div className="hero__mockup-glow" />
-                            <div className="hero__mockup-screen">
-                                <div className="hero__mockup-header">
-                                    <div className="hero__mockup-dots">
-                                        <span></span><span></span><span></span>
-                                    </div>
-                                    <div className="hero__mockup-url">
-                                        <span className="hero__mockup-lock">🔒</span>
-                                        www.seusite.com.br
-                                    </div>
-                                </div>
-                                <div className="hero__mockup-content">
-                                    <div className="hero__mockup-nav">
-                                        <div className="hero__mockup-logo"></div>
-                                        <div className="hero__mockup-menu">
-                                            <span></span><span></span><span></span>
-                                        </div>
-                                    </div>
-                                    <div className="hero__mockup-hero">
-                                        <div className="hero__mockup-hero-text"></div>
-                                        <div className="hero__mockup-hero-btn"></div>
-                                    </div>
-                                    <div className="hero__mockup-cards">
-                                        <div className="hero__mockup-card">
-                                            <div className="hero__mockup-card-icon"></div>
-                                            <div className="hero__mockup-card-lines">
-                                                <span></span><span></span>
-                                            </div>
-                                        </div>
-                                        <div className="hero__mockup-card">
-                                            <div className="hero__mockup-card-icon"></div>
-                                            <div className="hero__mockup-card-lines">
-                                                <span></span><span></span>
-                                            </div>
-                                        </div>
-                                        <div className="hero__mockup-card">
-                                            <div className="hero__mockup-card-icon"></div>
-                                            <div className="hero__mockup-card-lines">
-                                                <span></span><span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Floating Elements */}
-                            <motion.div
-                                className="hero__float hero__float--1"
-                                animate={{ y: [0, -15, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <Zap size={20} />
-                                <span>Ultra Rápido</span>
-                            </motion.div>
-                            <motion.div
-                                className="hero__float hero__float--2"
-                                animate={{ y: [0, -12, 0] }}
-                                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                            >
-                                <Search size={20} />
-                                <span>SEO #1</span>
-                            </motion.div>
-                            <motion.div
-                                className="hero__float hero__float--3"
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            >
-                                <Smartphone size={20} />
-                                <span>Responsivo</span>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+                    </motion.header>
                 </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    className="hero__scroll"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                >
-                    <span>Role para explorar</span>
-                    <div className="hero__scroll-mouse">
-                        <div className="hero__scroll-wheel" />
-                    </div>
-                </motion.div>
             </section>
 
             {/* Stats Section */}

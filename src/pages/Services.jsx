@@ -87,7 +87,7 @@ const Services = () => {
                             </div>
                             <div className="services-hero__stat-divider" />
                             <div className="services-hero__stat">
-                                <span className="services-hero__stat-number">98%</span>
+                                <span className="services-hero__stat-number">100%</span>
                                 <span className="services-hero__stat-label">Clientes Satisfeitos</span>
                             </div>
                             <div className="services-hero__stat-divider" />
