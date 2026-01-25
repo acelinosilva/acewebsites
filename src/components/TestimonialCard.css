@@ -1,16 +1,36 @@
-/* ===== TESTIMONIAL CARD ===== */
+/* ===== TESTIMONIAL CARD - Tech Style ===== */
 .testimonial-card {
     background: var(--color-black-lighter);
     border: 1px solid var(--color-gray-800);
-    border-radius: var(--radius-xl);
+    border-radius: 0;
+    /* Sharp */
     padding: var(--spacing-xl);
     position: relative;
     transition: all var(--transition-base);
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: "";
+    /* Tech corner */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--color-gray-700);
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.testimonial-card:hover::before {
+    width: 100%;
+    background: var(--color-primary);
 }
 
 .testimonial-card:hover {
     border-color: var(--color-primary);
     transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
 }
 
 .testimonial-card__quote {
@@ -18,13 +38,15 @@
     top: var(--spacing-lg);
     right: var(--spacing-lg);
     color: var(--color-primary);
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .testimonial-card__rating {
     display: flex;
     gap: 2px;
-    color: #FFD700;
+    color: var(--color-primary);
+    /* Green stars for tech feel, or stick to Gold? Let's use Gold/Yellow for recognizability */
+    color: #eab308;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -34,6 +56,8 @@
     line-height: 1.7;
     margin-bottom: var(--spacing-xl);
     font-style: italic;
+    position: relative;
+    z-index: 1;
 }
 
 .testimonial-card__author {
@@ -45,9 +69,11 @@
 .testimonial-card__avatar {
     width: 48px;
     height: 48px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
-    border-radius: var(--radius-full);
+    background: var(--color-gray-800);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary-dim);
+    border-radius: 0;
+    /* Square avatar */
     display: flex;
     align-items: center;
     justify-content: center;

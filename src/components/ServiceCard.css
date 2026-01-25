@@ -1,19 +1,23 @@
-/* ===== SERVICE CARD ===== */
+/* ===== SERVICE CARD - Tech Style ===== */
 .service-card {
     background: var(--color-black-lighter);
     border: 1px solid var(--color-gray-800);
-    border-radius: var(--radius-xl);
+    border-radius: 0;
+    /* Sharp */
     padding: var(--spacing-xl);
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
 }
 
 .service-card:hover {
     border-color: var(--color-primary);
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-glow);
+    transform: translateY(-4px);
+    /* Smaller movement */
+    box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.1);
+    background: #151515;
 }
 
 .service-card__icon {
@@ -22,15 +26,19 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
-    border-radius: var(--radius-lg);
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary-dim);
+    border-radius: 0;
+    /* Sharp */
     margin-bottom: var(--spacing-lg);
     transition: transform var(--transition-base);
 }
 
 .service-card:hover .service-card__icon {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.05);
+    background: var(--color-primary);
+    color: var(--color-black);
 }
 
 .service-card__title {
@@ -38,6 +46,7 @@
     font-weight: 700;
     color: var(--color-white);
     margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
 }
 
 .service-card__description {
