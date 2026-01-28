@@ -18,6 +18,9 @@ import { services } from '../data/services';
 import { testimonials, stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import TestimonialCard from '../components/TestimonialCard';
+import FAQ from '../components/FAQ';
+import SchemaMarkup from '../components/SchemaMarkup';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 import './StateLanding.css';
 
@@ -54,7 +57,10 @@ const StateLanding = () => {
                 description={`Criação de Sites Profissionais ${state.preposition} ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
                 keywords={`criação de sites ${state.name}, desenvolvimento web ${state.name}, sites profissionais ${state.abbr}, landing pages ${state.name}, SEO ${state.name}`}
                 canonical={`/locais/criacao-de-sites-em-${state.slug}`}
+                geoRegion={`BR-${state.abbr}`}
+                geoPlacename={state.name}
             />
+            <SchemaMarkup />
 
             <main className="state-landing">
                 {/* Hero Section */}
@@ -66,6 +72,11 @@ const StateLanding = () => {
                     </div>
 
                     <div className="container state-hero__container">
+                        {/* Breadcrumbs */}
+                        <Breadcrumbs items={[
+                            { name: 'Locais', path: '/locais' },
+                            { name: `Criação de Sites ${state.preposition} ${state.name}`, path: `/locais/criacao-de-sites-em-${state.slug}` }
+                        ]} />
                         <motion.div
                             className="state-hero__content"
                             initial={{ opacity: 0, y: 30 }}
@@ -289,6 +300,9 @@ const StateLanding = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* FAQ Section */}
+                <FAQ />
 
                 {/* CTA */}
                 <section className="section state-cta-section">

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, canonical, image, keywords }) => {
+const SEO = ({ title, description, canonical, image, keywords, geoRegion, geoPlacename, geoPosition }) => {
     const siteName = 'AceWeb';
     const defaultDescription = 'Agência de Criação de Sites em Brasília DF. Especialistas em Desenvolvimento Web, Landing Pages e SEO. Sites rápidos que geram resultados. Peça seu orçamento!';
     const defaultImage = 'https://acewebsites.com.br/og-image.jpg';
@@ -13,6 +13,12 @@ const SEO = ({ title, description, canonical, image, keywords }) => {
     const metaCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
     const metaKeywords = keywords || defaultKeywords;
 
+    // Dynamic Geo tags with fallback to Brasília
+    const metaGeoRegion = geoRegion || 'BR-DF';
+    const metaGeoPlacename = geoPlacename || 'Brasília';
+    const metaGeoPosition = geoPosition || '-15.7942;-47.8822';
+    const metaICBM = geoPosition ? geoPosition.replace(';', ', ') : '-15.7942, -47.8822';
+
     return (
         <Helmet>
             {/* Standard Types */}
@@ -22,11 +28,15 @@ const SEO = ({ title, description, canonical, image, keywords }) => {
             <link rel="canonical" href={metaCanonical} />
             <meta name="robots" content="index, follow" />
 
-            {/* Geo Tags for Local SEO */}
-            <meta name="geo.region" content="BR-DF" />
-            <meta name="geo.placename" content="Brasília" />
-            <meta name="geo.position" content="-15.7942;-47.8822" />
-            <meta name="ICBM" content="-15.7942, -47.8822" />
+            {/* Geo Tags for Local SEO - Dynamic */}
+            <meta name="geo.region" content={metaGeoRegion} />
+            <meta name="geo.placename" content={metaGeoPlacename} />
+            <meta name="geo.position" content={metaGeoPosition} />
+            <meta name="ICBM" content={metaICBM} />
+
+            {/* Hreflang for International SEO */}
+            <link rel="alternate" href={metaCanonical} hreflang="pt-BR" />
+            <link rel="alternate" href={metaCanonical} hreflang="x-default" />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content="website" />
@@ -48,3 +58,4 @@ const SEO = ({ title, description, canonical, image, keywords }) => {
 };
 
 export default SEO;
+
