@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, MessageCircle, Instagram, Facebook, Linkedin, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, ArrowUp } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import { services } from '../data/services';
 import './Footer.css';
@@ -97,7 +98,7 @@ const Footer = () => {
                             rel="noopener noreferrer"
                             className="btn btn-primary footer__cta"
                         >
-                            <MessageCircle size={18} />
+                            <FaWhatsapp size={18} />
                             Fale no WhatsApp
                         </a>
                     </div>

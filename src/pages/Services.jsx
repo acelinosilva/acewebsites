@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-    MessageCircle,
     CheckCircle2,
     ArrowRight,
     Sparkles,
@@ -10,6 +9,7 @@ import {
 } from 'lucide-react';
 import { services } from '../data/services';
 import { getWhatsAppLink } from '../data/states';
+import { FaWhatsapp } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import './Services.css';
 
@@ -33,7 +33,7 @@ const Services = () => {
         <main className="services-page">
             <SEO
                 title="Nossos Serviços | Criação de Sites e Marketing Digital"
-                description="Conheça nossos serviços de desenvolvimento web: Criação de Sites, Landing Pages, Lojas Virtuais, SEO e Manutenção de Sites."
+                description="Conheça nossos serviços de desenvolvimento web a partir de R$ 400: Criação de Sites, Landing Pages, Lojas Virtuais, SEO e Manutenção de Sites."
                 canonical="/servicos"
             />
             {/* Hero Section */}
@@ -236,7 +236,7 @@ const Services = () => {
                                                 rel="noopener noreferrer"
                                                 className="btn btn-primary service-card__cta"
                                             >
-                                                <MessageCircle size={18} />
+                                                <FaWhatsapp size={18} />
                                                 Solicitar Orçamento
                                                 <span className="btn__shine" />
                                             </a>
@@ -308,7 +308,7 @@ const Services = () => {
                                 rel="noopener noreferrer"
                                 className="btn btn-primary btn-lg"
                             >
-                                <MessageCircle size={20} />
+                                <FaWhatsapp size={20} />
                                 Solicitar Orçamento Grátis
                             </a>
                             <div className="services-final-cta__features">

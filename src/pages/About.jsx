@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import {
-    MessageCircle,
     CheckCircle2,
     Target,
     Lightbulb,
@@ -11,6 +10,7 @@ import {
     Rocket
 } from 'lucide-react';
 import { getWhatsAppLink } from '../data/states';
+import { FaWhatsapp } from 'react-icons/fa';
 import { stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import teamOffice from '../assets/team-office.png';
@@ -41,7 +41,7 @@ const About = () => {
         <main className="about-page">
             <SEO
                 title="Sobre a AceWeb | Agência de Criação de Sites"
-                description="Conheça a AceWeb, agência especializada em Criação de Sites Profissionais e Marketing Digital. Mais de 10 anos de experiência transformando negócios."
+                description="Conheça a AceWeb, agência especializada em Criação de Sites Profissionais a partir de R$ 400. Mais de 10 anos de experiência transformando negócios."
                 canonical="/sobre"
             />
             {/* Hero Section */}
@@ -314,7 +314,7 @@ const About = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary btn-lg"
                                 >
-                                    <MessageCircle size={20} />
+                                    <FaWhatsapp size={20} />
                                     Falar no WhatsApp
                                 </a>
                             </div>

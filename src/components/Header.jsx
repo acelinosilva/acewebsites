@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import logoAceweb from '../assets/logo-aceweb.png';
@@ -111,7 +112,7 @@ const Header = () => {
                         rel="noopener noreferrer"
                         className="btn btn-primary header__cta"
                     >
-                        <MessageCircle size={18} />
+                        <FaWhatsapp size={18} />
                         <span>Fale no WhatsApp</span>
                     </a>
                 </div>
@@ -191,7 +192,7 @@ const Header = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary header__mobile-cta"
                                 >
-                                    <MessageCircle size={18} />
+                                    <FaWhatsapp size={18} />
                                     Fale no WhatsApp
                                 </a>
                             </li>

@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { getWhatsAppLink } from '../data/states';
 import './WhatsAppButton.css';
 
@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
             aria-label="Falar no WhatsApp"
         >
             <div className="whatsapp-button__pulse" />
-            <MessageCircle size={28} />
+            <FaWhatsapp size={28} />
             <span className="whatsapp-button__tooltip">Fale Conosco!</span>
         </a>
     );

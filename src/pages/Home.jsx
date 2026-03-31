@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
-    MessageCircle,
     ArrowRight,
     CheckCircle2,
     Zap,
@@ -14,6 +13,7 @@ import {
     Users,
     ExternalLink
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { getWhatsAppLink } from '../data/states';
 import { services } from '../data/services';
 import { projects } from '../data/projects';
@@ -52,8 +52,8 @@ const Home = () => {
     return (
         <main className="home">
             <SEO
-                title="Criação de Sites em Brasília DF | Sites Profissionais | Ace Websites"
-                description="Agência de Criação de Sites em Brasília. Desenvolvemos sites profissionais, lojas virtuais e landing pages otimizadas para o Google. Solicite um orçamento!"
+                title="Criação de Sites em Brasília DF | Criação de Sites Profissionais Para todo o Brasil | Ace Websites |"
+                description="Agência de Criação de Sites em Brasília. Desenvolvemos sites profissionais, lojas virtuais e landing pages otimizadas para o Google. Planos a partir de R$ 400. Solicite um orçamento!"
             />
             <SchemaMarkup />
             {/* Hero Section - Clean Layout & SEO Optimized */}
@@ -151,7 +151,7 @@ const Home = () => {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.5, delay: 0.6 }}
                         >
-                            Descubra quanto custa o site ideal para você em <strong>1 minuto</strong>.
+                            Descubra quanto custa o site ideal para você em <strong>1 minuto</strong>. Planos a partir de <strong>R$ 400</strong>.
                         </motion.p>
 
                         {/* Single CTA Button */}
@@ -396,7 +396,7 @@ const Home = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-secondary"
                                 >
-                                    <MessageCircle size={18} />
+                                    <FaWhatsapp size={18} />
                                     Solicitar Orçamento
                                 </a>
                             </div>
@@ -445,12 +445,12 @@ const Home = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary btn-lg"
                                 >
-                                    <MessageCircle size={20} />
+                                    <FaWhatsapp size={20} />
                                     Falar no WhatsApp Agora
                                 </a>
                             </div>
                             <div className="cta-box__features">
-                                <span><CheckCircle2 size={16} /> Orçamento Gratuito</span>
+                                <span><CheckCircle2 size={16} /> Sites a partir de R$ 400</span>
                                 <span><CheckCircle2 size={16} /> Resposta Rápida</span>
                                 <span><CheckCircle2 size={16} /> Atendimento Personalizado</span>
                             </div>

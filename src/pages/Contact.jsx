@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import {
-    MessageCircle,
     MapPin,
     Phone,
     Mail,
@@ -8,6 +7,7 @@ import {
     CheckCircle2
 } from 'lucide-react';
 import { getWhatsAppLink } from '../data/states';
+import { FaWhatsapp } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import './Contact.css';
 
@@ -51,7 +51,7 @@ const Contact = () => {
         <main className="contact-page">
             <SEO
                 title="Fale Conosco | AceWeb - Criação de Sites"
-                description="Entre em contato com a AceWeb e solicite um orçamento para o seu site. Atendimento rápido via WhatsApp, E-mail ou Telefone. Estamos prontos para te atender!"
+                description="Entre em contato com a AceWeb e solicite um orçamento para seu site a partir de R$ 400. Atendimento rápido via WhatsApp, E-mail ou Telefone."
                 canonical="/contato"
             />
             {/* Hero Section */}
@@ -100,7 +100,7 @@ const Contact = () => {
                                 rel="noopener noreferrer"
                                 className="btn btn-primary btn-lg contact-whatsapp-btn"
                             >
-                                <MessageCircle size={24} />
+                                <FaWhatsapp size={24} />
                                 Falar no WhatsApp Agora
                             </a>
 
@@ -157,7 +157,7 @@ const Contact = () => {
                                         rel="noopener noreferrer"
                                         className="btn btn-primary"
                                     >
-                                        <MessageCircle size={18} />
+                                        <FaWhatsapp size={18} />
                                         Solicitar Orçamento
                                     </a>
                                 </div>
@@ -193,7 +193,7 @@ const Contact = () => {
                         >
                             <h3>Quanto custa criar um site?</h3>
                             <p>
-                                O valor varia de acordo com o tipo de projeto e suas necessidades.
+                                O valor varia de acordo com o projeto, mas nossos planos começam a partir de R$ 400.
                                 Entre em contato para receber um orçamento personalizado e sem compromisso.
                             </p>
                         </motion.div>

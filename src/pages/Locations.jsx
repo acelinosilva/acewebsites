@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, ArrowRight, MessageCircle } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import SEO from '../components/SEO';
 import './Locations.css';
@@ -23,7 +24,7 @@ const Locations = () => {
         <main className="locations-page">
             <SEO
                 title="Atendimento Nacional | AceWeb - Criação de Sites em Todo o Brasil"
-                description="Criação de sites profissionais com atendimento em todos os estados do Brasil e exterior. Qualidade, preço justo e suporte dedicado onde você estiver."
+                description="Criação de sites profissionais a partir de R$ 400 com atendimento em todos os estados do Brasil e exterior. Qualidade, preço justo e suporte dedicado onde você estiver."
                 canonical="/locais"
                 keywords="criação de sites brasil, sites brasília, sites são paulo, sites rio de janeiro, desenvolvimento web nacional"
             />
@@ -87,7 +88,7 @@ const Locations = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-secondary"
                                 >
-                                    <MessageCircle size={18} />
+                                    <FaWhatsapp size={18} />
                                     Falar no WhatsApp
                                 </a>
                             </div>
@@ -162,7 +163,7 @@ const Locations = () => {
                             rel="noopener noreferrer"
                             className="btn btn-primary"
                         >
-                            <MessageCircle size={18} />
+                            <FaWhatsapp size={18} />
                             Falar com Especialista
                         </a>
                     </motion.div>
@@ -192,7 +193,7 @@ const Locations = () => {
                                 rel="noopener noreferrer"
                                 className="btn btn-primary btn-lg"
                             >
-                                <MessageCircle size={20} />
+                                <FaWhatsapp size={20} />
                                 Solicitar Orçamento Gratuito
                             </a>
                         </div>

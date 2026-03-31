@@ -5,7 +5,6 @@ import {
     Filter,
     ExternalLink,
     ArrowRight,
-    MessageCircle,
     Layers,
     Code2,
     Palette,
@@ -18,6 +17,7 @@ import {
 import { projects, categories } from '../data/projects';
 import { getWhatsAppLink } from '../data/states';
 import SEO from '../components/SEO';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Portfolio.css';
 
 const Portfolio = () => {
@@ -32,7 +32,7 @@ const Portfolio = () => {
         <main className="portfolio-page">
             <SEO
                 title="Portfólio de Sites | Projetos Desenvolvidos pela AceWeb"
-                description="Confira nosso portfólio de sites e landing pages. Projetos modernos desenvolvidos para empresas de diversos nichos. Inspire-se para o seu projeto!"
+                description="Confira nosso portfólio de sites e landing pages a partir de R$ 400. Projetos modernos desenvolvidos para empresas de diversos nichos. Inspire-se!"
                 canonical="/portfolio"
             />
             {/* Hero Section */}
@@ -188,7 +188,7 @@ const Portfolio = () => {
                                 rel="noopener noreferrer"
                                 className="btn btn-primary btn-lg"
                             >
-                                <MessageCircle size={20} />
+                                <FaWhatsapp size={20} />
                                 Solicitar Orçamento
                             </a>
                         </div>

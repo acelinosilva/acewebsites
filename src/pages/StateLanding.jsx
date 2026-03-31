@@ -1,7 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-    MessageCircle,
     CheckCircle2,
     MapPin,
     ArrowRight,
@@ -21,6 +20,7 @@ import TestimonialCard from '../components/TestimonialCard';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
 import Breadcrumbs from '../components/Breadcrumbs';
+import { FaWhatsapp } from 'react-icons/fa';
 
 import './StateLanding.css';
 
@@ -54,7 +54,7 @@ const StateLanding = () => {
         <>
             <SEO
                 title={`Criação de Sites ${state.preposition} ${state.name} | Desenvolvimento Web Profissional`}
-                description={`Criação de Sites Profissionais ${state.preposition} ${state.name}. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Landing Pages de alta conversão. Solicite um orçamento grátis!`}
+                description={`Criação de Sites Profissionais ${state.preposition} ${state.name} a partir de R$ 400. Desenvolvemos sites modernos, responsivos e otimizados para SEO. Solicite um orçamento grátis!`}
                 keywords={`criação de sites ${state.name}, desenvolvimento web ${state.name}, sites profissionais ${state.abbr}, landing pages ${state.name}, SEO ${state.name}`}
                 canonical={`/locais/criacao-de-sites-em-${state.slug}`}
                 geoRegion={`BR-${state.abbr}`}
@@ -98,7 +98,7 @@ const StateLanding = () => {
                             <p className="state-hero__subtitle">
                                 Desenvolvemos sites modernos, rápidos e otimizados para o Google
                                 para empresas {state.preposition} {state.name}. Transforme sua presença digital
-                                e conquiste mais clientes com um site profissional.
+                                e conquiste mais clientes com um site profissional a partir de R$ 400.
                             </p>
 
                             <div className="state-hero__cta-group">
@@ -108,7 +108,7 @@ const StateLanding = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary btn-lg"
                                 >
-                                    <MessageCircle size={20} />
+                                    <FaWhatsapp size={20} />
                                     Solicitar Orçamento Grátis
                                 </a>
                                 <a
@@ -129,7 +129,7 @@ const StateLanding = () => {
                                 </div>
                                 <div className="state-hero__trust-item">
                                     <CheckCircle2 size={18} className="text-primary" />
-                                    <span>Orçamento Gratuito</span>
+                                    <span>Sites a partir de R$ 400</span>
                                 </div>
                                 <div className="state-hero__trust-item">
                                     <CheckCircle2 size={18} className="text-primary" />
@@ -186,7 +186,7 @@ const StateLanding = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary"
                                 >
-                                    <MessageCircle size={18} />
+                                    <FaWhatsapp size={18} />
                                     Falar no WhatsApp
                                 </a>
                             </motion.div>
@@ -330,11 +330,11 @@ const StateLanding = () => {
                                     rel="noopener noreferrer"
                                     className="btn btn-primary btn-lg"
                                 >
-                                    <MessageCircle size={20} />
+                                    <FaWhatsapp size={20} />
                                     Solicitar Orçamento Grátis
                                 </a>
                                 <div className="state-cta-box__features">
-                                    <span><CheckCircle2 size={16} /> Orçamento Gratuito</span>
+                                    <span><CheckCircle2 size={16} /> A partir de R$ 400</span>
                                     <span><CheckCircle2 size={16} /> Resposta Rápida</span>
                                     <span><CheckCircle2 size={16} /> Parcelamento em 12x</span>
                                 </div>

@@ -5,7 +5,7 @@ export const services = [
         id: 'criacao-sites',
         icon: Globe,
         title: 'Criação de Sites Profissionais',
-        shortDescription: 'Sites modernos, responsivos e otimizados para converter visitantes em clientes.',
+        shortDescription: 'Sites modernos, responsivos e otimizados para converter. Planos a partir de R$ 400.',
         description: `Desenvolvemos sites profissionais que representam sua marca com excelência. 
     Cada projeto é único e personalizado para atender às necessidades específicas do seu negócio.
     Utilizamos as mais modernas tecnologias para garantir velocidade, segurança e uma experiência 
