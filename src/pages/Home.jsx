@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import {
     ArrowRight,
     CheckCircle2,
@@ -30,9 +30,6 @@ import './Home.css';
 
 const Home = () => {
     const { scrollY } = useScroll();
-    const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-    const y2 = useTransform(scrollY, [0, 500], [0, -100]);
-    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
     const particles = useMemo(() => {
         return [...Array(12)].map((_, i) => ({

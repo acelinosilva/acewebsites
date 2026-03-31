@@ -5,14 +5,9 @@ import {
     Filter,
     ExternalLink,
     ArrowRight,
-    Layers,
     Code2,
     Palette,
     Layout,
-    GraduationCap,
-    Waves,
-    Shield,
-    Bug
 } from 'lucide-react';
 import { projects, categories } from '../data/projects';
 import { getWhatsAppLink } from '../data/states';
@@ -22,7 +17,6 @@ import './Portfolio.css';
 
 const Portfolio = () => {
     const [activeCategory, setActiveCategory] = useState('all');
-    const [hoveredProject, setHoveredProject] = useState(null);
 
     const filteredProjects = activeCategory === 'all'
         ? projects
@@ -97,8 +91,6 @@ const Portfolio = () => {
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.3 }}
                                     className="project-card"
-                                    onMouseEnter={() => setHoveredProject(project.id)}
-                                    onMouseLeave={() => setHoveredProject(null)}
                                 >
                                     <div className="project-card__image-container">
                                         <img
