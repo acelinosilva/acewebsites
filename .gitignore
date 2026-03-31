@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temp/debug files
+lint_output.txt
+lint_results.txt
+vercel_logs.txt
+eslint_output.json
+errs.txt
+errs.json
+errors.txt
