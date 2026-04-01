@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: calc(80px + var(--spacing-2xl)) var(--spacing-xl) var(--spacing-3xl);
+    padding: calc(120px + var(--spacing-2xl)) var(--spacing-xl) var(--spacing-3xl);
     background:
         radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
         linear-gradient(180deg, #050505 0%, #0A0A0A 100%);

@@ -1,0 +1,42 @@
+.promo-bar {
+    background: linear-gradient(90deg, var(--color-primary), #2563eb); 
+    /* using a fallback blue color just in case */
+    color: #ffffff;
+    padding: 8px 0;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.promo-bar__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.promo-bar__icon {
+    animation: pulse 2s infinite;
+}
+
+.promo-bar__link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.promo-bar__link:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+}
+
+.promo-bar__link strong {
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

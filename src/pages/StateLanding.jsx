@@ -17,6 +17,7 @@ import { services } from '../data/services';
 import { testimonials, stats } from '../data/testimonials';
 import StatsCounter from '../components/StatsCounter';
 import TestimonialCard from '../components/TestimonialCard';
+import PricingCards from '../components/PricingCards';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -285,6 +286,8 @@ const StateLanding = () => {
                         </div>
                     </div>
                 </section>
+
+                <PricingCards />
 
                 <section className="section state-testimonials">
                     <div className="container">

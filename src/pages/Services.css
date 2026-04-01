@@ -6,7 +6,7 @@
     min-height: 60vh;
     display: flex;
     align-items: center;
-    padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    padding: calc(140px + var(--spacing-4xl)) 0 var(--spacing-3xl);
     text-align: center;
     overflow: hidden;
 }
@@ -155,7 +155,7 @@
     padding: var(--spacing-xl) 0;
     border-bottom: 1px solid var(--color-gray-800);
     position: sticky;
-    top: 80px;
+    top: 120px;
     z-index: 50;
 }
 
@@ -572,7 +572,7 @@
     }
 
     .services-nav {
-        top: 70px;
+        top: 110px;
     }
 
     .service-card__header {

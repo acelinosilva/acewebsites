@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import logoAceweb from '../assets/logo-aceweb.png';
 import ThemeToggle from './ThemeToggle';
+import PromoBar from './PromoBar';
 import './Header.css';
 
 const Header = () => {
@@ -38,6 +39,7 @@ const Header = () => {
 
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
+            <PromoBar />
             <div className="container header__container">
                 <Link to="/" className="header__logo">
                     <img

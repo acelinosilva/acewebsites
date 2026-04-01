@@ -22,6 +22,7 @@ import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
 
 import StatsCounter from '../components/StatsCounter';
+import PricingCards from '../components/PricingCards';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
 import SEO from '../components/SEO';
@@ -327,6 +328,9 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Pricing Section */}
+            <PricingCards />
 
             {/* Testimonials Section */}
             <section className="section testimonials-section">

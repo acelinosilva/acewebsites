@@ -1,7 +1,7 @@
 export const faqData = [
     {
         question: "Quanto custa a criação de um site profissional?",
-        answer: "O investimento varia dependendo da complexidade do projeto (número de páginas, funcionalidades, integrações). Oferecemos desde Landing Pages de alta conversão até portais corporativos complexos. Entre em contato para um orçamento personalizado sem compromisso."
+        answer: "O investimento varia dependendo da complexidade do projeto. Temos planos promocionais a partir de R$ 400 em até 12x para Landing Pages de alta conversão. Para portais corporativos complexos ou e-commerces, entre em contato para um orçamento personalizado."
     },
     {
         question: "Quanto tempo demora para o site ficar pronto?",

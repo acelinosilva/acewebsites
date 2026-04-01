@@ -14,7 +14,7 @@
     min-height: 50vh;
     display: flex;
     align-items: center;
-    padding: calc(100px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    padding: calc(140px + var(--spacing-4xl)) 0 var(--spacing-3xl);
     text-align: center;
     overflow: hidden;
 }
@@ -60,7 +60,7 @@
 /* Filter Section */
 .portfolio-filter {
     position: sticky;
-    top: 80px;
+    top: 120px;
     z-index: 50;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
