@@ -34,8 +34,13 @@ const Header = () => {
         { name: 'Portfólio', path: '/portfolio' },
         { name: 'Sobre', path: '/sobre' },
         { name: 'Locais', path: '/locais', hasDropdown: true },
+        { name: 'Blog', path: '/blog' },
         { name: 'Contato', path: '/contato' },
     ];
+
+    if (location.pathname.startsWith('/admin')) {
+        return null; // Do not show public header on backend
+    }
 
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>

@@ -13,6 +13,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Locations from './pages/Locations';
 import StateLanding from './pages/StateLanding';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import AdminRoute from './components/AdminRoute';
+import AdminLayout from './pages/admin/AdminLayout';
+import Login from './pages/admin/Login';
+import BlogAdmin from './pages/admin/BlogAdmin';
+import PostEditor from './pages/admin/PostEditor';
 import './App.css';
 
 // Scroll to top on route change
@@ -42,6 +49,19 @@ function App() {
               <Route path="/contato" element={<Contact />} />
               <Route path="/locais" element={<Locations />} />
               <Route path="/locais/:stateSlug" element={<StateLanding />} />
+              
+              {/* Public Blog */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+
+              {/* Admin Panel */}
+              <Route path="/admin/login" element={<Login />} />
+              <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
+                <Route index element={<BlogAdmin />} />
+                <Route path="posts" element={<BlogAdmin />} />
+                <Route path="posts/new" element={<PostEditor />} />
+                <Route path="posts/edit/:id" element={<PostEditor />} />
+              </Route>
             </Routes>
             <Footer />
             <WhatsAppButton />

@@ -1,0 +1,189 @@
+.post-editor-page {
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: transparent;
+    border: 1px solid var(--color-gray-800);
+    color: var(--color-gray-400);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-back:hover {
+    background: var(--color-gray-900);
+    color: var(--color-white);
+}
+
+.editor-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+/* Main Area */
+.editor-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: var(--font-size-sm);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-md);
+    color: var(--color-white);
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.1);
+}
+
+.form-input.text-xl {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
+
+/* React Quill Overrides */
+.quill-wrapper {
+    background: var(--color-white); /* Quill reads better on white mostly, or we force dark mode */
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    color: var(--color-black);
+}
+
+.ql-toolbar.ql-snow {
+    background: #f5f5f5;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.ql-container.ql-snow {
+    border: none;
+    min-height: 500px;
+    font-size: var(--font-size-base);
+    font-family: inherit;
+}
+
+.ql-editor {
+    min-height: 500px;
+    line-height: 1.8;
+}
+
+/* Sidebar */
+.editor-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-settings-box {
+    background: var(--color-black-lighter);
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-settings-box h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-800);
+    padding-bottom: var(--spacing-sm);
+}
+
+.form-group small, .help-text {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-500);
+    line-height: 1.5;
+}
+
+.char-count {
+    text-align: right;
+    font-size: 11px;
+    color: var(--color-gray-500);
+}
+
+/* Image Upload Area */
+.thumbnail-upload-area {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 1200x720 is 5:3, close enough to 16:9 for preview */
+    background: var(--color-gray-900);
+    border: 2px dashed var(--color-gray-700);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.thumbnail-upload-area:hover {
+    border-color: var(--color-primary);
+    background: rgba(0, 255, 136, 0.05);
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-gray-500);
+}
+
+.thumbnail-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1024px) {
+    .editor-layout {
+        grid-template-columns: 1fr;
+    }
+}

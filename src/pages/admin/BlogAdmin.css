@@ -1,0 +1,125 @@
+.admin-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.admin-empty-state {
+    text-align: center;
+    padding: var(--spacing-4xl);
+    background: var(--color-black-lighter);
+    border: 1px dashed var(--color-gray-700);
+    border-radius: var(--radius-xl);
+    color: var(--color-gray-400);
+}
+
+/* Base Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-black-lighter);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: var(--spacing-lg);
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-800);
+}
+
+.admin-table th {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--color-gray-400);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.5px;
+}
+
+.admin-table__title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-weight: 500;
+    color: var(--color-white);
+}
+
+.admin-table__img-wrapper {
+    width: 60px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--color-gray-900);
+    flex-shrink: 0;
+}
+
+.admin-table__img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.published {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.status-badge.draft {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-gray-300);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-table__actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    background: transparent;
+}
+
+.action-btn.view {
+    color: var(--color-gray-400);
+}
+.action-btn.view:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+}
+
+.action-btn.edit {
+    color: #4a90e2;
+}
+.action-btn.edit:hover {
+    background: rgba(74, 144, 226, 0.1);
+}
+
+.action-btn.delete {
+    color: #ff5050;
+}
+.action-btn.delete:hover {
+    background: rgba(255, 80, 80, 0.1);
+}
