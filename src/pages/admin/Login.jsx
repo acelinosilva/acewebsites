@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../lib/firebase/config';
+import { supabase } from '../../lib/supabase';
 import { Lock, Mail, ShieldAlert } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import SEO from '../../components/SEO';
@@ -35,11 +34,17 @@ const Login = () => {
         }
 
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            const { error: authError } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (authError) throw authError;
+
             navigate('/admin', { replace: true });
         } catch (err) {
             setLoading(false);
-            setError('Falha no login: verifique suas credenciais.');
+            setError(`Falha no login: ${err.message || 'verifique suas credenciais.'}`);
             console.error(err);
         }
     };

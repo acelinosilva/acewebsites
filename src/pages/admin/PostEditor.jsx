@@ -2,9 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
-import { collection, doc, getDoc, addDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../lib/firebase/config';
+import { supabase } from '../../lib/supabase';
 import { Save, Image as ImageIcon, ArrowLeft, Loader2 } from 'lucide-react';
 import './PostEditor.css';
 
@@ -29,7 +27,7 @@ const TARGET_WIDTH = 1200;
 const TARGET_HEIGHT = 720;
 
 const PostEditor = () => {
-    // Utility to convert dataURL to Blob for safer Firebase uploads
+    // Utility to convert dataURL to Blob for Supabase uploads
     const dataURLtoBlob = (dataurl) => {
         let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
@@ -67,23 +65,27 @@ const PostEditor = () => {
 
     const fetchPost = async () => {
         try {
-            const docRef = doc(db, 'posts', id);
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const data = docSnap.data();
+            const { data, error } = await supabase
+                .from('posts')
+                .select('*')
+                .eq('id', id)
+                .single();
+
+            if (error) throw error;
+            
+            if (data) {
                 setTitle(data.title || '');
                 setSlug(data.slug || '');
                 setContent(data.content || '');
-                setMetaDescription(data.metaDescription || '');
+                setMetaDescription(data.meta_description || '');
                 setTags(data.tags ? data.tags.join(', ') : '');
                 setPublished(data.published || false);
-                setThumbnailUrl(data.thumbnailUrl || '');
-            } else {
-                alert('Post não encontrado!');
-                navigate('/admin/posts');
+                setThumbnailUrl(data.thumbnail_url || '');
             }
         } catch (error) {
             console.error("Erro ao puxar dados:", error);
+            alert('Post não encontrado!');
+            navigate('/admin/posts');
         } finally {
             setPageLoad(false);
         }
@@ -118,18 +120,15 @@ const PostEditor = () => {
                 canvas.height = TARGET_HEIGHT;
                 const ctx = canvas.getContext('2d');
 
-                // Fill background (in case of transparency)
                 ctx.fillStyle = '#000000';
                 ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
 
-                // Calculate Cover crop
                 const scale = Math.max(TARGET_WIDTH / img.width, TARGET_HEIGHT / img.height);
                 const x = (TARGET_WIDTH / scale - img.width) / 2;
                 const y = (TARGET_HEIGHT / scale - img.height) / 2;
 
                 ctx.drawImage(img, x * scale, y * scale, img.width * scale, img.height * scale);
 
-                // get resized base64
                 const resizedBase64 = canvas.toDataURL('image/jpeg', 0.85);
                 setThumbnailStr(resizedBase64);
             };
@@ -146,76 +145,65 @@ const PostEditor = () => {
             return;
         }
 
-        // Tornando a imagem opcional temporariamente para testes
-        if (!isEditing && !thumbnailStr) {
-            console.warn('Post sendo criado sem imagem de destaque.');
-        }
-
         setLoading(true);
-        console.log('--- Iniciando processo de salvamento ---');
         
         try {
             let uploadedUrl = thumbnailUrl;
 
-            // Se o usuário fez upload de uma nova imagem
+            // Handle image upload to Supabase Storage
             if (thumbnailStr) {
-                console.log('1. Convertendo imagem para Blob...');
                 const imageBlob = dataURLtoBlob(thumbnailStr);
+                const fileName = `${slug}-${Date.now()}.jpg`;
                 
-                console.log('2. Enviando imagem para Firebase Storage...');
-                const storageRef = ref(storage, `blog_images/${slug}-${Date.now()}.jpg`);
+                const { data: uploadData, error: uploadError } = await supabase.storage
+                    .from('blog-images')
+                    .upload(fileName, imageBlob, {
+                        contentType: 'image/jpeg'
+                    });
+
+                if (uploadError) throw uploadError;
                 
-                // Usando uploadBytes em vez de uploadString para maior robustez
-                await uploadBytes(storageRef, imageBlob);
-                console.log('3. Upload da imagem concluído. Obtendo URL...');
-                
-                uploadedUrl = await getDownloadURL(storageRef);
-                console.log('4. URL da imagem obtida:', uploadedUrl);
+                const { data: { publicUrl } } = supabase.storage
+                    .from('blog-images')
+                    .getPublicUrl(fileName);
+                    
+                uploadedUrl = publicUrl;
             }
 
             const postData = {
                 title,
                 slug,
                 content,
-                metaDescription,
+                meta_description: metaDescription,
                 tags: tags.split(',').map(t => t.trim()).filter(t => t),
                 published,
-                thumbnailUrl: uploadedUrl,
-                updatedAt: serverTimestamp(),
+                thumbnail_url: uploadedUrl,
+                updated_at: new Date().toISOString(),
             };
 
             if (isEditing) {
-                console.log('5. Atualizando documento no Firestore...');
-                await updateDoc(doc(db, 'posts', id), postData);
-                console.log('6. Atualização concluída!');
+                const { error: updateError } = await supabase
+                    .from('posts')
+                    .update(postData)
+                    .eq('id', id);
+
+                if (updateError) throw updateError;
                 alert('Post atualizado com sucesso!');
             } else {
-                console.log('5. Criando novo documento no Firestore...');
-                postData.createdAt = serverTimestamp();
-                await addDoc(collection(db, 'posts'), postData);
-                console.log('6. Criação concluída!');
+                postData.created_at = new Date().toISOString();
+                const { error: insertError } = await supabase
+                    .from('posts')
+                    .insert([postData]);
+
+                if (insertError) throw insertError;
                 alert('Post criado com sucesso!');
                 navigate('/admin/posts');
             }
         } catch (error) {
-            console.error('--- ERRO DETALHADO AO SALVAR ---');
-            console.error('Código do Erro:', error.code);
-            console.error('Mensagem do Erro:', error.message);
-            console.error('Stack:', error.stack);
-            
-            let userMessage = 'Ocorreu um erro ao salvar o post.';
-            if (error.code === 'storage/unauthorized') {
-                userMessage = 'Erro de permissão no Storage: Verifique as regras de segurança do Firebase Storage.';
-            } else if (error.code === 'permission-denied') {
-                userMessage = 'Erro de permissão no Firestore: Verifique as regras de segurança do banco de dados.';
-            } else if (error.message.includes('network')) {
-                userMessage = 'Erro de conexão: Verifique sua internet.';
-            }
-            
-            alert(`${userMessage}\n\nDetalhes: ${error.code || error.message}`);
+            console.error('Erro ao salvar:', error);
+            alert(`Erro ao salvar post: ${error.message}`);
         } finally {
             setLoading(false);
-            console.log('--- Fim do processo de salvamento ---');
         }
     };
 

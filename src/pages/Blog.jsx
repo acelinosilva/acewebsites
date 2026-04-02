@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, query, where, orderBy, getDocs } from 'firebase/firestore';
-import { db } from '../lib/firebase/config';
+import { supabase } from '../lib/supabase';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { motion } from 'framer-motion';
@@ -17,62 +16,22 @@ const Blog = () => {
     const fetchPosts = async () => {
         setLoading(true);
         setError(null);
-        console.log('--- Iniciando busca de posts públicos ---');
-        console.log('Projeto:', 'aceweb-36eb2');
         
-        const timeoutPromise = (ms) => new Promise((_, reject) => 
-            setTimeout(() => reject(new Error('timeout')), ms)
-        );
-
         try {
-            console.log('1. Tentando busca filtrada e ordenada...');
-            const q1 = query(
-                collection(db, 'posts'), 
-                where('published', '==', true),
-                orderBy('createdAt', 'desc')
-            );
-            
-            try {
-                const querySnapshot = await Promise.race([
-                    getDocs(q1),
-                    timeoutPromise(10000)
-                ]);
-                
-                const postsData = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setPosts(postsData);
-                console.log('Busca pública normal concluída!');
-            } catch (firstErr) {
-                console.warn('Busca filtrada falhou. Tentando busca total sem Filtros/Ordem...');
-                
-                const q2 = query(collection(db, 'posts'));
-                const querySnapshot2 = await Promise.race([
-                    getDocs(q2),
-                    timeoutPromise(10000)
-                ]);
-                
-                let postsData = querySnapshot2.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                
-                // Manual filter and sort for fallback
-                postsData = postsData
-                    .filter(p => p.published === true)
-                    .sort((a, b) => (b.createdAt?.toDate() || 0) - (a.createdAt?.toDate() || 0));
-                
-                setPosts(postsData);
-                console.log('Busca de emergência (Blog) concluída!');
-            }
+            const { data, error: fetchError } = await supabase
+                .from('posts')
+                .select('*')
+                .eq('published', true)
+                .order('created_at', { ascending: false });
+
+            if (fetchError) throw fetchError;
+
+            setPosts(data || []);
         } catch (err) {
-            console.error('--- ERRO CRÍTICO NO BLOG ---');
-            console.error('Projeto ID:', 'aceweb-36eb2');
-            setError('Falha de conexão com o banco de dados. Verifique o console para detalhes.');
+            console.error('Erro ao buscar posts:', err);
+            setError('Falha ao carregar artigos. Verifique sua conexão.');
         } finally {
             setLoading(false);
-            console.log('--- Fim da busca de posts públicos ---');
         }
     };
 
@@ -141,8 +100,8 @@ const Blog = () => {
                                 >
                                     <Link to={`/blog/${post.slug}`} className="blog-card__img-link">
                                         <div className="blog-card__img-wrapper">
-                                            {post.thumbnailUrl ? (
-                                                <img src={post.thumbnailUrl} alt={post.title} />
+                                            {post.thumbnail_url ? (
+                                                <img src={post.thumbnail_url} alt={post.title} />
                                             ) : (
                                                 <div className="blog-card__placeholder">
                                                     <BookOpen size={48} className="placeholder-icon" />
@@ -156,9 +115,9 @@ const Blog = () => {
                                     
                                     <div className="blog-card__content">
                                         <div className="blog-card__meta">
-                                            {post.createdAt && (
+                                            {post.created_at && (
                                                 <span className="blog-card__date">
-                                                    {format(post.createdAt.toDate(), "dd 'de' MMMM, yyyy", { locale: ptBR })}
+                                                    {format(new Date(post.created_at), "dd 'de' MMMM, yyyy", { locale: ptBR })}
                                                 </span>
                                             )}
                                         </div>
@@ -168,7 +127,7 @@ const Blog = () => {
                                         </Link>
                                         
                                         <p className="blog-card__excerpt">
-                                            {post.metaDescription || "Clique para ler o artigo completo..."}
+                                            {post.meta_description || "Clique para ler o artigo completo..."}
                                         </p>
                                         
                                         <div className="blog-card__footer">

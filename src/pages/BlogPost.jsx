@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, limit } from 'firebase/firestore';
-import { db } from '../lib/firebase/config';
+import { supabase } from '../lib/supabase';
 import DOMPurify from 'dompurify';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -19,17 +18,20 @@ const BlogPost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const q = query(collection(db, 'posts'), where('slug', '==', slug), limit(1));
-                const querySnapshot = await getDocs(q);
+                const { data, error } = await supabase
+                    .from('posts')
+                    .select('*')
+                    .eq('slug', slug)
+                    .single();
+
+                if (error) throw error;
                 
-                if (!querySnapshot.empty) {
-                    const postData = querySnapshot.docs[0].data();
-                    if (!postData.published) {
-                        // User trying to view unpublished without admin context => hide
+                if (data) {
+                    if (!data.published) {
                         navigate('/blog');
                         return;
                     }
-                    setPost({ id: querySnapshot.docs[0].id, ...postData });
+                    setPost(data);
                 } else {
                     navigate('/blog');
                 }
@@ -75,9 +77,9 @@ const BlogPost = () => {
             
             <SEO 
                 title={post.title}
-                description={post.metaDescription}
+                description={post.meta_description}
                 canonical={`/blog/${post.slug}`}
-                image={post.thumbnailUrl}
+                image={post.thumbnail_url}
                 keywords={post.tags?.join(', ')}
             />
 
@@ -91,10 +93,10 @@ const BlogPost = () => {
                         </Link>
                         
                         <div className="post-meta">
-                            {post.createdAt && (
+                            {post.created_at && (
                                 <span className="post-meta-item">
                                     <Calendar size={16} />
-                                    {format(post.createdAt.toDate(), "dd 'de' MMMM, yyyy", { locale: ptBR })}
+                                    {format(new Date(post.created_at), "dd 'de' MMMM, yyyy", { locale: ptBR })}
                                 </span>
                             )}
                             <div className="post-tags-header">
@@ -115,9 +117,9 @@ const BlogPost = () => {
                         
                         {/* Main Content */}
                         <div className="post-main">
-                            {post.thumbnailUrl && (
+                            {post.thumbnail_url && (
                                 <div className="post-cover">
-                                    <img src={post.thumbnailUrl} alt={post.title} />
+                                    <img src={post.thumbnail_url} alt={post.title} />
                                 </div>
                             )}
 
