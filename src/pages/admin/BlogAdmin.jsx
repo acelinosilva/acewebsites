@@ -153,7 +153,13 @@ const BlogAdmin = () => {
                                 <tr key={post.id}>
                                     <td className="admin-table__title">
                                         <div className="admin-table__img-wrapper">
-                                            {post.thumbnailUrl && <img src={post.thumbnailUrl} alt={post.title} />}
+                                            {post.thumbnailUrl ? (
+                                                <img src={post.thumbnailUrl} alt={post.title} />
+                                            ) : (
+                                                <div className="admin-table__placeholder">
+                                                    <BookOpen size={20} />
+                                                </div>
+                                            )}
                                         </div>
                                         <span>{post.title}</span>
                                     </td>

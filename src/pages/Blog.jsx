@@ -141,7 +141,13 @@ const Blog = () => {
                                 >
                                     <Link to={`/blog/${post.slug}`} className="blog-card__img-link">
                                         <div className="blog-card__img-wrapper">
-                                            {post.thumbnailUrl && <img src={post.thumbnailUrl} alt={post.title} />}
+                                            {post.thumbnailUrl ? (
+                                                <img src={post.thumbnailUrl} alt={post.title} />
+                                            ) : (
+                                                <div className="blog-card__placeholder">
+                                                    <BookOpen size={48} className="placeholder-icon" />
+                                                </div>
+                                            )}
                                             <div className="blog-card__img-overlay">
                                                 <ArrowRight size={24} />
                                             </div>
