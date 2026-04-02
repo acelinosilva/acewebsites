@@ -73,19 +73,19 @@
 
 .post-layout {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: var(--spacing-4xl);
-    align-items: start;
+    grid-template-columns: minmax(0, 850px) 320px;
+    gap: var(--spacing-3xl); /* Slightly smaller gap for better alignment */
+    justify-content: center; /* Center the whole layout in the container */
 }
 
 .post-main {
-    min-width: 0; /* Prevents grid breakout */
+    min-width: 0;
 }
 
 .post-cover {
     width: 100%;
-    max-width: 1000px; /* Limit hero image width */
-    margin: 0 auto var(--spacing-3xl);
+    max-width: 850px; /* Same as post-body */
+    margin-bottom: var(--spacing-2xl);
     border-radius: var(--radius-xl);
     overflow: hidden;
     aspect-ratio: 16 / 9;
@@ -100,8 +100,7 @@
 }
 
 .post-body {
-    max-width: 800px; /* Optimized for reading */
-    margin: 0 auto;
+    max-width: 850px; /* Aligned with image */
 }
 
 /* Sidebar */
