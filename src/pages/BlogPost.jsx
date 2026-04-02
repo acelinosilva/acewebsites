@@ -13,11 +13,13 @@ const BlogPost = () => {
     const { slug } = useParams();
     const navigate = useNavigate();
     const [post, setPost] = useState(null);
+    const [relatedPosts, setRelatedPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchPost = async () => {
+        const fetchPostData = async () => {
             try {
+                // 1. Fetch current post
                 const { data, error } = await supabase
                     .from('posts')
                     .select('*')
@@ -32,18 +34,31 @@ const BlogPost = () => {
                         return;
                     }
                     setPost(data);
+
+                    // 2. Fetch related posts (latest 3 excluding current)
+                    const { data: related, error: relatedError } = await supabase
+                        .from('posts')
+                        .select('id, title, slug, thumbnail_url, created_at')
+                        .eq('published', true)
+                        .neq('id', data.id)
+                        .limit(3)
+                        .order('created_at', { ascending: false });
+
+                    if (!relatedError) {
+                        setRelatedPosts(related || []);
+                    }
                 } else {
                     navigate('/blog');
                 }
             } catch (error) {
-                console.error("Error fetching post:", error);
+                console.error("Error fetching post data:", error);
                 navigate('/blog');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchPost();
+        fetchPostData();
     }, [slug, navigate]);
 
     if (loading) {
@@ -154,19 +169,40 @@ const BlogPost = () => {
                                 </div>
                             )}
 
-                            <motion.div 
-                                className="post-content"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                dangerouslySetInnerHTML={{ __html: cleanHTML }} 
-                            />
+                            <div className="post-body">
+                                <motion.div 
+                                    className="post-content"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.8 }}
+                                    dangerouslySetInnerHTML={{ __html: cleanHTML }} 
+                                />
+                            </div>
                         </div>
 
                         {/* Sidebar */}
                         <aside className="post-sidebar">
+                            {relatedPosts.length > 0 && (
+                                <div className="sidebar-widget">
+                                    <h3>Artigos Relacionados</h3>
+                                    <div className="related-posts-list">
+                                        {relatedPosts.map(rp => (
+                                            <Link to={`/blog/${rp.slug}`} key={rp.id} className="related-post-card">
+                                                <div className="related-post-thumb">
+                                                    <img src={rp.thumbnail_url || 'https://acewebsites.com.br/og-image.jpg'} alt={rp.title} />
+                                                </div>
+                                                <div className="related-post-info">
+                                                    <h4>{rp.title}</h4>
+                                                    <span>{format(new Date(rp.created_at), "dd 'de' MMM", { locale: ptBR })}</span>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             <div className="sidebar-widget">
-                                <h3>Compartilhar Artigo</h3>
+                                <h3>Compartilhar</h3>
                                 <div className="share-buttons">
                                     <a 
                                         href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' ' + shareUrl)}`} 
