@@ -101,10 +101,10 @@
     color: var(--color-primary);
 }
 
-/* Three Column Grid */
+/* Three Column Grid - Rigid Fit */
 .post-container-new {
     width: 100%;
-    max-width: 1320px; /* Precise fit for 80 + 850 + 340 + gaps */
+    max-width: 1220px; /* Conservative fit */
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
     padding-top: var(--spacing-3xl);
@@ -112,20 +112,19 @@
 }
 
 .post-grid-layout {
-    display: flex;
-    gap: var(--spacing-4xl);
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 60px minmax(0, 780px) 300px;
+    grid-template-areas: "social content sidebar";
+    gap: var(--spacing-3xl);
+    align-items: start;
     justify-content: center;
 }
 
 /* Left Social Sticky */
 .post-social-sticky {
-    width: 80px;
-    flex-shrink: 0;
+    grid-area: social;
     position: sticky;
     top: 150px;
-    display: flex;
-    justify-content: center;
 }
 
 .social-sticky-inner {
@@ -172,9 +171,9 @@
 
 /* Main Content */
 .post-main-content {
-    flex: 1;
+    grid-area: content;
     min-width: 0;
-    max-width: 850px;
+    max-width: 100%;
 }
 
 .post-hero-image {
@@ -193,15 +192,15 @@
 }
 
 .post-text-content {
-    max-width: 100%; /* Respect parent max-width */
+    max-width: 100%; 
     font-size: 1.15rem;
     line-height: 1.8;
+    overflow-wrap: break-word; /* Prevents long words/links from breaking layout */
 }
 
 /* Sidebar New */
 .post-right-sidebar {
-    width: 320px;
-    flex-shrink: 0;
+    grid-area: sidebar;
     position: sticky;
     top: 150px;
     display: flex;
