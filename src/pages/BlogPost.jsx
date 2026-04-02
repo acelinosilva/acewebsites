@@ -130,46 +130,62 @@ const BlogPost = () => {
             </script>
 
             <article className="post-article">
-                {/* Hero / Header */}
-                <header className="post-header">
+                {/* Top Header Section */}
+                <header className="post-header-new">
                     <div className="container">
                         <Link to="/blog" className="post-back-link">
-                            <ArrowLeft size={16} />
-                            Voltar para o Blog
+                            <ArrowLeft size={16} /> Voltar para o Blog
                         </Link>
+                        <h1 className="post-title-main">{post.title}</h1>
                         
-                        <div className="post-meta">
-                            {post.created_at && (
-                                <span className="post-meta-item">
-                                    <Calendar size={16} />
-                                    {format(new Date(post.created_at), "dd 'de' MMMM, yyyy", { locale: ptBR })}
-                                </span>
-                            )}
-                            <div className="post-tags-header">
-                                {post.tags?.map(t => (
-                                    <span key={t} className="post-meta-item tag">
-                                        <Tag size={14} /> {t}
+                        <div className="post-author-meta">
+                            <div className="author-info">
+                                <div className="author-avatar">
+                                    <img src="https://acewebsites.com.br/favicon.png" alt="AceWeb Team" />
+                                </div>
+                                <div className="author-details">
+                                    <span className="author-name">Equipe AceWeb</span>
+                                    <span className="post-date">
+                                        Publicado em {format(new Date(post.created_at), "dd 'de' MMMM, yyyy", { locale: ptBR })}
                                     </span>
-                                ))}
+                                </div>
+                            </div>
+                            
+                            <div className="header-share-links">
+                                <span>Compartilhar:</span>
+                                <div className="share-icons">
+                                    <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' ' + shareUrl)}`} target="_blank" rel="noopener noreferrer"><Share2 size={18} /></a>
+                                </div>
                             </div>
                         </div>
-
-                        <h1 className="post-title">{post.title}</h1>
                     </div>
                 </header>
 
-                <div className="container post-container">
-                    <div className="post-layout">
+                <div className="container post-container-new">
+                    <div className="post-grid-layout">
                         
-                        {/* Main Content */}
-                        <div className="post-main">
+                        {/* LEFT: Sticky Social Bar */}
+                        <aside className="post-social-sticky">
+                            <div className="social-sticky-inner">
+                                <span className="share-label">SHARE</span>
+                                <div className="sticky-icons">
+                                    <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' ' + shareUrl)}`} target="_blank" rel="noopener noreferrer" className="sticky-link whatsapp">
+                                        <Share2 size={20} />
+                                    </a>
+                                    {/* Add more icons if needed */}
+                                </div>
+                            </div>
+                        </aside>
+
+                        {/* MIDDLE: Main Content Area */}
+                        <div className="post-main-content">
                             {post.thumbnail_url && (
-                                <div className="post-cover">
+                                <div className="post-hero-image">
                                     <img src={post.thumbnail_url} alt={post.title} />
                                 </div>
                             )}
 
-                            <div className="post-body">
+                            <div className="post-text-content">
                                 <motion.div 
                                     className="post-content"
                                     initial={{ opacity: 0 }}
@@ -180,46 +196,34 @@ const BlogPost = () => {
                             </div>
                         </div>
 
-                        {/* Sidebar */}
-                        <aside className="post-sidebar">
-                            {relatedPosts.length > 0 && (
-                                <div className="sidebar-widget">
-                                    <h3>Artigos Relacionados</h3>
-                                    <div className="related-posts-list">
-                                        {relatedPosts.map(rp => (
-                                            <Link to={`/blog/${rp.slug}`} key={rp.id} className="related-post-card">
-                                                <div className="related-post-thumb">
+                        {/* RIGHT: Sidebar */}
+                        <aside className="post-right-sidebar">
+                            <div className="sidebar-widget-new">
+                                <h3>Posts Recentes</h3>
+                                <div className="recent-posts-list">
+                                    {relatedPosts.length > 0 ? (
+                                        relatedPosts.map(rp => (
+                                            <Link to={`/blog/${rp.slug}`} key={rp.id} className="recent-post-item">
+                                                <div className="recent-thumb">
                                                     <img src={rp.thumbnail_url || 'https://acewebsites.com.br/og-image.jpg'} alt={rp.title} />
                                                 </div>
-                                                <div className="related-post-info">
+                                                <div className="recent-info">
                                                     <h4>{rp.title}</h4>
                                                     <span>{format(new Date(rp.created_at), "dd 'de' MMM", { locale: ptBR })}</span>
                                                 </div>
                                             </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            <div className="sidebar-widget">
-                                <h3>Compartilhar</h3>
-                                <div className="share-buttons">
-                                    <a 
-                                        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + ' ' + shareUrl)}`} 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                        className="share-btn whatsapp"
-                                    >
-                                        <Share2 size={16} /> WhatsApp
-                                    </a>
+                                        ))
+                                    ) : (
+                                        <p>Nenhum outro post encontrado.</p>
+                                    )}
                                 </div>
                             </div>
-                            
-                            <div className="sidebar-widget bg-cta">
-                                <h3>Gostou do conteúdo?</h3>
-                                <p>A AceWeb é especialista em transformar negócios através de sites de alta performance. Aplique este conhecimento ou contrate quem entende do assunto.</p>
-                                <Link to="/contato" className="btn btn-primary btn-sm">
-                                    Falar com Especialista
+
+                            <div className="sidebar-widget-new bg-accent">
+                                <h3>AceWeb Consultoria</h3>
+                                <p>Criamos sites de alta conversão que colocam sua empresa no topo do Google.</p>
+                                <Link to="/contato" className="btn btn-primary btn-sm btn-block">
+                                    Pedir Orçamento
                                 </Link>
                             </div>
                         </aside>
