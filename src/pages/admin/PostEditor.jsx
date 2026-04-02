@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { collection, doc, getDoc, addDoc, updateDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadString, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../lib/firebase/config';
 import { Save, Image as ImageIcon, ArrowLeft, Loader2 } from 'lucide-react';
 import './PostEditor.css';
@@ -29,6 +29,16 @@ const TARGET_WIDTH = 1200;
 const TARGET_HEIGHT = 720;
 
 const PostEditor = () => {
+    // Utility to convert dataURL to Blob for safer Firebase uploads
+    const dataURLtoBlob = (dataurl) => {
+        let arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], {type:mime});
+    };
+
     const { id } = useParams();
     const navigate = useNavigate();
     const isEditing = !!id;
@@ -142,14 +152,25 @@ const PostEditor = () => {
         }
 
         setLoading(true);
+        console.log('--- Iniciando processo de salvamento ---');
+        
         try {
             let uploadedUrl = thumbnailUrl;
 
             // Se o usuário fez upload de uma nova imagem
             if (thumbnailStr) {
+                console.log('1. Convertendo imagem para Blob...');
+                const imageBlob = dataURLtoBlob(thumbnailStr);
+                
+                console.log('2. Enviando imagem para Firebase Storage...');
                 const storageRef = ref(storage, `blog_images/${slug}-${Date.now()}.jpg`);
-                await uploadString(storageRef, thumbnailStr, 'data_url');
+                
+                // Usando uploadBytes em vez de uploadString para maior robustez
+                await uploadBytes(storageRef, imageBlob);
+                console.log('3. Upload da imagem concluído. Obtendo URL...');
+                
                 uploadedUrl = await getDownloadURL(storageRef);
+                console.log('4. URL da imagem obtida:', uploadedUrl);
             }
 
             const postData = {
@@ -164,19 +185,37 @@ const PostEditor = () => {
             };
 
             if (isEditing) {
+                console.log('5. Atualizando documento no Firestore...');
                 await updateDoc(doc(db, 'posts', id), postData);
+                console.log('6. Atualização concluída!');
                 alert('Post atualizado com sucesso!');
             } else {
+                console.log('5. Criando novo documento no Firestore...');
                 postData.createdAt = serverTimestamp();
                 await addDoc(collection(db, 'posts'), postData);
+                console.log('6. Criação concluída!');
                 alert('Post criado com sucesso!');
                 navigate('/admin/posts');
             }
         } catch (error) {
-            console.error('Erro ao salvar:', error);
-            alert('Ocorreu um erro ao salvar o post.');
+            console.error('--- ERRO DETALHADO AO SALVAR ---');
+            console.error('Código do Erro:', error.code);
+            console.error('Mensagem do Erro:', error.message);
+            console.error('Stack:', error.stack);
+            
+            let userMessage = 'Ocorreu um erro ao salvar o post.';
+            if (error.code === 'storage/unauthorized') {
+                userMessage = 'Erro de permissão no Storage: Verifique as regras de segurança do Firebase Storage.';
+            } else if (error.code === 'permission-denied') {
+                userMessage = 'Erro de permissão no Firestore: Verifique as regras de segurança do banco de dados.';
+            } else if (error.message.includes('network')) {
+                userMessage = 'Erro de conexão: Verifique sua internet.';
+            }
+            
+            alert(`${userMessage}\n\nDetalhes: ${error.code || error.message}`);
         } finally {
             setLoading(false);
+            console.log('--- Fim do processo de salvamento ---');
         }
     };
 

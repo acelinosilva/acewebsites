@@ -12,29 +12,71 @@ import './Blog.css';
 const Blog = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchPosts = async () => {
+    const fetchPosts = async () => {
+        setLoading(true);
+        setError(null);
+        console.log('--- Iniciando busca de posts públicos ---');
+        console.log('Projeto:', 'aceweb-36eb2');
+        
+        const timeoutPromise = (ms) => new Promise((_, reject) => 
+            setTimeout(() => reject(new Error('timeout')), ms)
+        );
+
+        try {
+            console.log('1. Tentando busca filtrada e ordenada...');
+            const q1 = query(
+                collection(db, 'posts'), 
+                where('published', '==', true),
+                orderBy('createdAt', 'desc')
+            );
+            
             try {
-                // Fetch only published posts, ordered by date
-                const q = query(
-                    collection(db, 'posts'), 
-                    where('published', '==', true),
-                    orderBy('createdAt', 'desc')
-                );
-                const querySnapshot = await getDocs(q);
+                const querySnapshot = await Promise.race([
+                    getDocs(q1),
+                    timeoutPromise(10000)
+                ]);
+                
                 const postsData = querySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 }));
                 setPosts(postsData);
-            } catch (error) {
-                console.error("Error fetching blog posts:", error);
-            } finally {
-                setLoading(false);
+                console.log('Busca pública normal concluída!');
+            } catch (firstErr) {
+                console.warn('Busca filtrada falhou. Tentando busca total sem Filtros/Ordem...');
+                
+                const q2 = query(collection(db, 'posts'));
+                const querySnapshot2 = await Promise.race([
+                    getDocs(q2),
+                    timeoutPromise(10000)
+                ]);
+                
+                let postsData = querySnapshot2.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                
+                // Manual filter and sort for fallback
+                postsData = postsData
+                    .filter(p => p.published === true)
+                    .sort((a, b) => (b.createdAt?.toDate() || 0) - (a.createdAt?.toDate() || 0));
+                
+                setPosts(postsData);
+                console.log('Busca de emergência (Blog) concluída!');
             }
-        };
+        } catch (err) {
+            console.error('--- ERRO CRÍTICO NO BLOG ---');
+            console.error('Projeto ID:', 'aceweb-36eb2');
+            setError('Falha de conexão com o banco de dados. Verifique o console para detalhes.');
+        } finally {
+            setLoading(false);
+            console.log('--- Fim da busca de posts públicos ---');
+        }
+    };
 
+    useEffect(() => {
         fetchPosts();
     }, []);
 
@@ -74,7 +116,14 @@ const Blog = () => {
             <section className="section blog-list-section">
                 <div className="container">
                     {loading ? (
-                        <div className="admin-loading">Carregando artigos...</div>
+                        <div className="blog-loading-container">
+                            <div className="admin-loading">Carregando artigos...</div>
+                        </div>
+                    ) : error ? (
+                        <div className="blog-error">
+                            <p>{error}</p>
+                            <button onClick={fetchPosts} className="btn-retry">Tentar Novamente</button>
+                        </div>
                     ) : posts.length === 0 ? (
                         <div className="blog-empty">
                             <p>Nenhum artigo publicado no momento. Volte em breve!</p>
