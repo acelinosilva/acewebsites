@@ -35,6 +35,19 @@
     font-weight: 700;
 }
 
+@media (max-width: 480px) {
+    .promo-bar {
+        font-size: 12px;
+        padding: 6px var(--spacing-md);
+    }
+
+    .promo-bar__container {
+        flex-wrap: wrap;
+        gap: 4px;
+        line-height: 1.2;
+    }
+}
+
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.1); }
