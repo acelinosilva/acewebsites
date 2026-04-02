@@ -146,9 +146,9 @@ const PostEditor = () => {
             return;
         }
 
+        // Tornando a imagem opcional temporariamente para testes
         if (!isEditing && !thumbnailStr) {
-            alert('É obrigatório enviar uma imagem de destaque.');
-            return;
+            console.warn('Post sendo criado sem imagem de destaque.');
         }
 
         setLoading(true);
