@@ -66,6 +66,11 @@
 }
 
 /* Main Container Layout */
+.post-container, 
+.post-header .container {
+    max-width: 1220px; /* Matches 850px content + 320px sidebar + gap */
+}
+
 .post-container {
     padding-top: var(--spacing-3xl);
     padding-bottom: var(--spacing-4xl);
