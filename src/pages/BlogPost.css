@@ -103,15 +103,20 @@
 
 /* Three Column Grid */
 .post-container-new {
+    width: 100%;
+    max-width: 1320px; /* Precise fit for 80 + 850 + 340 + gaps */
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
     padding-top: var(--spacing-3xl);
     padding-bottom: var(--spacing-4xl);
 }
 
 .post-grid-layout {
     display: grid;
-    grid-template-columns: 80px 1fr 340px;
-    gap: var(--spacing-3xl);
+    grid-template-columns: 80px minmax(0, 850px) 320px; /* Reduced sidebar slightly for better fit */
+    gap: var(--spacing-4xl); /* Larger gap for clarity */
     align-items: start;
+    justify-content: center;
 }
 
 /* Left Social Sticky */
