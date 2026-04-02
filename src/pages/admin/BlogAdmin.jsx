@@ -25,12 +25,20 @@ const BlogAdmin = () => {
                 .select('*')
                 .order('created_at', { ascending: false });
 
-            if (fetchError) throw fetchError;
+            if (fetchError) {
+                console.error('--- DETALHE DO ERRO SUPABASE ---');
+                console.error('Código:', fetchError.code);
+                console.error('Mensagem:', fetchError.message);
+                console.error('Dica:', fetchError.hint);
+                console.error('Detalhes:', fetchError.details);
+                throw fetchError;
+            }
 
+            console.log('Posts carregados do Supabase:', data);
             setPosts(data || []);
         } catch (err) {
             console.error('Erro ao buscar posts:', err);
-            setError(`Não foi possível conectar ao banco de dados: ${err.message}`);
+            setError(`Não foi possível conectar ao banco de dados: ${err.message || 'Erro Desconhecido'}`);
         } finally {
             setLoading(false);
         }
@@ -105,8 +113,8 @@ const BlogAdmin = () => {
                                 <tr key={post.id}>
                                     <td className="admin-table__title">
                                         <div className="admin-table__img-wrapper">
-                                            {post.thumbnailUrl ? (
-                                                <img src={post.thumbnailUrl} alt={post.title} />
+                                            {post.thumbnail_url ? (
+                                                <img src={post.thumbnail_url} alt={post.title} />
                                             ) : (
                                                 <div className="admin-table__placeholder">
                                                     <BookOpen size={20} />

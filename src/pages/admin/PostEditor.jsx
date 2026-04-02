@@ -182,25 +182,29 @@ const PostEditor = () => {
             };
 
             if (isEditing) {
-                const { error: updateError } = await supabase
+                const { data: updateData, error: updateError } = await supabase
                     .from('posts')
                     .update(postData)
-                    .eq('id', id);
+                    .eq('id', id)
+                    .select();
 
                 if (updateError) throw updateError;
+                console.log('Post atualizado no Supabase:', updateData);
                 alert('Post atualizado com sucesso!');
             } else {
                 postData.created_at = new Date().toISOString();
-                const { error: insertError } = await supabase
+                const { data: insertData, error: insertError } = await supabase
                     .from('posts')
-                    .insert([postData]);
+                    .insert([postData])
+                    .select();
 
                 if (insertError) throw insertError;
+                console.log('Post inserido no Supabase:', insertData);
                 alert('Post criado com sucesso!');
                 navigate('/admin/posts');
             }
         } catch (error) {
-            console.error('Erro ao salvar:', error);
+            console.error('Erro detalhado ao salvar:', error);
             alert(`Erro ao salvar post: ${error.message}`);
         } finally {
             setLoading(false);
