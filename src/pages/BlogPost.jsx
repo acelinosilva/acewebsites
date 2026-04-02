@@ -59,6 +59,33 @@ const BlogPost = () => {
 
     const shareUrl = window.location.href;
 
+    // Structured Data for SEO
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "image": post.thumbnail_url,
+        "author": {
+            "@type": "Organization",
+            "name": "AceWeb"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AceWeb",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://acewebsites.com.br/logo.png"
+            }
+        },
+        "datePublished": post.created_at,
+        "dateModified": post.updated_at || post.created_at,
+        "description": post.meta_description,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": shareUrl
+        }
+    };
+
     // Custom overrides for Quill formatting on public side
     const quillCSS = `
         .post-content h2 { font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem; color: var(--color-primary); }
@@ -82,6 +109,10 @@ const BlogPost = () => {
                 image={post.thumbnail_url}
                 keywords={post.tags?.join(', ')}
             />
+
+            <script type="application/ld+json">
+                {JSON.stringify(jsonLd)}
+            </script>
 
             <article className="post-article">
                 {/* Hero / Header */}
