@@ -445,7 +445,7 @@
 
 @media (max-width: 768px) {
     .hero-clean {
-        padding-top: 100px;
+        padding-top: 160px;
         padding-bottom: var(--spacing-2xl);
     }
 
