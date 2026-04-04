@@ -50,8 +50,8 @@ const Home = () => {
     return (
         <main className="home">
             <SEO
-                title="Criação de Sites em Brasília DF | Criação de Sites Profissionais Para todo o Brasil | Ace Websites |"
-                description="Agência de Criação de Sites em Brasília. Desenvolvemos sites profissionais, lojas virtuais e landing pages otimizadas para o Google. Planos a partir de R$ 400. Solicite um orçamento!"
+                title="Criação de Sites Profissionais em Brasília-DF e Todo o Brasil"
+                description="Especialistas em criação de sites em Brasília - DF e para todo o Brasil. Sites com SEO, design moderno e entrega rápida. Entre em contato agora!"
             />
             <SchemaMarkup />
             {/* Hero Section - Clean Layout & SEO Optimized */}
