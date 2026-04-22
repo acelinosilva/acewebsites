@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { createClient } from '@supabase/supabase-js';
+import { brazilianStates } from '../src/data/states.js';
 
 // Configuration - Match your src/lib/supabase.js
 const supabaseUrl = 'https://vcixfhqjhcxioubvomhx.supabase.co';
@@ -61,11 +62,11 @@ ${posts.map(post => `  <url>
     <priority>0.7</priority>
   </url>`).join('\n')}
 
-  <!-- Landing Pages por Estado (Resumido para o exemplo, você pode expandir) -->
-  <url><loc>${siteUrl}/locais/criacao-de-sites-em-sao-paulo</loc><priority>0.8</priority></url>
-  <url><loc>${siteUrl}/locais/criacao-de-sites-em-rio-de-janeiro</loc><priority>0.8</priority></url>
-  <url><loc>${siteUrl}/locais/criacao-de-sites-em-minas-gerais</loc><priority>0.8</priority></url>
-  <url><loc>${siteUrl}/locais/criacao-de-sites-em-distrito-federal</loc><priority>0.9</priority></url>
+  <!-- Landing Pages por Estado -->
+${brazilianStates.map(state => `  <url>
+    <loc>${siteUrl}/locais/criacao-de-sites-em-${state.slug}</loc>
+    <priority>0.8</priority>
+  </url>`).join('\n')}
 </urlset>`;
 
     // 3. Write to public/sitemap.xml
