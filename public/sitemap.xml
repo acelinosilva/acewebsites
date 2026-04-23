@@ -61,110 +61,137 @@
   <!-- Landing Pages por Estado -->
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-acre</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-alagoas</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-amapa</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-amazonas</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-bahia</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-ceara</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-distrito-federal</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-espirito-santo</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-goias</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-maranhao</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-mato-grosso</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-mato-grosso-do-sul</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-minas-gerais</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-para</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-paraiba</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-parana</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-pernambuco</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-piaui</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-rio-de-janeiro</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-rio-grande-do-norte</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-rio-grande-do-sul</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-rondonia</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-roraima</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-santa-catarina</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-sao-paulo</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-sergipe</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.acewebsites.com.br/locais/criacao-de-sites-em-tocantins</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>

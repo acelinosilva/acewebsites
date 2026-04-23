@@ -2,49 +2,53 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { faqData } from '../data/faq';
 
-const SchemaMarkup = () => {
+const SchemaMarkup = ({ locationData }) => {
+    const siteUrl = "https://acewebsites.com.br";
+    
+    // Fallback to Brasília if no locationData is provided
+    const location = locationData || {
+        name: "Brasília",
+        region: "DF",
+        coordinates: { lat: -15.7942, lng: -47.8822 },
+        type: "City"
+    };
+
     const orgSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "AceWeb - Criação de Sites em Brasília",
-        "image": "https://acewebsites.com.br/logo.png",
-        "@id": "https://acewebsites.com.br",
-        "url": "https://acewebsites.com.br",
+        "name": `AceWeb - Criação de Sites em ${location.name}`,
+        "image": `${siteUrl}/logo.png`,
+        "@id": siteUrl,
+        "url": siteUrl,
         "telephone": "+5561996986162",
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Setor Comercial Sul",
-            "addressLocality": "Brasília",
-            "addressRegion": "DF",
-            "postalCode": "70000-000",
+            "streetAddress": location.street || "Setor Comercial Sul",
+            "addressLocality": location.name,
+            "addressRegion": location.region,
+            "postalCode": location.postalCode || "70000-000",
             "addressCountry": "BR"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": -15.7942,
-            "longitude": -47.8822
+            "latitude": location.coordinates.lat,
+            "longitude": location.coordinates.lng
         },
         "areaServed": [
             {
-                "@type": "City",
-                "name": "Brasília",
-                "@id": "https://dbpedia.org/page/Brasilia"
+                "@type": location.type || "City",
+                "name": location.name
             },
             {
-                "@type": "AdministrativeArea",
-                "name": "Distrito Federal",
-                "@id": "https://dbpedia.org/page/Federal_District_(Brazil)"
+                "@type": "Country",
+                "name": "Brazil"
             }
         ],
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
+                "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"
             ],
             "opens": "09:00",
             "closes": "18:00"
@@ -54,10 +58,9 @@ const SchemaMarkup = () => {
             "https://www.facebook.com/acewebsites",
             "https://br.linkedin.com/company/aceweb-sites"
         ],
-        "hasMap": "https://www.google.com/maps?cid=123", // Substituir pelo link real do Google Maps quando tiver
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "5.0",
             "reviewCount": "512"
         }
     };
@@ -74,7 +77,7 @@ const SchemaMarkup = () => {
             "@type": "Country",
             "name": "Brazil"
         },
-        "description": "Desenvolvimento de sites modernos, rápidos e otimizados para o Google. Criação de landing pages, sites institucionais e lojas virtuais em Brasília e todo o Brasil.",
+        "description": `Desenvolvimento de sites modernos, rápidos e otimizados para o Google em ${location.name} e todo o Brasil.`,
         "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock"

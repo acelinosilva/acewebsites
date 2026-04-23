@@ -53,7 +53,14 @@ const Home = () => {
                 title="Criação de Sites Profissionais em Brasília-DF e Todo o Brasil"
                 description="Especialistas em criação de sites em Brasília - DF e para todo o Brasil. Sites com SEO, design moderno e entrega rápida. Entre em contato agora!"
             />
-            <SchemaMarkup />
+            <SchemaMarkup 
+                locationData={{
+                    name: "Brasília",
+                    region: "DF",
+                    type: "City",
+                    coordinates: { lat: -15.7942, lng: -47.8822 }
+                }}
+            />
             {/* Hero Section - Clean Layout & SEO Optimized */}
             <section
                 className="hero-clean"

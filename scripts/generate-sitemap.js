@@ -65,6 +65,7 @@ ${posts.map(post => `  <url>
   <!-- Landing Pages por Estado -->
 ${brazilianStates.map(state => `  <url>
     <loc>${siteUrl}/locais/criacao-de-sites-em-${state.slug}</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`).join('\n')}
 </urlset>`;

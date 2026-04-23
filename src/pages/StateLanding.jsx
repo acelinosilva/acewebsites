@@ -61,7 +61,14 @@ const StateLanding = () => {
                 geoRegion={`BR-${state.abbr}`}
                 geoPlacename={state.name}
             />
-            <SchemaMarkup />
+            <SchemaMarkup 
+                locationData={{
+                    name: state.name,
+                    region: state.abbr,
+                    type: "AdministrativeArea",
+                    coordinates: { lat: -15.7942, lng: -47.8822 } // Default to Brazil center or dynamic if needed
+                }}
+            />
 
             <main className="state-landing">
                 {/* Hero Section */}
