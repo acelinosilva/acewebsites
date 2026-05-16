@@ -5,7 +5,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
 import logoAceweb from '../assets/logo-aceweb.png';
-import ThemeToggle from './ThemeToggle';
 import PromoBar from './PromoBar';
 import './Header.css';
 
@@ -112,7 +111,6 @@ const Header = () => {
                 </nav>
 
                 <div className="header__actions">
-                    <ThemeToggle />
                     <a
                         href={getWhatsAppLink()}
                         target="_blank"

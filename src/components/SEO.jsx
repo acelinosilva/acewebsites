@@ -5,7 +5,7 @@ const SEO = ({ title, description, canonical, image, keywords, geoRegion, geoPla
     const defaultDescription = 'Especialistas em criação de sites em Brasília - DF e para todo o Brasil. Sites com SEO, design moderno e entrega rápida. Entre em contato agora!';
     const defaultImage = 'https://acewebsites.com.br/og-image.jpg';
     const siteUrl = 'https://acewebsites.com.br';
-    const defaultKeywords = 'criação de sites, desenvolvimento web, sites profissionais, landing pages, SEO, agência digital Brasília';
+    const defaultKeywords = 'criação de sites em Brasília, criação de sites no df, criação de sites em são paulo, criação de sites em Minas Gerais, criação de sites em Brasília DF, desenvolvimento de sites Brasília, empresa de criação de sites DF, criação de sites no Rio de Janeiro, criação de sites em Belo Horizonte, criação de sites em Campo Grande, site profissional para empresa, criação de site com WordPress, criação de sites com ia, criação de sistemas web, orçamento para criação de site em Brasília, criação de site para advogado Brasília, criação de sites para dentistas, criação de site para clínica Brasília';
 
     const fullTitle = title ? `${title} - ${siteName}` : `${siteName} - Criação de Sites Profissionais em Brasília-DF e Todo o Brasil`;
     const metaDescription = description || defaultDescription;
