@@ -82,7 +82,7 @@ const Services = () => {
 
                         <div className="services-hero__stats">
                             <div className="services-hero__stat">
-                                <span className="services-hero__stat-number">+500</span>
+                                <span className="services-hero__stat-number">+300</span>
                                 <span className="services-hero__stat-label">Sites Entregues</span>
                             </div>
                             <div className="services-hero__stat-divider" />
@@ -92,7 +92,7 @@ const Services = () => {
                             </div>
                             <div className="services-hero__stat-divider" />
                             <div className="services-hero__stat">
-                                <span className="services-hero__stat-number">10+</span>
+                                <span className="services-hero__stat-number">6</span>
                                 <span className="services-hero__stat-label">Anos de Experiência</span>
                             </div>
                         </div>

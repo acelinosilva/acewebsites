@@ -168,7 +168,7 @@ const StateLanding = () => {
                                 </h2>
                                 <p>
                                     A AceWeb é especialista em criação de sites profissionais e atende
-                                    empresas {state.preposition} {state.name} há mais de 10 anos. Mesmo estando sediados
+                                    empresas {state.preposition} {state.name} há mais de 6 anos. Mesmo estando sediados
                                     em Brasília - DF, nosso atendimento remoto garante a mesma qualidade
                                     e dedicação para clientes em todo o Brasil.
                                 </p>
@@ -300,7 +300,7 @@ const StateLanding = () => {
                     <div className="container">
                         <div className="section-title">
                             <h2>O que nossos <span className="text-gradient">Clientes</span> dizem</h2>
-                            <p>Mais de 500 empresas confiam em nosso trabalho</p>
+                            <p>Mais de 300 empresas confiam em nosso trabalho</p>
                         </div>
 
                         <div className="state-testimonials__grid">

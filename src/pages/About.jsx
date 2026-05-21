@@ -32,7 +32,7 @@ const About = () => {
         'Atendimento personalizado e próximo ao cliente',
         'Suporte técnico rápido e eficiente',
         'Preços justos e transparentes',
-        'Experiência comprovada com mais de 500 projetos',
+        'Experiência comprovada com mais de 300 projetos',
         'Atendimento em todo o Brasil e exterior',
         'Metodologia ágil e entregas no prazo',
     ];
@@ -41,7 +41,7 @@ const About = () => {
         <main className="about-page">
             <SEO
                 title="Sobre a AceWeb | Agência de Criação de Sites"
-                description="Conheça a AceWeb, agência especializada em Criação de Sites Profissionais a partir de R$ 400. Mais de 10 anos de experiência transformando negócios."
+                description="Conheça a AceWeb, agência especializada em Criação de Sites Profissionais a partir de R$ 400. Mais de 6 anos de experiência transformando negócios."
                 canonical="/sobre"
             />
             {/* Hero Section */}
@@ -83,8 +83,8 @@ const About = () => {
                                 para empresas de todos os tamanhos.
                             </p>
                             <p>
-                                Ao longo de mais de 10 anos de atuação no mercado, desenvolvemos
-                                mais de 500 projetos para clientes em todos os estados brasileiros,
+                                Ao longo de mais de 6 anos de atuação no mercado, desenvolvemos
+                                mais de 300 sites para clientes em todos os estados brasileiros,
                                 além de atender brasileiros no exterior.
                             </p>
                             <p>

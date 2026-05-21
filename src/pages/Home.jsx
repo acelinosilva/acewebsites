@@ -191,7 +191,7 @@ const Home = () => {
                             </div>
                             <div className="hero-clean__metric-divider" />
                             <div className="hero-clean__metric">
-                                <span className="hero-clean__metric-value">5+</span>
+                                <span className="hero-clean__metric-value">6</span>
                                 <span className="hero-clean__metric-label">Anos de Mercado</span>
                             </div>
                             <div className="hero-clean__metric-divider" />
@@ -345,7 +345,7 @@ const Home = () => {
                     <div className="section-title">
                         <h2>O que nossos <span className="text-gradient">Clientes</span> dizem</h2>
                         <p>
-                            Mais de 500 empresas confiam em nosso trabalho.
+                            Mais de 300 empresas confiam em nosso trabalho.
                             Veja o que elas têm a dizer sobre a AceWeb.
                         </p>
                     </div>
