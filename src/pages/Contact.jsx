@@ -28,7 +28,7 @@ const Contact = () => {
         {
             icon: Mail,
             title: 'E-mail',
-            content: 'contato@aceweb.com.br',
+            content: 'acewebdf@gmail.com',
             subtitle: 'Respondemos em até 24h'
         },
         {

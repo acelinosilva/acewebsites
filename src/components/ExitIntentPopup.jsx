@@ -58,7 +58,7 @@ const ExitIntentPopup = () => {
                     
                     <div className="exit-intent-price">
                         <span className="price-label">A partir de</span>
-                        <span className="price-value">R$ 400</span>
+                        <span className="price-value">R$ 350</span>
                     </div>
 
                     <ul className="exit-intent-benefits">

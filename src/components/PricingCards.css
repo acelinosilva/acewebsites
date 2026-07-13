@@ -110,6 +110,19 @@
     line-height: 1;
 }
 
+.pricing-card__pricebox--consult {
+    align-items: center;
+    min-height: 56px;
+}
+
+.pricing-card__consult {
+    font-size: var(--font-size-lg, 18px);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
 .pricing-card__description {
     text-align: center;
     color: var(--color-gray-400, #9ca3af);

@@ -89,7 +89,7 @@ const Footer = () => {
                             </div>
                             <div className="footer__contact-item">
                                 <Mail size={18} className="footer__contact-icon" />
-                                <a href="mailto:contato@aceweb.com.br" className="footer__contact-link">contato@aceweb.com.br</a>
+                                <a href="mailto:acewebdf@gmail.com" className="footer__contact-link">acewebdf@gmail.com</a>
                             </div>
                         </address>
                         <a

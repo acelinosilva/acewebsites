@@ -22,7 +22,7 @@ const PricingCards = () => {
         },
         {
             name: "Profissional",
-            price: "850",
+            price: "550",
             description: "A solução completa para gerar autoridade e vendas. Em até 12x.",
             features: [
                 "Site Institucional Completo",
@@ -35,7 +35,7 @@ const PricingCards = () => {
         },
         {
             name: "Loja Virtual",
-            price: "1.200",
+            price: null,
             description: "Para vender 24h por dia com estoque e pagamentos online.",
             features: [
                 "E-commerce Completo",
@@ -73,10 +73,16 @@ const PricingCards = () => {
                                 <div className="pricing-card__badge pricing-card__badge--promo">Oferta Especial</div>
                             )}
                             <h3 className="pricing-card__name">{plan.name}</h3>
-                            <div className="pricing-card__pricebox">
-                                <span className="pricing-card__currency">R$</span>
-                                <span className="pricing-card__price">{plan.price}</span>
-                            </div>
+                            {plan.price ? (
+                                <div className="pricing-card__pricebox">
+                                    <span className="pricing-card__currency">R$</span>
+                                    <span className="pricing-card__price">{plan.price}</span>
+                                </div>
+                            ) : (
+                                <div className="pricing-card__pricebox pricing-card__pricebox--consult">
+                                    <span className="pricing-card__consult">Consultar disponibilidade</span>
+                                </div>
+                            )}
                             <p className="pricing-card__description">{plan.description}</p>
                             
                             <ul className="pricing-card__features">
@@ -94,7 +100,7 @@ const PricingCards = () => {
                                 rel="noopener noreferrer"
                                 className={`btn ${plan.highlight ? 'btn-primary' : 'btn-secondary'} pricing-card__btn`}
                             >
-                                Quero este plano <ArrowRight size={18} />
+                                {plan.price ? <>Quero este plano <ArrowRight size={18} /></> : <>Consultar disponibilidade <ArrowRight size={18} /></>}
                             </a>
                         </motion.div>
                     ))}
