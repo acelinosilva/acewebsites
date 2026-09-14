@@ -61,146 +61,152 @@ const Home = () => {
                     coordinates: { lat: -15.7942, lng: -47.8822 }
                 }}
             />
-            {/* Hero Section - Clean Layout & SEO Optimized */}
+            {/* Hero Section - Premium Digital Agency */}
             <section
-                className="hero-clean"
-                aria-label="Criação de Sites Profissionais em Brasília"
+                className="hero-agency"
+                aria-label="Criação de Sites Profissionais em Brasília e Todo o Brasil"
                 itemScope
                 itemType="https://schema.org/Service"
             >
-                {/* Decorative Elements */}
-                <div className="hero-clean__decorations">
-                    <motion.div
-                        className="hero-clean__decoration hero-clean__decoration--left"
-                        animate={{ y: [0, -15, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <div className="hero-clean__browser-icon">
-                            <div className="hero-clean__browser-dots">
-                                <span /><span /><span />
-                            </div>
-                            <div className="hero-clean__browser-content">
-                                <Globe size={24} />
-                            </div>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        className="hero-clean__decoration hero-clean__decoration--right"
-                        animate={{ y: [0, -20, 0] }}
-                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <div className="hero-clean__code-icon">
-                            <span>&lt;/&gt;</span>
-                        </div>
-                    </motion.div>
-                    {/* Floating Dots */}
-                    <span className="hero-clean__dot hero-clean__dot--1" />
-                    <span className="hero-clean__dot hero-clean__dot--2" />
-                    <span className="hero-clean__dot hero-clean__dot--3" />
-                    <span className="hero-clean__dot hero-clean__dot--4" />
+                {/* Background Ambient Glows */}
+                <div className="hero-agency__ambient">
+                    <div className="hero-agency__glow hero-agency__glow--top" />
+                    <div className="hero-agency__glow hero-agency__glow--center" />
+                    <div className="hero-agency__grid-overlay" />
                 </div>
 
-                <div className="container hero-clean__container">
-                    {/* Centered Content */}
-                    <motion.header
-                        className="hero-clean__content"
-                        initial={{ opacity: 0, y: 30 }}
+                <div className="container hero-agency__container">
+                    {/* Header Content */}
+                    <motion.div
+                        className="hero-agency__content"
+                        initial={{ opacity: 0, y: 25 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        {/* Top Badge */}
-                        <motion.div
-                            className="hero-clean__badge"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                            <span>CRIAÇÃO DE SITE PROFISSIONAL</span>
-                            <span className="hero-clean__badge-separator">•</span>
-                            <span>LÍDER EM AVALIAÇÕES NO GOOGLE</span>
-                            <span className="hero-clean__badge-rating">
-                                5.0 <span className="hero-clean__stars">★★★★★</span>
+                        {/* Top Proof Badge */}
+                        <div className="hero-agency__badge">
+                            <span className="hero-agency__badge-glow" />
+                            <span className="hero-agency__badge-text">✦ Agência Especializada em Sites de Alta Performance</span>
+                            <span className="hero-agency__badge-dot">•</span>
+                            <span className="hero-agency__badge-rating">
+                                5.0 <span className="hero-agency__stars">★★★★★</span> no Google
                             </span>
-                        </motion.div>
+                        </div>
 
-                        {/* Main Heading - SEO Optimized */}
-                        <motion.h1
-                            className="hero-clean__title"
-                            itemProp="name"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3 }}
-                        >
-                            CRIAÇÃO DE SITES EM<br />
-                            <span className="hero-clean__title-highlight">BRASÍLIA DF</span>
-                        </motion.h1>
+                        {/* Main Heading */}
+                        <h1 className="hero-agency__title" itemProp="name">
+                            Criação de Sites e Landing Pages<br className="hero-title-break" />
+                            em <span className="text-gradient">Brasília e todo o Brasil</span>
+                        </h1>
 
-                        {/* Subtitle - SEO Rich */}
-                        <motion.p
-                            className="hero-clean__subtitle"
-                            itemProp="description"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
-                        >
-                            Somos uma <strong>agência de criação de sites em Brasília-DF</strong> especializada em {' '}
-                            <strong>sites profissionais</strong>, <strong>landing pages de alta conversão</strong> e {' '}
-                            <strong>lojas virtuais</strong>. Nosso <strong>desenvolvimento de sites em Brasília</strong> {' '}
-                            é otimizado para <strong>SEO e Google</strong>, garantindo mais visibilidade e vendas para seu negócio.
-                        </motion.p>
+                        {/* Subtitle - Otimizado para SEO com palavras-chave */}
+                        <p className="hero-agency__subtitle" itemProp="description">
+                            Somos uma <strong>empresa de criação e desenvolvimento de sites em Brasília - DF</strong> especializada em <strong>sites profissionais</strong>, <strong>landing pages de alta conversão</strong> e <strong>lojas virtuais</strong>. Projetos com <strong>otimização de SEO para o Google</strong>, carregamento ultrarrápido e design responsivo para gerar autoridade e vendas para o seu negócio em todo o país.
+                        </p>
 
-                        {/* Secondary Text */}
-                        <motion.p
-                            className="hero-clean__cta-text"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                        >
-                            Descubra quanto custa o site ideal para você em <strong>1 minuto</strong>. Planos a partir de <strong>R$ 400</strong>.
-                        </motion.p>
-
-                        {/* Single CTA Button */}
-                        <motion.div
-                            className="hero-clean__cta"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                        >
+                        {/* Dual CTA Buttons */}
+                        <div className="hero-agency__cta-group">
                             <a
                                 href={getWhatsAppLink('Olá! Gostaria de solicitar um orçamento para criação de site.')}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hero-clean__btn"
+                                className="btn btn-primary btn-lg hero-agency__cta-primary"
                                 aria-label="Solicitar orçamento via WhatsApp"
                             >
-                                <Zap size={20} aria-hidden="true" />
-                                <span>Peça um Orçamento</span>
+                                <FaWhatsapp size={20} />
+                                <span>Solicitar Orçamento no WhatsApp</span>
                             </a>
-                        </motion.div>
 
-                        {/* Trust Metrics */}
-                        <motion.div
-                            className="hero-clean__metrics"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.9 }}
-                        >
-                            <div className="hero-clean__metric">
-                                <span className="hero-clean__metric-value">+300</span>
-                                <span className="hero-clean__metric-label">Sites Entregues</span>
+                            <Link to="/portfolio" className="btn btn-secondary btn-lg hero-agency__cta-secondary">
+                                <span>Ver Projetos Entregues</span>
+                                <ArrowRight size={18} />
+                            </Link>
+                        </div>
+
+                        {/* Fast Trust Indicators */}
+                        <div className="hero-agency__assurances">
+                            <span className="hero-agency__assurance-item">
+                                <CheckCircle2 size={16} className="text-primary" /> Entrega em tempo recorde
+                            </span>
+                            <span className="hero-agency__assurance-item">
+                                <CheckCircle2 size={16} className="text-primary" /> 100% Otimizado para SEO
+                            </span>
+                            <span className="hero-agency__assurance-item">
+                                <CheckCircle2 size={16} className="text-primary" /> Planos a partir de R$ 400
+                            </span>
+                        </div>
+                    </motion.div>
+
+                    {/* Interactive Hero Showcase (Real Work Preview) */}
+                    <motion.div
+                        className="hero-agency__showcase"
+                        initial={{ opacity: 0, y: 35 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        <div className="hero-showcase__window">
+                            {/* Browser Header */}
+                            <div className="hero-showcase__topbar">
+                                <div className="hero-showcase__dots">
+                                    <span className="hero-showcase__dot hero-showcase__dot--red" />
+                                    <span className="hero-showcase__dot hero-showcase__dot--yellow" />
+                                    <span className="hero-showcase__dot hero-showcase__dot--green" />
+                                </div>
+                                <div className="hero-showcase__url-bar">
+                                    <Shield size={13} className="hero-showcase__lock" />
+                                    <span>aceweb.com.br/projetos-em-destaque</span>
+                                </div>
+                                <div className="hero-showcase__actions">
+                                    <span className="hero-showcase__live-pill">AO VIVO</span>
+                                </div>
                             </div>
-                            <div className="hero-clean__metric-divider" />
-                            <div className="hero-clean__metric">
-                                <span className="hero-clean__metric-value">6</span>
-                                <span className="hero-clean__metric-label">Anos de Mercado</span>
+
+                            {/* Showcase Screen */}
+                            <div className="hero-showcase__screen">
+                                <img
+                                    src={projects[0]?.image || projects[3]?.image}
+                                    alt="Demonstração de Site Profissional desenvolvido pela AceWeb"
+                                    className="hero-showcase__image"
+                                    loading="eager"
+                                />
+                                <div className="hero-showcase__overlay">
+                                    <div className="hero-showcase__project-info">
+                                        <span className="hero-showcase__category">{projects[0]?.category || 'Site Institucional'}</span>
+                                        <h4 className="hero-showcase__project-title">{projects[0]?.title || 'Unity IT Solutions'}</h4>
+                                        <p className="hero-showcase__project-desc">{projects[0]?.description || 'Plataforma moderna de alta performance com design exclusivo e SEO integrado.'}</p>
+                                    </div>
+                                    <Link to="/portfolio" className="hero-showcase__overlay-btn">
+                                        Ver Caso de Sucesso <ExternalLink size={15} />
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="hero-clean__metric-divider" />
-                            <div className="hero-clean__metric">
-                                <span className="hero-clean__metric-value">100%</span>
-                                <span className="hero-clean__metric-label">Clientes Satisfeitos</span>
+
+                            {/* Floating Micro-Metric Badges */}
+                            <div className="hero-showcase__badge hero-showcase__badge--speed">
+                                <Zap size={18} className="hero-showcase__badge-icon text-primary" />
+                                <div>
+                                    <span className="hero-showcase__badge-title">99/100 PageSpeed</span>
+                                    <span className="hero-showcase__badge-sub">Carregamento Instantâneo</span>
+                                </div>
                             </div>
-                        </motion.div>
-                    </motion.header>
+
+                            <div className="hero-showcase__badge hero-showcase__badge--seo">
+                                <Search size={18} className="hero-showcase__badge-icon" style={{ color: '#38BDF8' }} />
+                                <div>
+                                    <span className="hero-showcase__badge-title">1º Lugar no Google</span>
+                                    <span className="hero-showcase__badge-sub">SEO Técnico Avançado</span>
+                                </div>
+                            </div>
+
+                            <div className="hero-showcase__badge hero-showcase__badge--clients">
+                                <Users size={18} className="hero-showcase__badge-icon text-primary" />
+                                <div>
+                                    <span className="hero-showcase__badge-title">+300 Projetos</span>
+                                    <span className="hero-showcase__badge-sub">Entregues com Excelência</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 

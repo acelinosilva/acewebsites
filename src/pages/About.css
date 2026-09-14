@@ -1,14 +1,16 @@
-/* ===== ABOUT PAGE ===== */
+/* ===== ABOUT PAGE - Premium Agency Style ===== */
 
 /* Hero Section */
 .page-hero {
     position: relative;
-    min-height: 50vh;
+    min-height: 46vh;
     display: flex;
     align-items: center;
-    padding: calc(140px + var(--spacing-4xl)) 0 var(--spacing-3xl);
+    padding: calc(95px + var(--spacing-3xl)) 0 var(--spacing-3xl);
     text-align: center;
     overflow: hidden;
+    background: radial-gradient(circle at 50% 10%, rgba(0, 210, 106, 0.08) 0%, transparent 65%),
+                linear-gradient(180deg, #080A0F 0%, #0D111A 100%);
 }
 
 .page-hero__background {
@@ -22,11 +24,10 @@
     top: -100px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: var(--color-primary);
-    filter: blur(120px);
-    opacity: 0.15;
+    width: 650px;
+    height: 350px;
+    background: radial-gradient(ellipse at center, rgba(0, 210, 106, 0.12) 0%, transparent 70%);
+    filter: blur(100px);
     border-radius: 50%;
 }
 
@@ -38,18 +39,23 @@
 }
 
 .page-hero__content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.35rem, 5vw, 3.75rem);
     font-weight: 800;
-    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.035em;
+    margin-bottom: var(--spacing-md);
 }
 
 .page-hero__content p {
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-400);
-    line-height: 1.8;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-gray-300);
+    line-height: 1.7;
 }
 
 /* Story Section */
+.about-story {
+    padding: var(--spacing-4xl) 0;
+}
+
 .about-story__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,24 +64,24 @@
 }
 
 .about-story__content h2 {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--spacing-xl);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    margin-bottom: var(--spacing-lg);
 }
 
 .about-story__content p {
-    color: var(--color-gray-400);
-    line-height: 1.8;
+    color: var(--color-gray-300);
+    line-height: 1.75;
     margin-bottom: var(--spacing-md);
+    font-size: 1rem;
 }
 
-/* Story Section Image */
 .about-story__image-wrapper {
     position: relative;
     border-radius: var(--radius-2xl);
     overflow: hidden;
-    box-shadow: var(--shadow-xl);
-    aspect-ratio: 4/3;
-    border: 1px solid var(--color-gray-800);
+    box-shadow: var(--shadow-xl), var(--shadow-inner-highlight);
+    aspect-ratio: 4 / 3;
+    border: var(--border-light);
 }
 
 .about-story__main-image {
@@ -86,77 +92,79 @@
 }
 
 .about-story__image-wrapper:hover .about-story__main-image {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .about-story__image-overlay {
     position: absolute;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    background: var(--color-surface-glass);
-    backdrop-filter: blur(8px);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--color-gray-700);
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    background: rgba(14, 19, 29, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    box-shadow: var(--shadow-lg);
+    gap: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .about-story__image-overlay span {
     font-weight: 600;
-    font-size: var(--font-size-sm);
+    font-size: 0.825rem;
     color: var(--color-white);
 }
 
 /* Team Section */
 .about-team {
     background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .about-team__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    gap: var(--spacing-3xl);
     align-items: center;
 }
 
 .about-team__image {
     width: 100%;
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--color-gray-800);
+    box-shadow: var(--shadow-xl), var(--shadow-inner-highlight);
+    border: var(--border-light);
 }
 
 .about-team__content .badge {
     display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--color-primary-glow);
+    padding: 0.35rem 0.95rem;
+    background: rgba(0, 210, 106, 0.08);
     color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.22);
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .about-team__content h2 {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
 }
 
 .about-team__content p {
-    color: var(--color-gray-400);
-    line-height: 1.8;
+    color: var(--color-gray-300);
+    line-height: 1.75;
     margin-bottom: var(--spacing-xl);
 }
 
 .about-team__features {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
 }
 
 .about-team__feature {
@@ -167,21 +175,24 @@
 .about-team__feature svg {
     flex-shrink: 0;
     color: var(--color-primary);
+    margin-top: 2px;
 }
 
 .about-team__feature h4 {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 2px;
+    font-size: 1.05rem;
     color: var(--color-white);
 }
 
 .about-team__feature p {
-    font-size: var(--font-size-sm);
+    font-size: 0.875rem;
+    color: var(--color-gray-400);
     margin-bottom: 0;
 }
 
 /* MVV Section */
 .about-mvv {
-    background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .about-mvv__grid {
@@ -191,60 +202,70 @@
 }
 
 .about-mvv__card {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
+    background: var(--color-surface-card);
+    border: var(--border-light);
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     text-align: center;
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
 }
 
 .about-mvv__card:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(0, 210, 106, 0.3);
     transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(0, 210, 106, 0.08);
 }
 
 .about-mvv__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
+    width: 52px;
+    height: 52px;
+    background: rgba(0, 210, 106, 0.08);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.22);
     border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-lg);
 }
 
 .about-mvv__card h3 {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white);
 }
 
 .about-mvv__card p {
     color: var(--color-gray-400);
-    font-size: var(--font-size-sm);
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.65;
 }
 
 /* Values Section */
+.about-values {
+    background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
+}
+
 .about-values__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
 }
 
 .about-value-card {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
+    background: var(--color-surface-card);
+    border: var(--border-light);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-lg);
     text-align: center;
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
 }
 
 .about-value-card:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(0, 210, 106, 0.3);
     transform: translateY(-4px);
 }
 
@@ -252,28 +273,30 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 210, 106, 0.08);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.22);
     border-radius: var(--radius-md);
     margin-bottom: var(--spacing-md);
 }
 
 .about-value-card h3 {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-white);
 }
 
 .about-value-card p {
     color: var(--color-gray-400);
-    font-size: var(--font-size-sm);
+    font-size: 0.85rem;
     line-height: 1.6;
 }
 
 /* Differentials Section */
 .about-differentials {
-    background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .about-differentials__grid {
@@ -284,11 +307,11 @@
 }
 
 .about-differentials__content h2 {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
     margin-bottom: var(--spacing-md);
 }
 
-.about-differentials__content>p {
+.about-differentials__content > p {
     color: var(--color-gray-400);
     margin-bottom: var(--spacing-xl);
     line-height: 1.7;
@@ -297,52 +320,31 @@
 .about-differentials__list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: 0.85rem;
 }
 
-.about-differentials__list li {
+.about-differentials__item {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-sm);
+    gap: 0.65rem;
     color: var(--color-gray-300);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-.about-differentials__list li svg {
+.about-differentials__item svg {
+    color: var(--color-primary);
     flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.about-cta-box {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: var(--radius-2xl);
-    padding: var(--spacing-2xl);
-    text-align: center;
-    position: sticky;
-    top: 140px;
-}
-
-.about-cta-box h3 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-md);
-}
-
-.about-cta-box p {
-    color: var(--color-gray-400);
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.7;
+    margin-top: 3px;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-
     .about-story__grid,
+    .about-team__grid,
     .about-differentials__grid {
         grid-template-columns: 1fr;
-    }
-
-    .about-story__visual {
-        order: -1;
+        gap: var(--spacing-2xl);
     }
 
     .about-mvv__grid {
@@ -352,18 +354,10 @@
     .about-values__grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .about-cta-box {
-        position: static;
-    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .about-values__grid {
         grid-template-columns: 1fr;
-    }
-
-    .about-story__image {
-        height: 300px;
     }
 }

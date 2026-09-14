@@ -1,12 +1,15 @@
-/* Locations Page */
+/* ===== LOCATIONS PAGE - Premium Agency Style ===== */
+
 .page-hero {
     position: relative;
-    min-height: 40vh;
+    min-height: 44vh;
     display: flex;
     align-items: center;
-    padding: calc(140px + var(--spacing-xl)) 0 var(--spacing-2xl);
+    padding: calc(95px + var(--spacing-3xl)) 0 var(--spacing-3xl);
     text-align: center;
     overflow: hidden;
+    background: radial-gradient(circle at 50% 10%, rgba(0, 210, 106, 0.08) 0%, transparent 65%),
+                linear-gradient(180deg, #080A0F 0%, #0D111A 100%);
 }
 
 .page-hero__background {
@@ -20,11 +23,10 @@
     top: -100px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: var(--color-primary);
-    filter: blur(120px);
-    opacity: 0.15;
+    width: 650px;
+    height: 350px;
+    background: radial-gradient(ellipse at center, rgba(0, 210, 106, 0.12) 0%, transparent 70%);
+    filter: blur(100px);
     border-radius: 50%;
 }
 
@@ -36,30 +38,31 @@
 }
 
 .page-hero__content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.35rem, 5vw, 3.75rem);
     font-weight: 800;
+    letter-spacing: -0.035em;
     margin-bottom: var(--spacing-md);
 }
 
 .page-hero__content p {
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-400);
-    line-height: 1.8;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-gray-300);
+    line-height: 1.7;
 }
 
 /* Badge */
 .locations-badge {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    background: var(--color-primary-glow);
+    gap: 0.45rem;
+    background: rgba(0, 210, 106, 0.08);
     color: var(--color-primary);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0.35rem 0.95rem;
     border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    margin-bottom: var(--spacing-lg);
-    border: 1px solid var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 210, 106, 0.22);
 }
 
 /* Main Location Card */
@@ -68,24 +71,13 @@
     grid-template-columns: 1fr auto;
     gap: var(--spacing-3xl);
     align-items: center;
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-primary);
+    background: linear-gradient(135deg, #101624 0%, #0C1019 100%);
+    border: 1px solid rgba(0, 210, 106, 0.3);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-3xl);
     position: relative;
     overflow: hidden;
-}
-
-.main-location-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 400px;
-    height: 400px;
-    background: var(--gradient-glow);
-    opacity: 0.2;
-    filter: blur(80px);
+    box-shadow: var(--shadow-xl), var(--shadow-inner-highlight);
 }
 
 .main-location-card__content {
@@ -95,30 +87,39 @@
 
 .main-location-card__badge {
     display: inline-block;
-    background: var(--gradient-primary);
-    color: var(--color-black);
-    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(0, 210, 106, 0.12);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.3);
+    padding: 0.3rem 0.85rem;
     border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    margin-bottom: var(--spacing-lg);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--spacing-md);
 }
 
 .main-location-card__content h2 {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
 }
 
 .main-location-card__content p {
-    color: var(--color-gray-400);
+    color: var(--color-gray-300);
     line-height: 1.7;
     margin-bottom: var(--spacing-xl);
     max-width: 600px;
+    font-size: 1rem;
 }
 
 .main-location-card__cta {
     display: flex;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.main-location-card__cta .btn {
+    border-radius: var(--radius-full);
 }
 
 .main-location-card__visual {
@@ -130,12 +131,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
-    height: 120px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
-    border-radius: var(--radius-full);
-    animation: float 3s ease-in-out infinite;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 210, 106, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.25);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 10px 30px rgba(0, 210, 106, 0.15);
 }
 
 /* Regions */
@@ -148,53 +150,57 @@
 }
 
 .region-title {
-    font-size: var(--font-size-xl);
-    color: var(--color-primary);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-white);
     margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid var(--color-gray-800);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .states-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--spacing-sm);
 }
 
 .state-card {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: var(--radius-lg);
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-md);
     padding: var(--spacing-md) var(--spacing-lg);
-    transition: all var(--transition-base);
+    transition: all var(--transition-fast);
 }
 
 .state-card:hover {
-    border-color: var(--color-primary);
-    transform: translateX(4px);
-    background: var(--color-gray-900);
+    border-color: rgba(0, 210, 106, 0.3);
+    transform: translateX(3px);
+    background: var(--color-surface-card-hover);
 }
 
 .state-card__abbr {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--gradient-primary);
-    color: var(--color-black);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 210, 106, 0.1);
+    color: var(--color-primary);
+    border: 1px solid rgba(0, 210, 106, 0.2);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
     font-weight: 700;
     flex-shrink: 0;
 }
 
 .state-card__name {
     flex: 1;
+    font-size: 0.9rem;
     font-weight: 500;
+    color: var(--color-gray-300);
 }
 
 .state-card__arrow {
@@ -204,12 +210,13 @@
 
 .state-card:hover .state-card__arrow {
     color: var(--color-primary);
-    transform: translateX(4px);
+    transform: translateX(3px);
 }
 
 /* International */
 .locations-international {
     background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .international-card {
@@ -219,8 +226,8 @@
 }
 
 .international-card h2 {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-lg);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
 }
 
 .international-card p {
@@ -251,12 +258,6 @@
     }
 
     .main-location-card__icon {
-        width: 80px;
-        height: 80px;
-    }
-
-    .main-location-card__icon svg {
-        width: 32px;
-        height: 32px;
+        margin: 0 auto;
     }
 }

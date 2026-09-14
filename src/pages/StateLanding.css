@@ -1,14 +1,15 @@
-/* ===== STATE LANDING PAGE - Tech Style ===== */
+/* ===== STATE LANDING PAGE - Premium Agency Style ===== */
 
 /* Hero */
 .state-hero {
-    min-height: 90vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     position: relative;
-    padding: calc(140px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+    padding: calc(100px + var(--spacing-3xl)) 0 var(--spacing-4xl);
     overflow: hidden;
-    background: linear-gradient(180deg, #050505 0%, #0A0A0A 100%);
+    background: radial-gradient(circle at 50% 15%, rgba(0, 210, 106, 0.08) 0%, transparent 65%),
+                linear-gradient(180deg, #080A0F 0%, #0D111A 100%);
 }
 
 .state-hero__background {
@@ -20,35 +21,34 @@
 .state-hero__glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    /* Sharper blur */
-    opacity: 0.1;
+    filter: blur(100px);
 }
 
 .state-hero__glow--1 {
-    width: 600px;
-    height: 600px;
-    background: var(--color-primary);
-    top: -200px;
-    right: -100px;
+    width: 650px;
+    height: 350px;
+    background: radial-gradient(ellipse at center, rgba(0, 210, 106, 0.12) 0%, transparent 70%);
+    top: -100px;
+    right: 10%;
 }
 
 .state-hero__glow--2 {
-    width: 400px;
-    height: 400px;
-    background: var(--color-primary-dark);
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
     bottom: -100px;
-    left: -100px;
+    left: -50px;
 }
 
 .state-hero__grid {
     position: absolute;
     inset: 0;
-    /* Tech grid */
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 75%);
 }
 
 .state-hero__container {
@@ -57,7 +57,7 @@
 }
 
 .state-hero__content {
-    max-width: 800px;
+    max-width: 840px;
     margin: 0 auto;
     text-align: center;
 }
@@ -65,33 +65,28 @@
 .state-hero__badge {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    background: rgba(0, 255, 136, 0.05);
+    gap: 0.45rem;
+    background: rgba(0, 210, 106, 0.08);
     color: var(--color-primary);
-    padding: 4px 16px;
-    border-radius: 0;
-    /* Sharp */
-    font-size: var(--font-size-sm);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
     font-weight: 600;
     margin-bottom: var(--spacing-lg);
-    border: 1px solid var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: var(--font-mono, monospace);
+    border: 1px solid rgba(0, 210, 106, 0.22);
 }
 
 .state-hero__content h1 {
-    font-size: var(--font-size-5xl);
-    font-weight: 900;
-    line-height: 1;
+    font-size: clamp(2.35rem, 5.2vw, 3.85rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
     margin-bottom: var(--spacing-lg);
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
 }
 
 .state-hero__subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-400);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-gray-300);
     line-height: 1.7;
     margin-bottom: var(--spacing-2xl);
 }
@@ -104,6 +99,10 @@
     margin-bottom: var(--spacing-2xl);
 }
 
+.state-hero__cta-group .btn {
+    border-radius: var(--radius-full);
+}
+
 .state-hero__trust {
     display: flex;
     justify-content: center;
@@ -114,15 +113,21 @@
 .state-hero__trust-item {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    font-size: var(--font-size-sm);
+    gap: 0.45rem;
+    font-size: 0.825rem;
     color: var(--color-gray-400);
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.state-hero__trust-item svg {
+    color: var(--color-primary);
 }
 
 /* About Section */
+.state-about {
+    padding: var(--spacing-4xl) 0;
+}
+
 .state-about__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -131,48 +136,45 @@
 }
 
 .state-about__content h2 {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
     margin-bottom: var(--spacing-lg);
 }
 
 .state-about__content p {
-    color: var(--color-gray-400);
-    line-height: 1.8;
+    color: var(--color-gray-300);
+    line-height: 1.75;
     margin-bottom: var(--spacing-md);
+    font-size: 1rem;
 }
 
 .state-cities {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
-    /* Sharp */
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-lg);
     margin: var(--spacing-xl) 0;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
 }
 
 .state-cities h3 {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: var(--font-mono, monospace);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-white);
+    font-weight: 700;
 }
 
 .state-cities p {
-    font-size: var(--font-size-sm);
+    font-size: 0.85rem;
     margin-bottom: 0;
-    font-family: var(--font-mono, monospace);
-    color: var(--color-gray-500);
+    color: var(--color-gray-400);
+    line-height: 1.6;
 }
 
 .state-map-card {
     position: relative;
-    background: #080808;
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
-    /* Sharp */
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-2xl);
     padding: var(--spacing-4xl);
     display: flex;
     flex-direction: column;
@@ -180,45 +182,40 @@
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    /* Map grid texture */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 40px 40px;
+    box-shadow: var(--shadow-xl), var(--shadow-inner-highlight);
 }
 
 .state-map-card__glow {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(0, 210, 106, 0.12) 0%, transparent 70%);
     border-radius: 50%;
-    opacity: 0.4;
 }
 
 .state-map-card__abbr {
     position: relative;
-    font-size: 120px;
+    font-size: 110px;
     font-weight: 900;
-    color: var(--color-black);
-    -webkit-text-stroke: 2px var(--color-primary);
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--color-primary);
     line-height: 1;
     margin-bottom: var(--spacing-md);
-    font-family: var(--font-mono, monospace);
-    opacity: 0.8;
+    letter-spacing: -0.02em;
 }
 
 .state-map-card__name {
     position: relative;
-    font-size: var(--font-size-2xl);
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--color-white);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: -0.01em;
 }
 
 /* Benefits */
 .state-benefits {
     background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .state-benefits__grid {
@@ -228,47 +225,52 @@
 }
 
 .state-benefit-card {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
-    /* Sharp */
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     text-align: center;
     transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
 }
 
 .state-benefit-card:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(0, 210, 106, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(0, 210, 106, 0.08);
 }
 
 .state-benefit-card__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: rgba(0, 255, 136, 0.1);
+    width: 52px;
+    height: 52px;
+    background: rgba(0, 210, 106, 0.08);
     color: var(--color-primary);
-    border: 1px solid var(--color-primary-dim);
-    border-radius: 0;
+    border: 1px solid rgba(0, 210, 106, 0.22);
+    border-radius: var(--radius-lg);
     margin-bottom: var(--spacing-lg);
 }
 
 .state-benefit-card h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.15rem;
+    margin-bottom: var(--spacing-xs);
     font-weight: 700;
+    color: var(--color-white);
 }
 
 .state-benefit-card p {
-    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
     color: var(--color-gray-400);
     line-height: 1.6;
 }
 
 /* Services */
+.state-services {
+    padding: var(--spacing-4xl) 0;
+}
+
 .state-services__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -276,43 +278,44 @@
 }
 
 .state-service-card {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
 }
 
 .state-service-card:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(0, 210, 106, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(0, 210, 106, 0.08);
 }
 
 .state-service-card__icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 255, 136, 0.1);
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 210, 106, 0.08);
     color: var(--color-primary);
-    border: 1px solid var(--color-primary-dim);
-    border-radius: 0;
+    border: 1px solid rgba(0, 210, 106, 0.22);
+    border-radius: var(--radius-md);
     margin-bottom: var(--spacing-lg);
 }
 
 .state-service-card h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-sm);
+    font-size: 1.15rem;
+    margin-bottom: var(--spacing-xs);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    color: var(--color-white);
 }
 
 .state-service-card p {
-    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
     color: var(--color-gray-400);
     line-height: 1.6;
     flex-grow: 1;
@@ -322,22 +325,22 @@
 .state-service-card__link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 0.4rem;
     color: var(--color-primary);
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    transition: gap var(--transition-fast);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
 }
 
 .state-service-card:hover .state-service-card__link {
-    gap: var(--spacing-md);
+    color: var(--color-white);
+    gap: 0.6rem;
 }
 
 /* Testimonials */
 .state-testimonials {
     background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .state-testimonials__grid {
@@ -347,39 +350,19 @@
 }
 
 /* CTA */
+.state-cta-section {
+    padding-bottom: var(--spacing-4xl);
+}
+
 .state-cta-box {
     position: relative;
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-primary);
-    border-radius: 0;
-    /* Sharp */
-    padding: var(--spacing-4xl);
+    background: linear-gradient(135deg, #101624 0%, #090C12 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-2xl);
+    padding: var(--spacing-3xl) var(--spacing-xl);
     text-align: center;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
-}
-
-/* Tech corners for CTA */
-.state-cta-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border-top: 4px solid var(--color-primary);
-    border-left: 4px solid var(--color-primary);
-}
-
-.state-cta-box::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    border-bottom: 4px solid var(--color-primary);
-    border-right: 4px solid var(--color-primary);
+    box-shadow: var(--shadow-xl), var(--shadow-inner-highlight);
 }
 
 .state-cta-box__glow {
@@ -389,47 +372,49 @@
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
-    opacity: 0.3;
+    background: radial-gradient(circle, rgba(0, 210, 106, 0.12) 0%, transparent 70%);
     pointer-events: none;
 }
 
 .state-cta-box__content {
     position: relative;
     z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .state-cta-box h2 {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
     margin-bottom: var(--spacing-md);
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+    color: var(--color-white);
 }
 
 .state-cta-box p {
-    color: var(--color-gray-400);
-    font-size: var(--font-size-lg);
-    max-width: 600px;
-    margin: 0 auto var(--spacing-xl);
+    color: var(--color-gray-300);
+    font-size: 1.05rem;
+    margin: 0 auto var(--spacing-2xl);
+    line-height: 1.7;
+}
+
+.state-cta-box .btn {
+    border-radius: var(--radius-full);
 }
 
 .state-cta-box__features {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
 }
 
 .state-cta-box__features span {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    color: var(--color-gray-500);
-    font-size: var(--font-size-sm);
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 1px;
+    gap: 0.45rem;
+    color: var(--color-gray-400);
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .state-cta-box__features span svg {
@@ -439,82 +424,39 @@
 /* Other States */
 .state-other {
     background: var(--color-black-light);
+    padding: var(--spacing-4xl) 0;
 }
 
 .state-other__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-xl);
 }
 
-.state-other-card {
+.state-link {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
-    /* Sharp */
-    padding: var(--spacing-md);
-    transition: all var(--transition-base);
-}
-
-.state-other-card:hover {
-    border-color: var(--color-primary);
-    transform: translateX(4px);
-    background: #151515;
-}
-
-.state-other-card__abbr {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: rgba(0, 255, 136, 0.1);
-    color: var(--color-primary);
-    border-radius: 0;
-    border: 1px solid var(--color-primary-dim);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    flex-shrink: 0;
-    font-family: var(--font-mono, monospace);
-}
-
-.state-other-card__name {
-    flex: 1;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-}
-
-.state-other-card__arrow {
-    color: var(--color-gray-600);
+    justify-content: space-between;
+    padding: 0.65rem 1rem;
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--color-gray-300);
+    font-size: 0.85rem;
     transition: all var(--transition-fast);
 }
 
-.state-other-card:hover .state-other-card__arrow {
-    color: var(--color-primary);
-    transform: translateX(4px);
-}
-
-.state-other__cta {
-    text-align: center;
+.state-link:hover {
+    border-color: rgba(0, 210, 106, 0.3);
+    color: var(--color-white);
+    background: var(--color-surface-card-hover);
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .state-hero__content h1 {
-        font-size: var(--font-size-4xl);
-    }
-
     .state-about__grid {
         grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .state-about__visual {
-        order: -1;
     }
 
     .state-benefits__grid,
@@ -529,38 +471,13 @@
 }
 
 @media (max-width: 768px) {
-    .state-hero {
-        min-height: auto;
-    }
-
-    .state-hero__content h1 {
-        font-size: var(--font-size-3xl);
-    }
-
-    .state-hero__cta-group {
-        flex-direction: column;
-    }
-
-    .state-hero__cta-group .btn {
-        width: 100%;
-    }
-
     .state-benefits__grid,
     .state-services__grid,
-    .state-testimonials__grid,
-    .state-other__grid {
+    .state-testimonials__grid {
         grid-template-columns: 1fr;
     }
 
-    .state-map-card__abbr {
-        font-size: 80px;
-    }
-
-    .state-cta-box {
-        padding: var(--spacing-2xl);
-    }
-
-    .state-cta-box h2 {
-        font-size: var(--font-size-2xl);
+    .state-other__grid {
+        grid-template-columns: 1fr;
     }
 }

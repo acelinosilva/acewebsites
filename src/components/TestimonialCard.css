@@ -1,36 +1,22 @@
-/* ===== TESTIMONIAL CARD - Tech Style ===== */
+/* ===== TESTIMONIAL CARD - Premium Style ===== */
 .testimonial-card {
-    background: var(--color-black-lighter);
-    border: 1px solid var(--color-gray-800);
-    border-radius: 0;
-    /* Sharp */
+    background: var(--color-surface-card);
+    border: var(--border-light);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     position: relative;
     transition: all var(--transition-base);
-    overflow: hidden;
-}
-
-.testimonial-card::before {
-    content: "";
-    /* Tech corner */
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 2px;
-    background: var(--color-gray-700);
-    transition: width 0.3s ease, background 0.3s ease;
-}
-
-.testimonial-card:hover::before {
-    width: 100%;
-    background: var(--color-primary);
+    box-shadow: var(--shadow-sm), var(--shadow-inner-highlight);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .testimonial-card:hover {
-    border-color: var(--color-primary);
+    border-color: rgba(0, 210, 106, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(0, 210, 106, 0.08);
+    background: var(--color-surface-card-hover);
 }
 
 .testimonial-card__quote {
@@ -38,46 +24,44 @@
     top: var(--spacing-lg);
     right: var(--spacing-lg);
     color: var(--color-primary);
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 .testimonial-card__rating {
     display: flex;
-    gap: 2px;
-    color: var(--color-primary);
-    /* Green stars for tech feel, or stick to Gold? Let's use Gold/Yellow for recognizability */
-    color: #eab308;
-    margin-bottom: var(--spacing-lg);
+    gap: 3px;
+    color: #FBBF24;
+    margin-bottom: var(--spacing-md);
 }
 
 .testimonial-card__content {
     color: var(--color-gray-300);
-    font-size: var(--font-size-base);
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.65;
     margin-bottom: var(--spacing-xl);
-    font-style: italic;
     position: relative;
     z-index: 1;
+    flex-grow: 1;
 }
 
 .testimonial-card__author {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
+    margin-top: auto;
 }
 
 .testimonial-card__avatar {
-    width: 48px;
-    height: 48px;
-    background: var(--color-gray-800);
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 210, 106, 0.1);
     color: var(--color-primary);
-    border: 1px solid var(--color-primary-dim);
-    border-radius: 0;
-    /* Square avatar */
+    border: 1px solid rgba(0, 210, 106, 0.25);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-lg);
+    font-size: 1.05rem;
     font-weight: 700;
     flex-shrink: 0;
 }
@@ -87,19 +71,13 @@
 }
 
 .testimonial-card__name {
-    font-size: var(--font-size-base);
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--color-white);
     margin-bottom: 2px;
 }
 
 .testimonial-card__role {
-    font-size: var(--font-size-sm);
+    font-size: 0.8rem;
     color: var(--color-gray-400);
-}
-
-.testimonial-card__location {
-    font-size: var(--font-size-xs);
-    color: var(--color-primary);
-    margin-top: 2px;
 }

@@ -42,15 +42,6 @@ const Services = () => {
                     <div className="services-hero__glow services-hero__glow--1" />
                     <div className="services-hero__glow services-hero__glow--2" />
                     <div className="services-hero__grid" />
-                    <div className="services-hero__particles">
-                        {[...Array(15)].map((_, i) => (
-                            <div key={i} className="services-hero__particle" style={{
-                                '--delay': `${i * 0.7}s`,
-                                '--x': `${Math.random() * 100}%`,
-                                '--duration': `${15 + Math.random() * 10}s`
-                            }} />
-                        ))}
-                    </div>
                 </div>
 
                 <div className="container">
