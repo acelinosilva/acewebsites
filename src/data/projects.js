@@ -24,7 +24,8 @@ import {
     ShoppingBag,
     Trophy,
     Briefcase,
-    Umbrella
+    Umbrella,
+    Database
 } from 'lucide-react';
 
 import unityItImg from '../assets/portfolio/unity-it.jpg';
@@ -62,6 +63,7 @@ import mouraImg from '../assets/portfolio/moura-embalagens.png';
 import centroHipicoImg from '../assets/portfolio/centro-hipico.png';
 import b2bServicosImg from '../assets/portfolio/b2b-servicos.png';
 import hmSegurosImg from '../assets/portfolio/hm-seguros.png';
+import assettecImg from '../assets/portfolio/assettec.png';
 
 
 export const projects = [
@@ -393,6 +395,17 @@ export const projects = [
         tags: ['Seguros', 'Saúde', 'Planos', 'Proteção'],
         link: '#',
         icon: Umbrella,
+        featured: true
+    },
+    {
+        id: 31,
+        title: 'Asset - Tecnologia e Dados',
+        category: 'Institucional',
+        image: assettecImg,
+        description: 'Site corporativo especializado em soluções EAM para redução de custos, confiabilidade e gestão inteligente de ativos físicos empresariais.',
+        tags: ['Tecnologia', 'EAM', 'Dados', 'Corporativo'],
+        link: 'https://assettec.com',
+        icon: Database,
         featured: true
     }
 ];

@@ -101,7 +101,12 @@ const Portfolio = () => {
                                         <div className="project-card__overlay">
                                             <div className="project-card__overlay-content">
                                                 <span className="project-category">{project.category}</span>
-                                                <a href="#" className="btn-view-project">
+                                                <a
+                                                    href={project.link && project.link !== '#' ? project.link : '#'}
+                                                    target={project.link && project.link !== '#' ? "_blank" : undefined}
+                                                    rel={project.link && project.link !== '#' ? "noopener noreferrer" : undefined}
+                                                    className="btn-view-project"
+                                                >
                                                     Ver Projeto <ExternalLink size={16} />
                                                 </a>
                                             </div>

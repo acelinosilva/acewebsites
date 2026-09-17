@@ -301,9 +301,20 @@ const Home = () => {
                                     <div className="project-card__overlay">
                                         <div className="project-card__overlay-content">
                                             <span className="project-category">{project.category}</span>
-                                            <Link to="/portfolio" className="btn-view-project">
-                                                Ver Projeto <ExternalLink size={16} />
-                                            </Link>
+                                            {project.link && project.link !== '#' ? (
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="btn-view-project"
+                                                >
+                                                    Ver Projeto <ExternalLink size={16} />
+                                                </a>
+                                            ) : (
+                                                <Link to="/portfolio" className="btn-view-project">
+                                                    Ver Projeto <ExternalLink size={16} />
+                                                </Link>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
