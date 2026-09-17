@@ -74,7 +74,7 @@ export const projects = [
         image: unityItImg,
         description: 'Site corporativo para empresa de tecnologia focada em segurança da informação, controle patrimonial e desenvolvimento de software.',
         tags: ['Tecnologia', 'Segurança', 'Software', 'Corporativo'],
-        link: '#',
+        link: 'https://www.unityit.com.br/',
         icon: Monitor,
         featured: true
     },
@@ -85,7 +85,7 @@ export const projects = [
         image: ligieImg,
         description: 'Portal completo para clínica de saúde, acupuntura e odontologia. Apresenta tratamentos, equipe e facilita o agendamento de consultas.',
         tags: ['Saúde', 'Odontologia', 'Acupuntura', 'Bem-estar'],
-        link: '#',
+        link: 'https://www.clinicaligie.com.br/',
         icon: HeartPulse,
         featured: true
     },
@@ -96,7 +96,8 @@ export const projects = [
         image: lwaImg,
         description: 'Landing page acolhedora e informativa para clínica de neuropediatria. Design focado em transmitir confiança e carinho para os pais.',
         tags: ['Saúde', 'Pediatria', 'Neurologia', 'Acolhimento'],
-        link: '#',
+        link: null,
+        offline: true,
         icon: HeartPulse,
         featured: true
     },
@@ -107,7 +108,7 @@ export const projects = [
         image: alineResendeLpImg,
         description: 'Landing Page de alta conversão focada em captação de pacientes para tratamentos odontológicos estéticos.',
         tags: ['Odontologia', 'Landing Page', 'Conversão', 'Estética'],
-        link: '#',
+        link: 'https://clinicaar.com.br/lpclinica/',
         icon: Smartphone,
         featured: false
     },
@@ -118,7 +119,7 @@ export const projects = [
         image: portalJuridicoImg,
         description: 'Plataforma de conteúdo jurídico voltada para estudantes de direito, com artigos, colunas e notícias atualizadas.',
         tags: ['Direito', 'Blog', 'Conteúdo', 'Portal'],
-        link: '#',
+        link: 'https://www.pjed.com.br/',
         icon: Gavel,
         featured: false
     },
@@ -129,7 +130,7 @@ export const projects = [
         image: alineResendeImg,
         description: 'Site institucional elegante para clínica de odontologia e harmonização facial, com foco na apresentação de tratamentos e resultados.',
         tags: ['Odontologia', 'Harmonização', 'Estética', 'Saúde'],
-        link: '#',
+        link: 'https://www.clinicaar.com.br/',
         icon: HeartPulse,
         featured: true
     },
@@ -140,7 +141,7 @@ export const projects = [
         image: pratikaPiscinasImg,
         description: 'Site moderno para empresa especializada em manutenção e instalação de piscinas, destacando serviços e qualidade.',
         tags: ['Serviços', 'Piscinas', 'Manutenção', 'Institucional'],
-        link: '#',
+        link: 'https://www.pratikapiscinas.com.br/',
         icon: Waves,
         featured: false
     },
@@ -151,7 +152,7 @@ export const projects = [
         image: sistenorioImg,
         description: 'Site internacional para empresa de limpeza de piscinas na Flórida (EUA). Design focado no mercado americano.',
         tags: ['Internacional', 'Pool Service', 'Business', 'EUA'],
-        link: '#',
+        link: 'https://www.sistenorio.com/',
         icon: Waves,
         featured: true
     },
@@ -162,7 +163,7 @@ export const projects = [
         image: academiaLetrasImg,
         description: 'Portal institucional para academia de letras, com acervo histórico, notícias e perfil dos acadêmicos.',
         tags: ['Cultura', 'História', 'Literatura', 'Institucional'],
-        link: '#',
+        link: 'https://www.arlroo.org.br/',
         icon: GraduationCap,
         featured: false
     },
@@ -173,7 +174,7 @@ export const projects = [
         image: lagoNorteImg,
         description: 'Landing Page de alta conversão para aluguel de tendas e mobiliário para eventos. Foco em solicitação de orçamentos.',
         tags: ['Eventos', 'Aluguel', 'Variedade', 'Conversão'],
-        link: '#',
+        link: 'https://lagonorteeventos.com.br/',
         icon: PartyPopper,
         featured: false
     },
@@ -184,7 +185,8 @@ export const projects = [
         image: odontosilImg,
         description: 'Site para clínica odontológica com foco em atendimento humanizado e apresentação das especialidades.',
         tags: ['Odontologia', 'Saúde', 'Clinica Geral', 'Local'],
-        link: '#',
+        link: null,
+        offline: true,
         icon: HeartPulse,
         featured: false
     },
@@ -195,7 +197,7 @@ export const projects = [
         image: alineImplantesImg,
         description: 'Landing Page específica para campanha de implantes dentários. Focada em conversão e agendamento via WhatsApp.',
         tags: ['Implantes', 'Landing Page', 'Campanha', 'Odontologia'],
-        link: '#',
+        link: 'https://www.clinicaar.com.br/',
         icon: Smartphone,
         featured: false
     },
@@ -206,7 +208,7 @@ export const projects = [
         image: trust7itImg,
         description: 'Site moderno com tema dark para empresa de cibersegurança e proteção de dados. Design tecnológico e impactante.',
         tags: ['Security', 'Tech', 'Cybersecurity', 'Dados'],
-        link: '#',
+        link: 'https://trust7it.com.br/',
         icon: Shield,
         featured: true
     },
@@ -217,7 +219,7 @@ export const projects = [
         image: profCarolImg,
         description: 'Site pessoal e profissional para consultoria acadêmica. Design limpo e focado na autoridade da profissional.',
         tags: ['Educação', 'Consultoria', 'Acadêmico', 'Personal Branding'],
-        link: '#',
+        link: 'https://www.profcarolcamilo.com.br/',
         icon: GraduationCap,
         featured: false
     },
@@ -228,7 +230,7 @@ export const projects = [
         image: dedetizaImg,
         description: 'Landing Page de serviços com foco em urgência e conversão.  Ideal para prestadores de serviços locais.',
         tags: ['Serviços', 'Dedetização', 'Landing Page', 'Local'],
-        link: '#',
+        link: 'https://www.dedetizabrasilia.com.br/',
         icon: Bug,
         featured: false
     },
@@ -239,7 +241,7 @@ export const projects = [
         image: gabrielMatoGrossoImg,
         description: 'Site pessoal para figura pública/política, apresentando biografia, projetos e agenda. Design sóbrio e direto.',
         tags: ['Política', 'Pessoal', 'Projetos', 'Mato Grosso'],
-        link: '#',
+        link: 'https://www.gabrielmatogrosso.com.br/',
         icon: Megaphone,
         featured: false
     },
@@ -250,7 +252,7 @@ export const projects = [
         image: alineAlanPsiImg,
         description: 'Site profissional para psicóloga, transmitindo acolhimento e profissionalismo. Foco em agendamento de consultas.',
         tags: ['Psicologia', 'Saúde Mental', 'Bem-estar', 'Consultório'],
-        link: '#',
+        link: 'https://www.alinealanpsicologa.com.br/',
         icon: Brain,
         featured: true
     },
@@ -261,7 +263,7 @@ export const projects = [
         image: dedetizadoraUniversalImg,
         description: 'Landing page focada em serviços de dedetização e controle de pragas, com formulário de orçamento em destaque.',
         tags: ['Dedetização', 'Serviços', 'Orçamento', 'Landing Page'],
-        link: '#',
+        link: 'https://www.dedetizadorauniversal.com.br/',
         icon: Bug,
         featured: false
     },
@@ -272,7 +274,7 @@ export const projects = [
         image: idamirBandeiraImg,
         description: 'Site para corretor de imóveis ou imobiliária, exibindo catálogo de propriedades e facilitando o contato.',
         tags: ['Imóveis', 'Corretor', 'Vendas', 'Real Estate'],
-        link: '#',
+        link: 'https://www.encontreiseuimovel.com.br/',
         icon: Key,
         featured: true
     },
@@ -283,7 +285,7 @@ export const projects = [
         image: feiraGuaraImg,
         description: 'Portal informativo e diretório de lojas da Feira do Guará. Facilita a localização de produtos e serviços no local.',
         tags: ['Guará', 'Feira', 'Portal', 'Diretório'],
-        link: '#',
+        link: 'https://feiradoguaradf.com.br/',
         icon: Store,
         featured: false
     },
@@ -294,7 +296,8 @@ export const projects = [
         image: fapesOdontoImg,
         description: 'Site focado em Harmonização e Rejuvenescimento Facial. Design clean transmitindo confiança e bem-estar.',
         tags: ['Odontologia', 'Harmonização', 'Estética', 'Saúde'],
-        link: '#',
+        link: null,
+        offline: true,
         icon: Smile,
         featured: true
     },
@@ -305,7 +308,7 @@ export const projects = [
         image: teletronicImg,
         description: 'Site empresarial para Integradora de Soluções e RFID. Foco em apresentação de produtos de tecnologia e segurança.',
         tags: ['Tecnologia', 'RFID', 'Segurança', 'B2B'],
-        link: '#',
+        link: 'https://www.teletronic.com.br/',
         icon: Radio,
         featured: false
     },
@@ -316,7 +319,7 @@ export const projects = [
         image: preventOdontoImg,
         description: 'Site moderno para clínica de odontologia especializada, com foco em implantes e estética dental.',
         tags: ['Odontologia', 'Implantes', 'Saúde', 'Clinica'],
-        link: '#',
+        link: 'https://www.clinicapreventdf.com.br/',
         icon: HeartPulse,
         featured: false
     },
@@ -327,7 +330,7 @@ export const projects = [
         image: maxTelhasImg,
         description: 'Site para empresa de telhados e coberturas. Galeria de obras e facilidade de contato para orçamentos.',
         tags: ['Construção', 'Serviços', 'Obras', 'Reforma'],
-        link: '#',
+        link: 'https://www.maxtelhas.com/',
         icon: Hammer,
         featured: false
     },
@@ -338,7 +341,8 @@ export const projects = [
         image: almoAssessoriaImg,
         description: 'Landing page para assessoria de marketing digital focada em dentistas. Uso de vídeo e copy persuasiva.',
         tags: ['Marketing', 'Consultoria', 'Digital', 'Vendas'],
-        link: '#',
+        link: null,
+        offline: true,
         icon: TrendingUp,
         featured: true
     },
@@ -349,7 +353,8 @@ export const projects = [
         image: setemaresImg,
         description: 'Site para empresa especializada em reparos e upgrade de embarcações. Design náutico inspirador.',
         tags: ['Náutico', 'Manutenção', 'Embarcações', 'Serviços'],
-        link: '#',
+        link: null,
+        offline: true,
         icon: Anchor,
         featured: false
     },
@@ -360,7 +365,7 @@ export const projects = [
         image: mouraImg,
         description: 'Catálogo digital para empresa de sacos para lixo e embalagens plásticas. Foco em B2B e varejo.',
         tags: ['Indústria', 'Varejo', 'Embalagens', 'Produtos'],
-        link: '#',
+        link: 'https://www.sacosparalixomoura.com.br/',
         icon: ShoppingBag,
         featured: true
     },
@@ -371,7 +376,7 @@ export const projects = [
         image: centroHipicoImg,
         description: 'Site convidativo para escola de equitação. Apresenta cursos, equipe e eventos de forma elegante.',
         tags: ['Esportes', 'Equitação', 'Lazer', 'Cursos'],
-        link: '#',
+        link: 'https://www.centrohipicodoparque.com.br/',
         icon: Trophy,
         featured: false
     },
@@ -382,7 +387,7 @@ export const projects = [
         image: b2bServicosImg,
         description: 'Site corporativo para terceirização de mão de obra e serviços. Transmite seriedade e capacidade técnica.',
         tags: ['Serviços', 'Terceirização', 'Facility', 'Corporativo'],
-        link: '#',
+        link: 'https://b2bservicos.com/',
         icon: Briefcase,
         featured: false
     },
@@ -393,7 +398,7 @@ export const projects = [
         image: hmSegurosImg,
         description: 'Site para corretora de seguros e planos de saúde. Facilitador de cotações com design familiar e seguro.',
         tags: ['Seguros', 'Saúde', 'Planos', 'Proteção'],
-        link: '#',
+        link: 'https://www.hmsegcorretora.com/',
         icon: Umbrella,
         featured: true
     },

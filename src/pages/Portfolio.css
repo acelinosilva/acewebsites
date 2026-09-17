@@ -222,8 +222,13 @@
     background: var(--color-white);
     color: #041B10;
     border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
     font-size: 0.825rem;
     font-weight: 700;
+    line-height: 1.2;
     transition: all var(--transition-fast);
 }
 
@@ -353,4 +358,191 @@
 .no-projects p {
     color: var(--color-gray-400);
     margin-bottom: var(--spacing-lg);
+}
+
+/* ===== PROJECT PREVIEW MODAL ===== */
+.project-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(4, 6, 10, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+.project-modal {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    max-height: 90vh;
+    background: #0E131F;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 210, 106, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.project-modal__badges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.project-modal__category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.project-modal__status-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 210, 106, 0.12);
+    border: 1px solid rgba(0, 210, 106, 0.25);
+    color: #4ADE80;
+    font-weight: 600;
+}
+
+.project-modal__title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.project-modal__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-gray-300);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.project-modal__close-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-white);
+    transform: scale(1.05);
+}
+
+.project-modal__body {
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.project-modal__image-container {
+    width: 100%;
+    max-height: 480px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #080A0F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-modal__image {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    display: block;
+}
+
+.project-modal__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.project-modal__description {
+    color: var(--color-gray-200);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.project-modal__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.project-modal__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.project-modal__footer-note p {
+    color: var(--color-gray-400);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.project-modal__footer-actions {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .project-modal {
+        max-height: 94vh;
+    }
+    .project-modal__header,
+    .project-modal__body,
+    .project-modal__footer {
+        padding: var(--spacing-md);
+    }
+    .project-modal__image-container {
+        max-height: 280px;
+    }
+    .project-modal__image {
+        max-height: 280px;
+    }
+    .project-modal__footer {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .project-modal__footer-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }

@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Filter,
@@ -8,6 +8,8 @@ import {
     Code2,
     Palette,
     Layout,
+    X,
+    Eye
 } from 'lucide-react';
 import { projects, categories } from '../data/projects';
 import { getWhatsAppLink } from '../data/states';
@@ -17,6 +19,23 @@ import './Portfolio.css';
 
 const Portfolio = () => {
     const [activeCategory, setActiveCategory] = useState('all');
+    const [previewProject, setPreviewProject] = useState(null);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') setPreviewProject(null);
+        };
+        if (previewProject) {
+            document.body.style.overflow = 'hidden';
+            window.addEventListener('keydown', handleKeyDown);
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [previewProject]);
 
     const filteredProjects = activeCategory === 'all'
         ? projects
@@ -101,14 +120,24 @@ const Portfolio = () => {
                                         <div className="project-card__overlay">
                                             <div className="project-card__overlay-content">
                                                 <span className="project-category">{project.category}</span>
-                                                <a
-                                                    href={project.link && project.link !== '#' ? project.link : '#'}
-                                                    target={project.link && project.link !== '#' ? "_blank" : undefined}
-                                                    rel={project.link && project.link !== '#' ? "noopener noreferrer" : undefined}
-                                                    className="btn-view-project"
-                                                >
-                                                    Ver Projeto <ExternalLink size={16} />
-                                                </a>
+                                                {project.link ? (
+                                                    <a
+                                                        href={project.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="btn-view-project"
+                                                    >
+                                                        Ver Projeto <ExternalLink size={16} />
+                                                    </a>
+                                                ) : (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setPreviewProject(project)}
+                                                        className="btn-view-project"
+                                                    >
+                                                        Ver Projeto <ExternalLink size={16} />
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
                                     </div>
@@ -192,6 +221,81 @@ const Portfolio = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Modal de Demonstração / Imagem Ampliada */}
+            <AnimatePresence>
+                {previewProject && (
+                    <div
+                        className="project-modal-backdrop"
+                        onClick={() => setPreviewProject(null)}
+                    >
+                        <motion.div
+                            className="project-modal"
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ duration: 0.25, ease: 'easeOut' }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="project-modal__header">
+                                <div className="project-modal__header-info">
+                                    <div className="project-modal__badges">
+                                        <span className="project-modal__category">{previewProject.category}</span>
+                                        <span className="project-modal__status-badge">Demonstração de Projeto</span>
+                                    </div>
+                                    <h2 className="project-modal__title">{previewProject.title}</h2>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="project-modal__close-btn"
+                                    onClick={() => setPreviewProject(null)}
+                                    aria-label="Fechar demonstração"
+                                >
+                                    <X size={22} />
+                                </button>
+                            </div>
+
+                            <div className="project-modal__body">
+                                <div className="project-modal__image-container">
+                                    <img
+                                        src={previewProject.image}
+                                        alt={previewProject.title}
+                                        className="project-modal__image"
+                                    />
+                                </div>
+
+                                <div className="project-modal__info">
+                                    <p className="project-modal__description">{previewProject.description}</p>
+                                    <div className="project-modal__tags">
+                                        {previewProject.tags.map((tag, idx) => (
+                                            <span key={idx} className="project-tag">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="project-modal__footer">
+                                <div className="project-modal__footer-note">
+                                    <p>Gostou deste design? Criamos um site exclusivo com a identidade da sua empresa.</p>
+                                </div>
+                                <div className="project-modal__footer-actions">
+                                    <a
+                                        href={getWhatsAppLink(`Olá! Vi a demonstração de "${previewProject.title}" no portfólio da AceWeb e gostaria de solicitar um orçamento para um site similar.`)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-primary"
+                                    >
+                                        <FaWhatsapp size={18} />
+                                        Solicitar Projeto Semelhante
+                                    </a>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </main>
     );
 };
