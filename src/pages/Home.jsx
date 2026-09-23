@@ -101,7 +101,7 @@ const Home = () => {
 
                         {/* Subtitle - Otimizado para SEO com palavras-chave */}
                         <p className="hero-agency__subtitle" itemProp="description">
-                            Somos uma <strong>empresa de criação e desenvolvimento de sites em Brasília - DF</strong> especializada em <strong>sites profissionais</strong>, <strong>landing pages de alta conversão</strong> e <strong>lojas virtuais</strong>. Projetos com <strong>otimização de SEO para o Google</strong>, carregamento ultrarrápido e design responsivo para gerar autoridade e vendas para o seu negócio em todo o país.
+                            Especialistas na criação de sites em <strong>Brasília - DF</strong> e todo o Brasil especializada em <strong>sites profissionais</strong>, <strong>landing pages de alta conversão</strong> e <strong>sistemas web</strong>. Projetos com <strong>otimização de SEO para o Google</strong>, carregamento ultrarrápido e design responsivo para gerar autoridade e vendas para o seu negócio em todo o país.
                         </p>
 
                         {/* Dual CTA Buttons */}
