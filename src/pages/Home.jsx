@@ -26,6 +26,7 @@ import PricingCards from '../components/PricingCards';
 import FAQ from '../components/FAQ';
 import SchemaMarkup from '../components/SchemaMarkup';
 import SEO from '../components/SEO';
+import heroBg from '../assets/hero-bg.jpg';
 import './Home.css';
 
 
@@ -68,10 +69,25 @@ const Home = () => {
                 itemScope
                 itemType="https://schema.org/Service"
             >
+                {/* Background Image with Visual Effects */}
+                <div className="hero-agency__bg-wrapper" aria-hidden="true">
+                    <img
+                        src={heroBg}
+                        alt="AceWeb Criação e Desenvolvimento de Sites Profissionais"
+                        className="hero-agency__bg-image"
+                        loading="eager"
+                        fetchPriority="high"
+                    />
+                    <div className="hero-agency__bg-overlay" />
+                    <div className="hero-agency__bg-radial" />
+                    <div className="hero-agency__bg-scanlines" />
+                </div>
+
                 {/* Background Ambient Glows */}
                 <div className="hero-agency__ambient">
                     <div className="hero-agency__glow hero-agency__glow--top" />
                     <div className="hero-agency__glow hero-agency__glow--center" />
+                    <div className="hero-agency__glow hero-agency__glow--brand" />
                     <div className="hero-agency__grid-overlay" />
                 </div>
 
@@ -96,7 +112,7 @@ const Home = () => {
                         {/* Main Heading */}
                         <h1 className="hero-agency__title" itemProp="name">
                             Criação de Sites e Landing Pages<br className="hero-title-break" />
-                            em <span className="text-gradient">Brasília e todo o Brasil</span>
+                            em <span className="hero-agency__highlight"><span className="hero-agency__gradient-text text-gradient">Brasília e todo o Brasil</span></span>
                         </h1>
 
                         {/* Subtitle - Otimizado para SEO com palavras-chave */}
