@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { brazilianStates, getWhatsAppLink } from '../data/states';
+import { services } from '../data/services';
 import logoAceweb from '../assets/logo-aceweb.png';
 import PromoBar from './PromoBar';
 import './Header.css';
@@ -12,6 +13,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isLocaisOpen, setIsLocaisOpen] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
@@ -25,14 +27,15 @@ const Header = () => {
     useEffect(() => {
         setIsMenuOpen(false);
         setIsLocaisOpen(false);
+        setIsServicesOpen(false);
     }, [location]);
 
     const navLinks = [
         { name: 'Home', path: '/' },
-        { name: 'Serviços', path: '/servicos' },
+        { name: 'Serviços', path: '/servicos', hasDropdown: true, dropdownType: 'services' },
         { name: 'Portfólio', path: '/portfolio' },
         { name: 'Sobre', path: '/sobre' },
-        { name: 'Locais', path: '/locais', hasDropdown: true },
+        { name: 'Locais', path: '/locais', hasDropdown: true, dropdownType: 'locais' },
         { name: 'Blog', path: '/blog' },
         { name: 'Contato', path: '/contato' },
     ];
@@ -61,16 +64,63 @@ const Header = () => {
                                     <div className="header__dropdown">
                                         <button
                                             className="header__nav-link header__dropdown-toggle"
-                                            onClick={() => setIsLocaisOpen(!isLocaisOpen)}
+                                            onClick={() => {
+                                                if (link.dropdownType === 'services') {
+                                                    setIsServicesOpen(!isServicesOpen);
+                                                    setIsLocaisOpen(false);
+                                                } else {
+                                                    setIsLocaisOpen(!isLocaisOpen);
+                                                    setIsServicesOpen(false);
+                                                }
+                                            }}
                                         >
                                             {link.name}
                                             <ChevronDown
                                                 size={16}
-                                                className={`header__dropdown-icon ${isLocaisOpen ? 'header__dropdown-icon--open' : ''}`}
+                                                className={`header__dropdown-icon ${
+                                                    (link.dropdownType === 'services' ? isServicesOpen : isLocaisOpen)
+                                                        ? 'header__dropdown-icon--open'
+                                                        : ''
+                                                }`}
                                             />
                                         </button>
                                         <AnimatePresence>
-                                            {isLocaisOpen && (
+                                            {link.dropdownType === 'services' && isServicesOpen && (
+                                                <motion.div
+                                                    className="header__dropdown-menu header__dropdown-menu--services"
+                                                    initial={{ opacity: 0, y: -10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    transition={{ duration: 0.2 }}
+                                                >
+                                                    <Link to="/servicos" className="header__dropdown-item header__dropdown-item--main">
+                                                        Ver Todos os Serviços AceWeb →
+                                                    </Link>
+                                                    <div className="header__dropdown-divider" />
+                                                    <div className="header__dropdown-services-grid">
+                                                        {services.map((srv) => {
+                                                            const SrvIcon = srv.icon;
+                                                            return (
+                                                                <Link
+                                                                    key={srv.id}
+                                                                    to={`/servicos/${srv.id}`}
+                                                                    className="header__dropdown-service-item"
+                                                                >
+                                                                    <div className="header__dropdown-service-icon">
+                                                                        <SrvIcon size={18} />
+                                                                    </div>
+                                                                    <div className="header__dropdown-service-info">
+                                                                        <span className="header__dropdown-service-title">{srv.title}</span>
+                                                                        <span className="header__dropdown-service-desc">{srv.shortDescription}</span>
+                                                                    </div>
+                                                                </Link>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+
+                                            {link.dropdownType === 'locais' && isLocaisOpen && (
                                                 <motion.div
                                                     className="header__dropdown-menu"
                                                     initial={{ opacity: 0, y: -10 }}
@@ -148,16 +198,50 @@ const Header = () => {
                                         <>
                                             <button
                                                 className="header__mobile-link"
-                                                onClick={() => setIsLocaisOpen(!isLocaisOpen)}
+                                                onClick={() => {
+                                                    if (link.dropdownType === 'services') {
+                                                        setIsServicesOpen(!isServicesOpen);
+                                                        setIsLocaisOpen(false);
+                                                    } else {
+                                                        setIsLocaisOpen(!isLocaisOpen);
+                                                        setIsServicesOpen(false);
+                                                    }
+                                                }}
                                             >
                                                 {link.name}
                                                 <ChevronDown
                                                     size={16}
-                                                    className={`header__dropdown-icon ${isLocaisOpen ? 'header__dropdown-icon--open' : ''}`}
+                                                    className={`header__dropdown-icon ${
+                                                        (link.dropdownType === 'services' ? isServicesOpen : isLocaisOpen)
+                                                            ? 'header__dropdown-icon--open'
+                                                            : ''
+                                                    }`}
                                                 />
                                             </button>
                                             <AnimatePresence>
-                                                {isLocaisOpen && (
+                                                {link.dropdownType === 'services' && isServicesOpen && (
+                                                    <motion.div
+                                                        className="header__mobile-dropdown"
+                                                        initial={{ opacity: 0, height: 0 }}
+                                                        animate={{ opacity: 1, height: 'auto' }}
+                                                        exit={{ opacity: 0, height: 0 }}
+                                                    >
+                                                        <Link to="/servicos" className="header__mobile-dropdown-item header__mobile-dropdown-item--main">
+                                                            Ver todos os serviços
+                                                        </Link>
+                                                        {services.map((srv) => (
+                                                            <Link
+                                                                key={srv.id}
+                                                                to={`/servicos/${srv.id}`}
+                                                                className="header__mobile-dropdown-item"
+                                                            >
+                                                                {srv.title}
+                                                            </Link>
+                                                        ))}
+                                                    </motion.div>
+                                                )}
+
+                                                {link.dropdownType === 'locais' && isLocaisOpen && (
                                                     <motion.div
                                                         className="header__mobile-dropdown"
                                                         initial={{ opacity: 0, height: 0 }}

@@ -48,7 +48,7 @@ const Footer = () => {
                         <ul className="footer__list">
                             {services.slice(0, 6).map((service) => (
                                 <li key={service.id}>
-                                    <Link to={`/servicos#${service.id}`} className="footer__link">
+                                    <Link to={`/servicos/${service.id}`} className="footer__link">
                                         {service.title}
                                     </Link>
                                 </li>

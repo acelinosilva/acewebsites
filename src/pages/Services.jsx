@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     CheckCircle2,
@@ -174,6 +175,17 @@ const Services = () => {
                                     </div>
 
                                     <div className="service-card__body">
+                                        {service.image && (
+                                            <div className="service-card__preview-banner">
+                                                <img
+                                                    src={service.image}
+                                                    alt={service.title}
+                                                    className="service-card__preview-img"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                        )}
+
                                         <div className="service-card__description">
                                             <p>{service.description}</p>
                                         </div>
@@ -221,16 +233,25 @@ const Services = () => {
                                         </div>
 
                                         <div className="service-card__footer">
-                                            <a
-                                                href={getWhatsAppLink(`Olá! Tenho interesse no serviço: ${service.title}`)}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="btn btn-primary service-card__cta"
-                                            >
-                                                <FaWhatsapp size={18} />
-                                                Solicitar Orçamento
-                                                <span className="btn__shine" />
-                                            </a>
+                                            <div className="service-card__actions-group">
+                                                <Link
+                                                    to={`/servicos/${service.id}`}
+                                                    className="btn btn-secondary service-card__page-btn"
+                                                >
+                                                    Ver Página do Serviço
+                                                    <ArrowRight size={16} />
+                                                </Link>
+                                                <a
+                                                    href={getWhatsAppLink(`Olá! Tenho interesse no serviço: ${service.title}`)}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="btn btn-primary service-card__cta"
+                                                >
+                                                    <FaWhatsapp size={18} />
+                                                    Solicitar Orçamento
+                                                    <span className="btn__shine" />
+                                                </a>
+                                            </div>
                                             <p className="service-card__guarantee">
                                                 <CheckCircle2 size={14} />
                                                 Orçamento gratuito e sem compromisso

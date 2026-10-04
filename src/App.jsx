@@ -9,6 +9,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Locations from './pages/Locations';
@@ -45,6 +46,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/servicos" element={<Services />} />
+              <Route path="/servicos/:serviceId" element={<ServiceDetail />} />
               <Route path="/sobre" element={<About />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/locais" element={<Locations />} />

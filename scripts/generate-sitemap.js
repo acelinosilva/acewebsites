@@ -8,6 +8,17 @@ const supabaseUrl = 'https://vcixfhqjhcxioubvomhx.supabase.co';
 const supabaseAnonKey = 'sb_publishable_21Yppg00zyvzws5MZ9I_GA_8BCcuW2M';
 const siteUrl = 'https://www.acewebsites.com.br';
 
+const serviceSlugs = [
+  'criacao-sites',
+  'landing-pages',
+  'sites-institucionais',
+  'sites-clinicas',
+  'otimizacao-seo',
+  'manutencao-suporte',
+  'sites-responsivos',
+  'ecommerce'
+];
+
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 async function generateSitemap() {
@@ -38,6 +49,10 @@ async function generateSitemap() {
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>${siteUrl}/portfolio</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${siteUrl}/sobre</loc>
     <priority>0.8</priority>
   </url>
@@ -53,6 +68,13 @@ async function generateSitemap() {
     <loc>${siteUrl}/locais</loc>
     <priority>0.9</priority>
   </url>
+
+  <!-- Páginas Individuais de Serviços -->
+${serviceSlugs.map(slug => `  <url>
+    <loc>${siteUrl}/servicos/${slug}</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`).join('\n')}
   
   <!-- Posts do Blog -->
 ${posts.map(post => `  <url>

@@ -31,24 +31,24 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
     );
 };
 
-const FAQ = () => {
+const FAQ = ({ items, title, subtitle, badge }) => {
     const [openIndex, setOpenIndex] = useState(0);
+    const list = items || faqData;
 
     return (
         <section className="section faq-section">
             <div className="container">
                 <div className="section-title">
-                    <span className="badge">Dúvidas Frequentes</span>
-                    <h2>Tudo o que você precisa <span className="text-gradient">saber</span></h2>
+                    <span className="badge">{badge || "Dúvidas Frequentes"}</span>
+                    <h2>{title || <>Tudo o que você precisa <span className="text-gradient">saber</span></>}</h2>
                     <p>
-                        Respondemos as principais perguntas para ajudar você a entender como
-                        trabalhamos e como podemos impulsionar seu negócio digital.
+                        {subtitle || "Respondemos as principais perguntas para ajudar você a entender como trabalhamos e como podemos impulsionar seu negócio digital."}
                     </p>
                 </div>
 
                 <div className="faq__grid">
                     <div className="faq__list">
-                        {faqData.map((item, index) => (
+                        {list.map((item, index) => (
                             <FAQItem
                                 key={index}
                                 question={item.question}

@@ -19,7 +19,7 @@ const ServiceCard = ({ service, index = 0 }) => {
             </div>
             <h3 className="service-card__title">{service.title}</h3>
             <p className="service-card__description">{service.shortDescription}</p>
-            <Link to={`/servicos#${service.id}`} className="service-card__link">
+            <Link to={`/servicos/${service.id}`} className="service-card__link">
                 Saiba mais <ArrowRight size={16} />
             </Link>
         </motion.div>
